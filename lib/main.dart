@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'data.dart' as data;
-import 'hal1101180517.dart';
+import 'hal1101204011.dart';
 import 'hal8780030.dart';
 
 void main() {
@@ -45,11 +45,11 @@ class _Hal1State extends State<Hal1> {
                   setState(() {
                     _message = result ?? '';
                   });
-                } else if (NIM[index] == 1101180517) {
+                } else if (NIM[index] == 1101204011) {
                   final result = await Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => hal1101180517(),
+                      builder: (context) => hal1101204011(),
                     ),
                   );
                   setState(() {
