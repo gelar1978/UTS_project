@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 
 import 'data.dart' as data;
+import 'hal1101194080.dart';
+import 'hal1101194190.dart';
+import 'hal1101200196.dart';
+import 'hal1101201509.dart';
+import 'hal1101201512.dart';
+import 'hal1101202505.dart';
+import 'hal1101202549.dart';
 import 'hal1101204011.dart';
+import 'hal1101204104.dart';
 import 'hal8780030.dart';
 
 void main() {
@@ -45,11 +53,71 @@ class _Hal1State extends State<Hal1> {
                   setState(() {
                     _message = result ?? '';
                   });
-                } else if (NIM[index] == 1101204011) {
+                } else if (NIM[index] == 1101180517) {
                   final result = await Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => hal1101204011(),
+                      builder: (context) => hal1101180517(),
+                    ),
+                  );
+                  setState(() {
+                    _message = result ?? '';
+                  });
+                } else if (NIM[index] == 1101190002) {
+                  final result = await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => hal1101190002(),
+                    ),
+                  );
+                  setState(() {
+                    _message = result ?? '';
+                  });
+                } else if (NIM[index] == 1101194080) {
+                  final result = await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => hal1101194080(),
+                    ),
+                  );
+                  setState(() {
+                    _message = result ?? '';
+                  });
+                } else if (NIM[index] == 1101194190) {
+                  final result = await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => hal1101194190(),
+                    ),
+                  );
+                  setState(() {
+                    _message = result ?? '';
+                  });
+                } else if (NIM[index] == 1101200196) {
+                  final result = await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => hal1101200196(),
+                    ),
+                  );
+                  setState(() {
+                    _message = result ?? '';
+                  });
+                } else if (NIM[index] == 1101201509) {
+                  final result = await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => hal1101201509(),
+                    ),
+                  );
+                  setState(() {
+                    _message = result ?? '';
+                  });
+                } else if (NIM[index] == 1101201512) {
+                  final result = await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => hal1101201512(),
                     ),
                   );
                   setState(() {
@@ -65,11 +133,81 @@ class _Hal1State extends State<Hal1> {
                   setState(() {
                     _message = result ?? '';
                   });
-                } else if (NIM[index] == 1101194190) {
+                } else if (NIM[index] == 1101202505) {
+                  final result = await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => hal1101202505(),
+                    ),
+                  );
+                  setState(() {
+                    _message = result ?? '';
+                  });
+                } else if (NIM[index] == 1101202549) {
+                  final result = await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => hal1101202549(),
+                    ),
+                  );
+                  setState(() {
+                    _message = result ?? '';
+                  });
+                } else if (NIM[index] == 1101204011) {
                   final result = await Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => hal1101204011(),
+                    ),
+                  );
+                  setState(() {
+                    _message = result ?? '';
+                  });
+                } else if (NIM[index] == 1101204104) {
+                  final result = await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => hal1101204104(),
+                    ),
+                  );
+                  setState(() {
+                    _message = result ?? '';
+                  });
+                } else if (NIM[index] == 1101204132) {
+                  final result = await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => hal1101204132(),
+                    ),
+                  );
+                  setState(() {
+                    _message = result ?? '';
+                  });
+                } else if (NIM[index] == 1101204173) {
+                  final result = await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => hal1101204173(),
+                    ),
+                  );
+                  setState(() {
+                    _message = result ?? '';
+                  });
+                } else if (NIM[index] == 1101204197) {
+                  final result = await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => hal1101204197(),
+                    ),
+                  );
+                  setState(() {
+                    _message = result ?? '';
+                  });
+                } else if (NIM[index] == 1101204257) {
+                  final result = await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => hal1101204257(),
                     ),
                   );
                   setState(() {
