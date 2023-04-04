@@ -55,6 +55,26 @@ class _Hal1State extends State<Hal1> {
                   setState(() {
                     _message = result ?? '';
                   });
+                } else if (NIM[index] == 1101202016) {
+                  final result = await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => hal1101204011(),
+                    ),
+                  );
+                  setState(() {
+                    _message = result ?? '';
+                  });
+                } else if (NIM[index] == 1101194190) {
+                  final result = await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => hal1101204011(),
+                    ),
+                  );
+                  setState(() {
+                    _message = result ?? '';
+                  });
                 }
               },
               leading: CircleAvatar(
