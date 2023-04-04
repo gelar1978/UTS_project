@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class hal1101204104 extends StatelessWidget {
+class hal1101204011 extends StatelessWidget {
   // final String message;
-  hal1101204104({super.key});
+  hal1101204011({super.key});
 
   TextEditingController _textEditingController = TextEditingController();
 
@@ -11,7 +11,7 @@ class hal1101204104 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('NAU'),
+        title: Text('Sri Wahyuni Asmur'),
       ),
       body: Column(
         children: [
