@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class hal1101180517 extends StatelessWidget {
+class hal1101204104 extends StatelessWidget {
   // final String message;
-  hal1101180517({super.key});
+  hal1101204104({super.key});
 
   TextEditingController _textEditingController = TextEditingController();
 
