@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 
 import 'data.dart' as data;
 import 'hal1101190002.dart';
+import 'hal1101193090.dart';
 import 'hal1101194080.dart';
 import 'hal1101194190.dart';
+import 'hal1101194298.dart';
 import 'hal1101200196.dart';
+import 'hal1101200372.dart';
 import 'hal1101201509.dart';
 import 'hal1101201512.dart';
 import 'hal1101202505.dart';
@@ -15,6 +18,7 @@ import 'hal1101204132.dart';
 import 'hal1101204173.dart';
 import 'hal1101204197.dart';
 import 'hal1101204257.dart';
+import 'hal1101204403.dart';
 import 'hal8780030.dart';
 
 void main() {
@@ -78,6 +82,16 @@ class _Hal1State extends State<Hal1> {
                   setState(() {
                     _message = result ?? '';
                   });
+                } else if (NIM[index] == 1101193090) {
+                  final result = await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => hal1101193090(),
+                    ),
+                  );
+                  setState(() {
+                    _message = result ?? '';
+                  });
                 } else if (NIM[index] == 1101194080) {
                   final result = await Navigator.push(
                     context,
@@ -98,11 +112,31 @@ class _Hal1State extends State<Hal1> {
                   setState(() {
                     _message = result ?? '';
                   });
+                } else if (NIM[index] == 1101194298) {
+                  final result = await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => hal1101194298(),
+                    ),
+                  );
+                  setState(() {
+                    _message = result ?? '';
+                  });
                 } else if (NIM[index] == 1101200196) {
                   final result = await Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => hal1101200196(),
+                    ),
+                  );
+                  setState(() {
+                    _message = result ?? '';
+                  });
+                } else if (NIM[index] == 1101200372) {
+                  final result = await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => hal1101200372(),
                     ),
                   );
                   setState(() {
@@ -213,6 +247,16 @@ class _Hal1State extends State<Hal1> {
                     context,
                     MaterialPageRoute(
                       builder: (context) => hal1101204257(),
+                    ),
+                  );
+                  setState(() {
+                    _message = result ?? '';
+                  });
+                } else if (NIM[index] == 1101204403) {
+                  final result = await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => hal1101204403(),
                     ),
                   );
                   setState(() {
