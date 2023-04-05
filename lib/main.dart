@@ -63,15 +63,15 @@ class _Hal1State extends State<Hal1> {
                     _message = result ?? '';
                   });
                 } else if (NIM[index] == 1101180517) {
-                  final result = await Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => hal1101180517(),
-                    ),
-                  );
-                  setState(() {
-                    _message = result ?? '';
-                  });
+                  // final result = await Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (context) => hal1101180517(),
+                  //   ),
+                  // );
+                  // setState(() {
+                  //   _message = result ?? '';
+                  // });
                 } else if (NIM[index] == 1101190002) {
                   final result = await Navigator.push(
                     context,
