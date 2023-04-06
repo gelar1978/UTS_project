@@ -3,7 +3,7 @@ library data;
 // class Data {
 String x = 'coba';
 Map<int, String> datamhs = {
-  8780030: 'GLB',
+  1108780030: 'GLB',
   1101180517: 'MUHAMMAD HILMY',
   1101184523: 'MUHAMMAD FAUZAN',
   1101190002: 'MUHAMMAD ARIEF ZULFIKAR DARMAWAN',

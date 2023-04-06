@@ -19,7 +19,7 @@ import 'hal1101204173.dart';
 import 'hal1101204197.dart';
 import 'hal1101204257.dart';
 import 'hal1101204403.dart';
-import 'hal8780030.dart';
+import 'hal1108780030.dart';
 
 void main() {
   runApp(const Hal1());
@@ -52,11 +52,11 @@ class _Hal1State extends State<Hal1> {
           itemBuilder: (context, index) {
             return ListTile(
               onTap: () async {
-                if (NIM[index] == 8780030) {
+                if (NIM[index] == 1108780030) {
                   final result = await Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => hal8780030(),
+                      builder: (context) => hal1108780030(),
                     ),
                   );
                   setState(() {
