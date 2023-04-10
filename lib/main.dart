@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'data.dart' as data;
 import 'hal1101190002.dart';
+import 'hal1101190196.dart';
 import 'hal1101193090.dart';
 import 'hal1101194080.dart';
 import 'hal1101194190.dart';
@@ -83,6 +84,26 @@ class _Hal1State extends State<Hal1> {
                   setState(() {
                     _message = result ?? '';
                   });
+                } else if (NIM[index] == 1101190142) {
+                  // final result = await Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (context) => hal1101190142(),
+                  //   ),
+                  // );
+                  // setState(() {
+                  //   _message = result ?? '';
+                  // });
+                } else if (NIM[index] == 1101190196) {
+                  // final result = await Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (context) => hal1101190196(),
+                  //   ),
+                  // );
+                  // setState(() {
+                  //   _message = result ?? '';
+                  // });
                 } else if (NIM[index] == 1101193090) {
                   final result = await Navigator.push(
                     context,
