@@ -185,7 +185,7 @@ class _Page2State extends State<Page2> {
     );
   }}
 
-class Page3 extends StatelessWidget {
+class Page3 extends StatefulWidget {
   final String emailFinal;
   final String nomorFinal;
   final String nimFinal;
@@ -194,8 +194,16 @@ class Page3 extends StatelessWidget {
       {required this.emailFinal,
       required this.nomorFinal,
       required this.nimFinal});
+
+  @override
+  State<Page3> createState() => _Page3State();
+}
+
+class _Page3State extends State<Page3> {
   TextEditingController digitNIM = TextEditingController();
+
   String nim1 = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -213,13 +221,13 @@ class Page3 extends StatelessWidget {
                     AssetImage('lib/images/Andri.png'), 
               ),
               Text(
-                '$emailFinal',
+                '${widget.emailFinal}',
                 style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.normal),
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 12.0),
               Text(
-                '$nomorFinal',
+                '${widget.nomorFinal}',
                 style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.normal),
                 textAlign: TextAlign.center,
               ),
@@ -257,9 +265,9 @@ class Page3 extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) => Page4(
-                                  emailFinal: emailFinal,
-                                  nomorFinal: nomorFinal,
-                                  nimFinal: nimFinal + digitNIM.text,
+                                  emailFinal: widget.emailFinal,
+                                  nomorFinal: widget.nomorFinal,
+                                  nimFinal: widget.nimFinal + digitNIM.text,
                                 ),
                               ),
                             );
@@ -275,7 +283,7 @@ class Page3 extends StatelessWidget {
         ));
   }}
 
-class Page4 extends StatelessWidget {
+class Page4 extends StatefulWidget {
   final String emailFinal;
   final String nomorFinal;
   final String nimFinal;
@@ -286,9 +294,14 @@ class Page4 extends StatelessWidget {
       required this.nimFinal});
 
   @override
+  State<Page4> createState() => _Page4State();
+}
+
+class _Page4State extends State<Page4> {
+  @override
   Widget build(BuildContext context) {
-    List<String> nimList = nimFinal.split('');
-    List<String> nomorList = nomorFinal.split('');
+    List<String> nimList = widget.nimFinal.split('');
+    List<String> nomorList = widget.nomorFinal.split('');
 
     return Scaffold(
       appBar: AppBar(
@@ -300,7 +313,7 @@ class Page4 extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Text(
-              '$nimFinal / $nomorFinal',
+              '${widget.nimFinal} / ${widget.nomorFinal}',
               style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
             ),
             GridView.builder(
