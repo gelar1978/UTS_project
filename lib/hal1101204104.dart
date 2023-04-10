@@ -11,7 +11,8 @@ class hal1101204104 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('NAU'),
+        title: Text('Muhammad Naufal Nur Irawan'),
+        titleTextStyle: TextStyle(fontFamily: 'Times New Roman'),
       ),
       body: Column(
         children: [
