@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'data.dart' as data;
 import 'hal1101190002.dart';
+import 'hal1101190196.dart';
 import 'hal1101193090.dart';
 import 'hal1101194080.dart';
 import 'hal1101194190.dart';
@@ -10,6 +11,7 @@ import 'hal1101200196.dart';
 import 'hal1101200372.dart';
 import 'hal1101201509.dart';
 import 'hal1101201512.dart';
+import 'hal1101202469.dart';
 import 'hal1101202505.dart';
 import 'hal1101202549.dart';
 import 'hal1101204011.dart';
@@ -77,6 +79,26 @@ class _Hal1State extends State<Hal1> {
                     context,
                     MaterialPageRoute(
                       builder: (context) => hal1101190002(),
+                    ),
+                  );
+                  setState(() {
+                    _message = result ?? '';
+                  });
+                } else if (NIM[index] == 1101190142) {
+                  // final result = await Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (context) => hal1101190142(),
+                  //   ),
+                  // );
+                  // setState(() {
+                  //   _message = result ?? '';
+                  // });
+                } else if (NIM[index] == 1101190196) {
+                  final result = await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => hal1101190196(),
                     ),
                   );
                   setState(() {
@@ -257,6 +279,16 @@ class _Hal1State extends State<Hal1> {
                     context,
                     MaterialPageRoute(
                       builder: (context) => hal1101204403(),
+                    ),
+                  );
+                  setState(() {
+                    _message = result ?? '';
+                  });
+                } else if (NIM[index] == 1101202469) {
+                  final result = await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => hal1101202469(),
                     ),
                   );
                   setState(() {

@@ -11,7 +11,7 @@ class hal1101202505 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Fajar adhitia pratama'),
+        title: Text('Rabby Fitriana Adawiyah'),
       ),
       body: Column(
         children: [
