@@ -69,7 +69,10 @@ flutter:
     - lib/images/aldra.jpg
     - lib/images/m_dafa_m.jpg
     - lib/images/rifqi.jpg
+<<<<<<< Updated upstream
     - lib/images/nau1.jpeg
+=======
+>>>>>>> Stashed changes
     - lib/images/afifah.jpg
     # - lib/images/a_dot_ham.jpeg
 
