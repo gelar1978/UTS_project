@@ -31,7 +31,7 @@ class _hal1101194190State extends State<hal1101194190> {
                   // color: Colors.red.withOpacity(0.1),
                   image: DecorationImage(
                     image: NetworkImage(
-                        'https://anaktelkom.com/wp-content/uploads/2021/08/Logo-Telkom-University-900x1024.png'),
+                        'https://upload.wikimedia.org/wikipedia/commons/0/03/Logo_Telkom_University_potrait.png'),
                     fit: BoxFit.fitHeight,
                   ),
                 ),
