@@ -63,7 +63,10 @@ flutter:
   assets:
     - lib/images/glb.jpg
     - lib/images/fajar.png
-    - lib/images/m_dafa_m.jpg
+    - lib/images/Andri.png
+    - lib/images/DewiNA.jpg
+    - lib/images/rabby.jpg
+    - lib/images/aldra.jpg
     # - lib/images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
