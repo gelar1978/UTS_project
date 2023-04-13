@@ -1,98 +1,115 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+// import 'package:flutter/widgets.dart';
 
-class hal1101190002 extends StatelessWidget {
+class hal1101190002 extends StatefulWidget {
   // final String message;
   hal1101190002({super.key});
 
-  TextEditingController _textEditingController = TextEditingController();
+  @override
+  State<hal1101190002> createState() => _hal1101190002State();
+}
 
+class _hal1101190002State extends State<hal1101190002> {
+  final TextEditingController _textEditingController = TextEditingController();
+  String _message = '';
+  String NIM = "1101190002/081387481480";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Muhammad Arief Zulfikar Darmawan/Page-1'),
+        title: const Text('Muhammad Arief Zulfikar Darmawan/Page-1'),
       ),
-      body: Column(
+      body: ListView(
         children: [
-          Container(
-            height: 200,
-            width: 200,
-            decoration: const BoxDecoration(
-              // color: Colors.red.withOpacity(0.1),
-              image: DecorationImage(
-                image: NetworkImage(
-                    'https://upload.wikimedia.org/wikipedia/commons/0/03/Logo_Telkom_University_potrait.png'),
-                fit: BoxFit.fitHeight,
+          Column(
+            children: [
+              Container(
+                height: 200,
+                width: 200,
+                decoration: const BoxDecoration(
+                  // color: Colors.red.withOpacity(0.1),
+                  image: DecorationImage(
+                    image: NetworkImage(
+                        'https://upload.wikimedia.org/wikipedia/commons/0/03/Logo_Telkom_University_potrait.png'),
+                    fit: BoxFit.fitHeight,
+                  ),
+                ),
               ),
-            ),
-          ),
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                TextField(
-                  controller: _textEditingController,
-                  decoration: InputDecoration(
-                    icon: Icon(Icons.key),
-                    hintText: 'Masukkan 7 digit pertama NIM anda',
-                  ),
-                ),
-                // Text('$message'),
-                Center(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: ElevatedButton(
-                          child: Text('Main Page'),
-                          onPressed: () {
-                            Navigator.pop(context, _textEditingController.text);
-                          },
-                        ),
+              Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextField(
+                      controller: _textEditingController,
+                      decoration: const InputDecoration(
+                        icon: Icon(Icons.key),
+                        hintText: 'Ketikkan 7 digit pertama NIM anda',
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: ElevatedButton(
-                            child: Text('Next Page'),
-                            onPressed: () async {
-                              String nim = _textEditingController.text;
-                              if (nim == 1101193.toString()) {
-                                final result = await Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => SecondPage(
-                                            nim_mahasiswa: nim,
-                                          )),
-                                );
-                              } else {
-                                showDialog(
-                                    context: context,
-                                    builder: ((context) {
-                                      return AlertDialog(
-                                        title: Text('Error'),
-                                        content: Text(
-                                            'Harap masukkan digit NIM dengan benar'),
-                                        actions: <Widget>[
-                                          TextButton(
-                                            onPressed: () {
-                                              Navigator.of(context).pop();
-                                            },
-                                            child: Text('OK'),
-                                          )
-                                        ],
-                                      );
-                                    }));
-                              }
-                            }),
-                      )
-                    ],
-                  ),
+                    ),
+                    // Text('$_message'),
+                    Center(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: ElevatedButton(
+                              child: const Text('Main Page'),
+                              onPressed: () {
+                                Navigator.pop(context, NIM);
+                              },
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: ElevatedButton(
+                              child: const Text('Next Page'),
+                              onPressed: () async {
+                                if (_textEditingController.text ==
+                                    1101194.toString()) {
+                                  final result = await Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => hal1101190002_2(
+                                          pesan1: _textEditingController.text),
+                                    ),
+                                  );
+                                  setState(() {
+                                    _message = result ?? '';
+                                  });
+                                }
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+              const SizedBox(
+                height: 20,
+                width: 20,
+              ),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text("NIM/No. Telp."),
+              ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(20.0), //or 15.0
+                child: Container(
+                  height: 70.0,
+                  width: 370.0,
+                  color: const Color(0xffFF0E58),
+                  child: Center(
+                      child: Text(
+                    _message,
+                    style: const TextStyle(fontSize: 28),
+                  )),
+                ),
+              ),
+            ],
           ),
         ],
       ),
@@ -100,177 +117,53 @@ class hal1101190002 extends StatelessWidget {
   }
 }
 
-//This Second Page
-class SecondPage extends StatefulWidget {
-  final String nim_mahasiswa;
-  SecondPage({required this.nim_mahasiswa});
+class hal1101190002_2 extends StatefulWidget {
+  // hal1108780030_2({super.key,required this.pesan1});
+  String pesan1 = '';
+  hal1101190002_2({super.key, required this.pesan1});
   @override
-  _SecondPageState createState() => _SecondPageState();
+  _hal1101190002_2State createState() => _hal1101190002_2State();
 }
 
-class _SecondPageState extends State<SecondPage> {
-  TextEditingController emailmahasiswa = TextEditingController();
-  TextEditingController phonemahasiswa = TextEditingController();
-  TextEditingController digitnim = TextEditingController();
-  String nim = '';
-
+class _hal1101190002_2State extends State<hal1101190002_2> {
+  String NIM8 = "";
+  TextEditingController _textEditingController0 = TextEditingController();
+  TextEditingController _textEditingController1 = TextEditingController();
+  TextEditingController _textEditingController2 = TextEditingController();
+  String NIM = "1101190002/081387481480";
+  //
   @override
-  void initState() {
-    super.initState();
-    nim = widget.nim_mahasiswa;
-  }
-
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Muhammad Arief Zulfikar Darmawan/Page-2'),
+        title: const Text('Muhammad Arief Zulfikar Darmawan/Page-2'),
       ),
-      body: Padding(
-        padding: EdgeInsets.all(15.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            TextField(
-              controller: emailmahasiswa,
-              keyboardType: TextInputType.emailAddress,
-              decoration: InputDecoration(
-                icon: Icon(Icons.key),
-                labelText: 'Masukkan Alamat Email Anda',
-                border: OutlineInputBorder(),
-              ),
-            ),
-            SizedBox(height: 10.0),
-            TextField(
-              controller: phonemahasiswa,
-              keyboardType: TextInputType.phone,
-              decoration: InputDecoration(
-                icon: Icon(Icons.key),
-                labelText: 'Masukkan No Handphone Anda',
-                border: OutlineInputBorder(),
-              ),
-            ),
-            SizedBox(height: 10.0),
-            TextField(
-              controller: digitnim,
-              keyboardType: TextInputType.number,
-              maxLength: 1,
-              decoration: InputDecoration(
-                icon: Icon(Icons.key),
-                labelText: 'Masukkan digit ke-8 NIM Anda',
-                border: OutlineInputBorder(),
-              ),
-            ),
-            Center(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: ElevatedButton(
-                        child: Text('Previous Page'),
-                        onPressed: () {
-                          Navigator.pop(context, hal1101190002());
-                        }),
-                  ),
-                  SizedBox(height: 16.0),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: ElevatedButton(
-                        child: Text('Next Page'),
-                        onPressed: () {
-                          String digit = digitnim.text;
-                          if (digit == '0') {
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => ThirdPage(
-                                  emailFinal: emailmahasiswa.text,
-                                  phoneFinal: phonemahasiswa.text,
-                                  nimFinal:
-                                      widget.nim_mahasiswa + digitnim.text,
-                                ),
-                              ),
-                            );
-                          } else {
-                            showDialog(
-                                context: context,
-                                builder: ((context) {
-                                  return AlertDialog(
-                                    title: Text('Error'),
-                                    content: Text(
-                                        'Masukkan digit NIM dengan benar!'),
-                                    actions: <Widget>[
-                                      TextButton(
-                                        onPressed: () {
-                                          Navigator.of(context).pop();
-                                        },
-                                        child: Text('OK'),
-                                      )
-                                    ],
-                                  );
-                                }));
-                          }
-                        }),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-//This Third Page
-class ThirdPage extends StatelessWidget {
-  final String emailFinal;
-  final String phoneFinal;
-  final String nimFinal;
-
-  ThirdPage(
-      {required this.emailFinal,
-      required this.phoneFinal,
-      required this.nimFinal});
-  TextEditingController digitNIM = TextEditingController();
-  String nim1 = '';
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text('Muhammad Arief Zulfikar Darmawan/Page-3'),
-        ),
-        body: Padding(
-          padding: EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              CircleAvatar(
-                radius: 100, // ukuran radius avatar
-                backgroundImage:
-                    AssetImage('lib/images/arief.jpg'), // gambar dari assets
-              ),
-              Text(
-                '$emailFinal',
-                style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.normal),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(height: 12.0),
-              Text(
-                '$phoneFinal',
-                style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.normal),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(height: 12.0),
+      body: ListView(
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
               TextField(
-                controller: digitNIM,
-                keyboardType: TextInputType.number,
-                maxLength: 2,
-                decoration: InputDecoration(
-                  labelText: 'Masukkan digit ke-9 dan 10 NIM anda',
-                  border: OutlineInputBorder(),
-                ),
+                controller: _textEditingController0,
+                decoration: const InputDecoration(
+                    icon: Icon(Icons.key),
+                    hintText: 'Ketikkan Alamat Email Anda'),
+                //ariefzulfikar22@gmail.com
               ),
+              TextField(
+                controller: _textEditingController1,
+                decoration: const InputDecoration(
+                    icon: Icon(Icons.key),
+                    hintText: 'Ketikkan No Handphone Anda'),
+                //081387481480
+              ),
+              TextField(
+                controller: _textEditingController2,
+                decoration: const InputDecoration(
+                    icon: Icon(Icons.key),
+                    hintText: 'Ketikkan digit ke-8 NIM anda'),
+              ),
+              // Text('$NIM8'),
               Center(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -278,47 +171,28 @@ class ThirdPage extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: ElevatedButton(
-                          child: Text('Previous Page'),
-                          onPressed: () {
-                            Navigator.pop(context, hal1101190002());
-                          }),
+                        child: const Text('Previous Page'),
+                        onPressed: () {
+                          Navigator.pop(context, NIM);
+                        },
+                      ),
                     ),
-                    SizedBox(height: 16.0),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: ElevatedButton(
-                        child: Text('Next Page'),
-                        onPressed: () {
-                          String digit = digitNIM.text;
-                          if (digit == '02') {
-                            Navigator.push(
+                        child: const Text('Next Page'),
+                        onPressed: () async {
+                          if (_textEditingController2.text == 1.toString()) {
+                            final result = await Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => FourthPage(
-                                  emailFinal: emailFinal,
-                                  phoneFinal: phoneFinal,
-                                  nimFinal: nimFinal + digitNIM.text,
-                                ),
+                                builder: (context) => hal1101190002_3(
+                                    pesan1: _textEditingController2.text),
                               ),
                             );
-                          } else {
-                            showDialog(
-                                context: context,
-                                builder: ((context) {
-                                  return AlertDialog(
-                                    title: Text('Error'),
-                                    content: Text(
-                                        'Masukkan digit NIM dengan benar!'),
-                                    actions: <Widget>[
-                                      TextButton(
-                                        onPressed: () {
-                                          Navigator.of(context).pop();
-                                        },
-                                        child: Text('OK'),
-                                      )
-                                    ],
-                                  );
-                                }));
+                            setState(() {
+                              NIM8 = result ?? '';
+                            });
                           }
                         },
                       ),
@@ -326,80 +200,258 @@ class ThirdPage extends StatelessWidget {
                   ],
                 ),
               ),
+              const SizedBox(
+                height: 20,
+                width: 20,
+              ),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text("NIM/No. Telp."),
+              ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(20.0), //or 15.0
+                child: Container(
+                  height: 70.0,
+                  width: 370.0,
+                  color: const Color(0xffFF0E58),
+                  child: Center(
+                      child: Text(
+                    NIM8,
+                    style: const TextStyle(fontSize: 28),
+                  )),
+                ),
+              ),
             ],
           ),
-        ));
+        ],
+      ),
+    );
   }
 }
 
-//This Fourth Page
-class FourthPage extends StatelessWidget {
-  final String emailFinal;
-  final String phoneFinal;
-  final String nimFinal;
+class hal1101190002_3 extends StatefulWidget {
+  // hal1101190002_3({super.key,required this.pesan1});
+  String pesan1 = '';
+  hal1101190002_3({super.key, required this.pesan1});
+  @override
+  _hal1101190002_3State createState() => _hal1101190002_3State();
+}
 
-  FourthPage(
-      {required this.emailFinal,
-      required this.phoneFinal,
-      required this.nimFinal});
+class _hal1101190002_3State extends State<hal1101190002_3> {
+  String NIM910 = "";
+  final String Email = "ariefzulfikar22@gmail.com";
+  final String Nohp = "081387481480";
+  String NIM = "1101190002/081387481480";
+  TextEditingController _textEditingController3 = TextEditingController();
 
+  //
   @override
   Widget build(BuildContext context) {
-    List<String> nimList = nimFinal.split('');
-    List<String> phoneList = phoneFinal.split('');
-
     return Scaffold(
       appBar: AppBar(
-        title: Text('Muhammad Arief Zulfikar Darmawan/Page-4'),
+        title: const Text('Muhammad Arief Zulfikar Darmawan/Page-3'),
       ),
-      body: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Text(
-              '$nimFinal / $phoneFinal',
-              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+      body: ListView(
+        children: [
+          const Center(
+            child: CircleAvatar(
+              backgroundImage: AssetImage('lib/images/arief.jpg'),
+              // backgroundColor: Colors.transparent,
+              radius: 100,
             ),
-            GridView.builder(
-              shrinkWrap: true,
-              gridDelegate:
-                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 5),
-              itemCount: nimList.length,
-              itemBuilder: (BuildContext context, int index) {
-                return Card(
-                  color: Color.fromRGBO(Random().nextInt(256),
-                      Random().nextInt(256), Random().nextInt(256), 1),
-                  child: Center(
-                    child: Text(nimList[index]),
+          ),
+          Center(
+            child:
+                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+              Text('$Email'),
+              Text('$Nohp'),
+            ]),
+          ),
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextField(
+                  controller: _textEditingController3,
+                  decoration: const InputDecoration(
+                      icon: Icon(Icons.key),
+                      hintText: 'Ketikkan digit ke-9 dan ke-10 NIM anda'),
+                ),
+                // Text('$NIM910'),
+                Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ElevatedButton(
+                          child: const Text('Previous Page'),
+                          onPressed: () {
+                            Navigator.pop(context, NIM);
+                          },
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ElevatedButton(
+                          child: const Text('Next Page'),
+                          onPressed: () async {
+                            if (_textEditingController3.text == 02.toString()) {
+                              final result = await Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => hal1101190002_4(
+                                      pesan1: _textEditingController3.text),
+                                ),
+                              );
+                              setState(() {
+                                NIM910 = result ?? '';
+                              });
+                            }
+                          },
+                        ),
+                      ),
+                    ],
                   ),
-                );
-              },
-            ),
-            GridView.builder(
-              shrinkWrap: true,
-              gridDelegate:
-                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 5),
-              itemCount: phoneList.length,
-              itemBuilder: (BuildContext context, int index) {
-                return Card(
-                  color: Color.fromRGBO(Random().nextInt(256),
-                      Random().nextInt(256), Random().nextInt(256), 1),
-                  child: Center(
-                    child: Text(phoneList[index]),
+                ),
+                const SizedBox(
+                  height: 20,
+                  width: 20,
+                ),
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text("NIM/No. Telp."),
+                ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(20.0), //or 15.0
+                  child: Container(
+                    height: 70.0,
+                    width: 370.0,
+                    color: const Color(0xffFF0E58),
+                    child: Center(
+                        child: Text(
+                      NIM910,
+                      style: const TextStyle(fontSize: 28),
+                    )),
                   ),
-                );
-              },
+                ),
+              ],
             ),
-            ElevatedButton(
-              child: Text('Previous Page'),
-              onPressed: () {
-                Navigator.pop(context, hal1101190002());
-              },
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class hal1101190002_4 extends StatefulWidget {
+  // hal1101194190_4({super.key,required this.pesan1});
+  String pesan1 = '';
+  hal1101190002_4({super.key, required this.pesan1});
+  @override
+  _hal1101190002_4State createState() => _hal1101190002_4State();
+}
+
+class _hal1101190002_4State extends State<hal1101190002_4> {
+  String NIM = "1101190002/081387481480";
+
+  //
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Muhammad Arief Zulfikar Darmawan/Page-4'),
+      ),
+      body: ListView(
+        children: [
+          Center(
+            child: Text(NIM),
+          ),
+          Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                child: const Text('Previous Page'),
+                onPressed: () {
+                  Navigator.pop(context, NIM);
+                },
+              ),
             ),
-          ],
+          ]),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              tombol_kalk("1", 30),
+              tombol_kalk("1", 30),
+              tombol_kalk("0", 30),
+              tombol_kalk("1", 30),
+              tombol_kalk("1", 30),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              tombol_kalk("9", 30),
+              tombol_kalk("0", 30),
+              tombol_kalk("0", 30),
+              tombol_kalk("0", 30),
+              tombol_kalk("2", 30),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              tombol_kalk("/", 30),
+              tombol_kalk("0", 30),
+              tombol_kalk("8", 30),
+              tombol_kalk("1", 30),
+              tombol_kalk("3", 30),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              tombol_kalk("8", 30),
+              tombol_kalk("7", 30),
+              tombol_kalk("4", 30),
+              tombol_kalk("8", 30),
+              tombol_kalk("1", 30),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              tombol_kalk("4", 30),
+              tombol_kalk("8", 30),
+              tombol_kalk("0", 30),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget tombol_kalk(String x, double z) {
+    return Card(
+      color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
+      child: Padding(
+        padding: EdgeInsets.all(30),
+        child: Center(
+          child: Text(
+            x,
+            style: TextStyle(fontSize: z),
+          ),
         ),
       ),
     );
   }
+}
+
+class hasil {
+  String nama = "Muhammad Arief Zulfikar Darmawan";
+  String email = "ariefzulfikar22@gmail.com";
+  String nohp = "081387481480";
+  String nim = "1101190002";
+
+  hasil(this.nama, this.email, this.nohp, this.nim);
 }
