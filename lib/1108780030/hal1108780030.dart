@@ -1,17 +1,26 @@
-import 'dart:math';
+// import 'dart:math';
 
 import 'package:flutter/material.dart';
 // import 'package:flutter/widgets.dart';
 
-class hal1108780030 extends StatefulWidget {
+// import 'dart:math' as math;
+
+// import 'package:flutter/material.dart';
+
+// import 'center_widget.dart';
+
+// import 'components/center_widget/center_widget.dart';
+// import 'components/login_content.dart';
+
+class hal1108780030old extends StatefulWidget {
   // final String message;
-  hal1108780030({super.key});
+  hal1108780030old({super.key});
 
   @override
-  State<hal1108780030> createState() => _hal1108780030State();
+  State<hal1108780030old> createState() => _hal1108780030oldState();
 }
 
-class _hal1108780030State extends State<hal1108780030> {
+class _hal1108780030oldState extends State<hal1108780030old> {
   final TextEditingController _textEditingController = TextEditingController();
   String _message = '';
   @override
