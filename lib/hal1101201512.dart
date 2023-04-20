@@ -3,17 +3,22 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class hal1101201512 extends StatelessWidget {
-  // final String message;
-  hal1101201512({super.key});
+class hal1101201512 extends StatefulWidget {
+  const hal1101201512({Key? key}) : super(key: key);
 
+  @override
+  _hal1101201512State createState() => _hal1101201512State();
+}
+
+class _hal1101201512State extends State<hal1101201512> {
   TextEditingController _textEditingController = TextEditingController();
+  String _output = '';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Aryandhika Ibnu Raihan'),
+        title: const Text('Aryandhika Ibnu Raihan'),
       ),
       body: Column(
         children: [
@@ -24,7 +29,8 @@ class hal1101201512 extends StatelessWidget {
               // color: Colors.red.withOpacity(0.1),
               image: DecorationImage(
                 image: NetworkImage(
-                    'https://anaktelkom.com/wp-content/uploads/2021/08/Logo-Telkom-University-900x1024.png'),
+                  'https://anaktelkom.com/wp-content/uploads/2021/08/Logo-Telkom-University-900x1024.png',
+                ),
                 fit: BoxFit.fitHeight,
               ),
             ),
@@ -35,48 +41,59 @@ class hal1101201512 extends StatelessWidget {
               children: [
                 TextField(
                   controller: _textEditingController,
-                  decoration: InputDecoration(
+                  maxLength: 7,
+                  decoration: const InputDecoration(
                     icon: Icon(Icons.key),
-                    hintText: 'Masukkan 5 digit pertama NIM anda',
+                    hintText: 'Masukkan 7 digit pertama NIM anda',
                   ),
                 ),
-                // Text('$message'),
-                Row(
+                Column(
                   children: [
                     ElevatedButton(
-                      child: Text('Go back to First Page'),
+                      child: const Text('Go back to First Page'),
                       onPressed: () {
-                        Navigator.pop(context, _textEditingController.text);
+                        Navigator.pop(
+                            context, _textEditingController.text);
                       },
                     ),
                     ElevatedButton(
-                      child: Text('Next Page'),
-                      onPressed: () async {
-                        String nim = _textEditingController.text;
-                        if (nim.length== 5){
-                          final result = await Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => SecondPage(nim: nim,)
-                    ),
-                    );
-                    }
-                    else if (nim.length < 5) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                      content: Text('NIM harus terdiri dari 5 digit!!!'),
-                      )
-                      );
-                    }
-                    else if (nim.length > 5){
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text('NIM tidak boleh lebih dari 5!!!') ),
-                      );
-                    }
-                    }
-                    )
+                        child: const Text('Next Page'),
+                        onPressed: () async {
+                          String nim = _textEditingController.text;
+                          if (nim.length == 7) {
+                            final result = await Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      SecondPage(nim: nim)),
+                            );
+                            setState(() {
+                              _output = result ?? '';
+                            });
+                          } else if (nim.length < 7) {
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              content:
+                                  const Text('NIM harus terdiri dari 7 digit!!!'),
+                            ));
+                          } 
+                        })
                   ],
+                ),
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text("NIM/No. Telp."),
+                ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(20.0), //or 15.0
+                  child: Container(
+                    height: 70.0,
+                    width: 390.0,
+                    color: const Color(0xffFF0E58),
+                    child: Center(
+                        child: Text(_output,
+                      style: const TextStyle(fontSize: 28),
+                    )),
+                  ),
                 ),
               ],
             ),
@@ -100,6 +117,7 @@ class _SecondPageState extends State<SecondPage> {
   TextEditingController phoneController = TextEditingController();
   TextEditingController digitController = TextEditingController();
   String nim = '';
+  String _output = '';
 
   @override
   void initState(){
@@ -139,34 +157,57 @@ class _SecondPageState extends State<SecondPage> {
             TextField(
               controller: digitController,
               keyboardType: TextInputType.number,
-              maxLength: 3,
+              maxLength: 1,
               decoration: InputDecoration(
                 icon: Icon(Icons.key),
-                labelText: 'Masukan 3 Digit NIM anda',
+                labelText: 'Masukan Digit ke 8 NIM Anda',
                 border: OutlineInputBorder(),
               ),
             ),
             ElevatedButton(
                       child: Text('Go back to First Page'),
                       onPressed: () {
-                        Navigator.pop(context, hal1101201512());
+                        Navigator.pop(context, _output);
                       }
             ),
             SizedBox(height: 16.0),
             ElevatedButton(
               child: Text('Next Page'),
-              onPressed: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
+              onPressed: () async{
+                String NIM1 = '${widget.nim}'+'${digitController.text}';
+                String phone1 = '${phoneController.text}';
+                final result = await Navigator.push(context,
+                MaterialPageRoute(
                     builder: (context) => ThirdPage(
                       email: emailController.text,
                       phone: phoneController.text,
                       nim: widget.nim +digitController.text,
-                    ),
-                  ),
-                );
+                    ),)
+                  );
+                setState(() {
+                   _output = result ?? '';
+               });
               }
+            ),
+            Column(
+                children: [
+                  const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text("NIM/No. Telp."),
+                ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(20.0), //or 15.0
+                  child: Container(
+                    height: 70.0,
+                    width: 390.0,
+                    color: const Color(0xffFF0E58),
+                    child: Center(
+                        child: Text('$_output',
+                      style: const TextStyle(fontSize: 28),
+                    )),
+                  ),
+                ),
+                ],
             )
           ],
         ),
@@ -176,15 +217,22 @@ class _SecondPageState extends State<SecondPage> {
 }
 
 //PAGE KE 3
-class ThirdPage extends StatelessWidget {
+class ThirdPage extends StatefulWidget {
   final String email;
   final String phone;
   final String nim;
-  
 
   ThirdPage({required this.email, required this.phone, required this.nim});
+
+  @override
+  _ThirdPageState createState() => _ThirdPageState();
+}
+
+class _ThirdPageState extends State<ThirdPage> {
   TextEditingController digitController = TextEditingController();
   String nim1 = '';
+  String _output = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -197,17 +245,17 @@ class ThirdPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             CircleAvatar(
-            radius: 100, // ukuran radius avatar
-           backgroundImage: AssetImage('lib/image/aar.jpg'), // gambar dari assets
+              radius: 90, // ukuran radius avatar
+              backgroundImage: AssetImage('lib/images/arya.jpg'), // gambar dari assets
             ),
             Text(
-              '$email',
+              '${widget.email}',
               style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
-            ),  
+            ),
             SizedBox(height: 16.0),
             Text(
-              '$phone',
+              '${widget.phone}',
               style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
@@ -217,32 +265,58 @@ class ThirdPage extends StatelessWidget {
               keyboardType: TextInputType.number,
               maxLength: 2,
               decoration: InputDecoration(
-                labelText: 'Masukan 2 Digit Terakhir NIM anda',
+                labelText: 'Masukan Digit ke 9 dan 10 NIM Anda',
                 border: OutlineInputBorder(),
               ),
             ),
             ElevatedButton(
-                      child: Text('Previous Page'),
-                      onPressed: () {
-                        Navigator.pop(context , hal1101201512());
-                      }
+              child: Text('Previous Page'),
+              onPressed: () {
+                Navigator.pop(context, _output);
+              },
             ),
             SizedBox(height: 16.0),
             ElevatedButton(
               child: Text('Next Page'),
-              onPressed: () {
-                Navigator.push(
+              onPressed: () async {
+                String NIM1 = '${widget.nim}'+'${digitController.text}';
+                String HP1 = '${widget.phone}';
+                final result = await Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => FourthPage(
-                      email: email,
-                      phone: phone,
-                      nim: nim + digitController.text,
+                      email: widget.email,
+                      phone: HP1,
+                      nim: NIM1,
                     ),
                   ),
                 );
+                setState(() {
+                  _output = result ?? '';
+                });
               },
             ),
+            SizedBox(
+                height: 20,
+                width: 20,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text("NIM/No. Telp."),
+              ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(20.0), //or 15.0
+                child: Container(
+                  height: 70.0,
+                  width: 390.0,
+                  color: Color.fromARGB(0, 7, 252, 117),
+                  child: Center(
+                      child: Text(
+                    _output,
+                    style: TextStyle(fontSize: 28),
+                  )),
+                ),
+              ),
           ],
         ),
       ),
@@ -251,17 +325,26 @@ class ThirdPage extends StatelessWidget {
 }
 
 //PAGE KE 4
-class FourthPage extends StatelessWidget {
+class FourthPage extends StatefulWidget {
   final String email;
   final String phone;
   final String nim;
-
+  
   FourthPage({required this.email, required this.phone, required this.nim});
 
   @override
+  _FourthPageState createState() => _FourthPageState();
+}
+
+class _FourthPageState extends State<FourthPage> {
+  String _output = '';
+ 
+
+  @override
   Widget build(BuildContext context) {
-    List<String> nimList = nim.split('');
-    List<String> phoneList = phone.split('');
+    List<String> nimList = widget.nim.split('');
+    List<String> phoneList = widget.phone.split('');
+    String pesan = '${widget.nim}/${widget.phone}';
 
     return Scaffold(
       appBar: AppBar(
@@ -273,8 +356,14 @@ class FourthPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Text(
-              '$nim / $phone',
+              '${widget.nim} / ${widget.phone}',
               style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+            ),
+            ElevatedButton(
+              child: Text('Previous Page'),
+              onPressed: () {
+                Navigator.pop(context,pesan);
+              },
             ),
             GridView.builder(
               shrinkWrap: true,
@@ -302,12 +391,6 @@ class FourthPage extends StatelessWidget {
                     child: Text(phoneList[index]),
                   ),
                 );
-              },
-            ),
-            ElevatedButton(
-              child: Text('Previous Page'),
-              onPressed: () {
-                Navigator.pop(context, hal1101201512());
               },
             ),
           ],
