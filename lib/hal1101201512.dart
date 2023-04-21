@@ -175,7 +175,7 @@ class _SecondPageState extends State<SecondPage> {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.purple,
                       ),
-                      child: Text('Go back to First Page'),
+                      child: Text('Previous Page'),
                       onPressed: () {
                         Navigator.pop(context, _output);
                       }
@@ -183,7 +183,7 @@ class _SecondPageState extends State<SecondPage> {
             SizedBox(height: 16.0),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.purple,
+              backgroundColor: Colors.purple,
               ),
               child: Text('Next Page'),
               onPressed: () async{
@@ -333,10 +333,10 @@ class _ThirdPageState extends State<ThirdPage> {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(20.0),
                   child: Container(
-                    height: 70.0,
-                    width: 390.0,
-                    color: Color.fromARGB(0, 7, 252, 117),
-                    child: Center(
+                  height: 70.0,
+                  width: 390.0,
+                  color: Color.fromARGB(0, 7, 252, 117),
+                  child: Center(
                         child: Text(
                       _output,
                       style: TextStyle(fontSize: 28),
