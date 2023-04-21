@@ -18,6 +18,7 @@ class _hal1101201512State extends State<hal1101201512> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.purple,
         title: const Text('Aryandhika Ibnu Raihan'),
       ),
       body: Column(
@@ -50,6 +51,9 @@ class _hal1101201512State extends State<hal1101201512> {
                 Column(
                   children: [
                     ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color.fromRGBO(156, 39, 176, 1),
+                      ),
                       child: const Text('Go back to First Page'),
                       onPressed: () {
                         Navigator.pop(
@@ -57,6 +61,9 @@ class _hal1101201512State extends State<hal1101201512> {
                       },
                     ),
                     ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.purple,
+                        ),
                         child: const Text('Next Page'),
                         onPressed: () async {
                           String nim = _textEditingController.text;
@@ -88,8 +95,7 @@ class _hal1101201512State extends State<hal1101201512> {
                   child: Container(
                     height: 70.0,
                     width: 390.0,
-                    color: const Color(0xffFF0E58),
-                    child: Center(
+                    color: Color.fromRGBO(156, 39, 176, 1) ,                 child: Center(
                         child: Text(_output,
                       style: const TextStyle(fontSize: 28),
                     )),
@@ -127,6 +133,7 @@ class _SecondPageState extends State<SecondPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.purple,
         title: Text('Aryandhika Ibnu Raihan (Page 2)'),
       ),
       body: Padding(
@@ -138,7 +145,7 @@ class _SecondPageState extends State<SecondPage> {
               controller: emailController,
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
-                icon: Icon(Icons.key),
+                icon: Icon(Icons.mail),
                 labelText: 'Masukan Email anda',
                 border: OutlineInputBorder(),
               ),
@@ -148,7 +155,7 @@ class _SecondPageState extends State<SecondPage> {
               controller: phoneController,
               keyboardType: TextInputType.phone,
               decoration: InputDecoration(
-                icon: Icon(Icons.key),
+                icon: Icon(Icons.numbers),
                 labelText: 'Masukan Nomor HP Anda',
                 border: OutlineInputBorder(),
               ),
@@ -165,6 +172,9 @@ class _SecondPageState extends State<SecondPage> {
               ),
             ),
             ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.purple,
+                      ),
                       child: Text('Go back to First Page'),
                       onPressed: () {
                         Navigator.pop(context, _output);
@@ -172,6 +182,9 @@ class _SecondPageState extends State<SecondPage> {
             ),
             SizedBox(height: 16.0),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.purple,
+              ),
               child: Text('Next Page'),
               onPressed: () async{
                 String NIM1 = '${widget.nim}'+'${digitController.text}';
@@ -200,7 +213,7 @@ class _SecondPageState extends State<SecondPage> {
                   child: Container(
                     height: 70.0,
                     width: 390.0,
-                    color: const Color(0xffFF0E58),
+                    color: Color.fromRGBO(156, 39, 176, 1),
                     child: Center(
                         child: Text('$_output',
                       style: const TextStyle(fontSize: 28),
@@ -237,7 +250,8 @@ class _ThirdPageState extends State<ThirdPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Aryandhika Ibnu Raihan (Page 3)'),
+        backgroundColor: Colors.purple,
+        title: Text('Page 3'),
       ),
       body: Stack(
         children: [
@@ -248,6 +262,7 @@ class _ThirdPageState extends State<ThirdPage> {
               children: [
                 Center(
                   child: CircleAvatar(
+                    backgroundColor: Colors.purple,
                     backgroundImage: AssetImage('lib/images/arya.jpg'),
                     radius: 60,
                   ),
@@ -275,6 +290,9 @@ class _ThirdPageState extends State<ThirdPage> {
                   ),
                 ),
                 ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.purple,
+                  ),
                   child: Text('Previous Page'),
                   onPressed: () {
                     Navigator.pop(context, _output);
@@ -282,6 +300,9 @@ class _ThirdPageState extends State<ThirdPage> {
                 ),
                 SizedBox(height: 16.0),
                 ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.purple,
+                  ),
                   child: Text('Next Page'),
                   onPressed: () async {
                     String NIM1 = '${widget.nim}' + '${digitController.text}';
@@ -355,6 +376,7 @@ class _FourthPageState extends State<FourthPage> {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.purple,
         title: Text('Aryandhika Ibnu Raihan (Page 4)'),
       ),
       body: Padding(
@@ -367,6 +389,9 @@ class _FourthPageState extends State<FourthPage> {
               style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
             ),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.purple,
+              ),
               child: Text('Previous Page'),
               onPressed: () {
                 Navigator.pop(context,pesan);
