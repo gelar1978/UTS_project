@@ -239,86 +239,93 @@ class _ThirdPageState extends State<ThirdPage> {
       appBar: AppBar(
         title: Text('Aryandhika Ibnu Raihan (Page 3)'),
       ),
-      body: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            CircleAvatar(
-              radius: 90, // ukuran radius avatar
-              backgroundImage: AssetImage('lib/images/arya.jpg'), // gambar dari assets
-            ),
-            Text(
-              '${widget.email}',
-              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(height: 16.0),
-            Text(
-              '${widget.phone}',
-              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(height: 16.0),
-            TextField(
-              controller: digitController,
-              keyboardType: TextInputType.number,
-              maxLength: 2,
-              decoration: InputDecoration(
-                labelText: 'Masukan Digit ke 9 dan 10 NIM Anda',
-                border: OutlineInputBorder(),
-              ),
-            ),
-            ElevatedButton(
-              child: Text('Previous Page'),
-              onPressed: () {
-                Navigator.pop(context, _output);
-              },
-            ),
-            SizedBox(height: 16.0),
-            ElevatedButton(
-              child: Text('Next Page'),
-              onPressed: () async {
-                String NIM1 = '${widget.nim}'+'${digitController.text}';
-                String HP1 = '${widget.phone}';
-                final result = await Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => FourthPage(
-                      email: widget.email,
-                      phone: HP1,
-                      nim: NIM1,
-                    ),
+      body: Stack(
+        children: [
+          Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Center(
+                  child: CircleAvatar(
+                    backgroundImage: AssetImage('lib/images/arya.jpg'),
+                    radius: 60,
                   ),
-                );
-                setState(() {
-                  _output = result ?? '';
-                });
-              },
-            ),
-            SizedBox(
-                height: 20,
-                width: 20,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text("NIM/No. Telp."),
-              ),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(20.0), //or 15.0
-                child: Container(
-                  height: 70.0,
-                  width: 390.0,
-                  color: Color.fromARGB(0, 7, 252, 117),
-                  child: Center(
-                      child: Text(
-                    _output,
-                    style: TextStyle(fontSize: 28),
-                  )),
                 ),
-              ),
-          ],
-        ),
+                SizedBox(height: 16.0),
+                Text(
+                  '${widget.email}',
+                  style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: 16.0),
+                Text(
+                  '${widget.phone}',
+                  style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(height: 16.0),
+                TextField(
+                  controller: digitController,
+                  keyboardType: TextInputType.number,
+                  maxLength: 2,
+                  decoration: InputDecoration(
+                    labelText: 'Masukan Digit ke 9 dan 10 NIM Anda',
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+                ElevatedButton(
+                  child: Text('Previous Page'),
+                  onPressed: () {
+                    Navigator.pop(context, _output);
+                  },
+                ),
+                SizedBox(height: 16.0),
+                ElevatedButton(
+                  child: Text('Next Page'),
+                  onPressed: () async {
+                    String NIM1 = '${widget.nim}' + '${digitController.text}';
+                    String HP1 = '${widget.phone}';
+                    final result = await Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => FourthPage(
+                          email: widget.email,
+                          phone: HP1,
+                          nim: NIM1,
+                        ),
+                      ),
+                    );
+                    setState(() {
+                      _output = result ?? '';
+                    });
+                  },
+                ),
+                SizedBox(
+                  height: 20,
+                  width: 20,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text("NIM/No. Telp."),
+                ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(20.0),
+                  child: Container(
+                    height: 70.0,
+                    width: 390.0,
+                    color: Color.fromARGB(0, 7, 252, 117),
+                    child: Center(
+                        child: Text(
+                      _output,
+                      style: TextStyle(fontSize: 28),
+                    )),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
