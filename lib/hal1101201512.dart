@@ -134,7 +134,7 @@ class _SecondPageState extends State<SecondPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.purple,
-        title: Text('Aryandhika Ibnu Raihan (Page 2)'),
+        title: Text('Input Email,NIM, dan No.HP'),
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
@@ -251,7 +251,7 @@ class _ThirdPageState extends State<ThirdPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.purple,
-        title: Text('Page 3'),
+        title: Text('Input NIM ke-9 dan Ke-10'),
       ),
       body: Stack(
         children: [
@@ -377,7 +377,7 @@ class _FourthPageState extends State<FourthPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.purple,
-        title: Text('Aryandhika Ibnu Raihan (Page 4)'),
+        title: Text('NIM/No.Telp dalam Grid'),
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
@@ -392,7 +392,7 @@ class _FourthPageState extends State<FourthPage> {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.purple,
               ),
-              child: Text('Previous Page'),
+              child: Text('Previous Page',style: TextStyle(color: Colors.black),),
               onPressed: () {
                 Navigator.pop(context,pesan);
               },
