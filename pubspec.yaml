@@ -84,6 +84,7 @@ flutter:
     - lib/images/balqis.jpeg
     - lib/images/dhean.png
     - lib/images/arya.jpg
+    - lib/images/hilmy.jpeg
     # - lib/images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -62,7 +62,7 @@ class _hal110118517State extends State<hal110118517> {
                         ),
                       onPressed: () {
                         Navigator.pop(
-                            context, _textEditingController.text);
+                        context, _textEditingController.text);
                       },
                       )
                     ),
@@ -77,8 +77,8 @@ class _hal110118517State extends State<hal110118517> {
                             final result = await Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) =>
-                                      SecondPage(nim: nim)),
+                                builder: (context) =>
+                                Halaman2(nim: nim)),
                             );
                             setState(() {
                               _output = result ?? '';
@@ -89,8 +89,7 @@ class _hal110118517State extends State<hal110118517> {
                                   const Text('NIM harus 7 digit'),
                             ));
                           } else if (nim.length > 7) {
-                            ScaffoldMessenger.of(context)
-                                .showSnackBar(SnackBar(
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                               content: const Text('NIM tidak boleh lebih dari 7!!!'),
                             ));
                           }
@@ -109,7 +108,7 @@ class _hal110118517State extends State<hal110118517> {
                     width: 390.0,
                     color: Color.fromRGBO(76, 175, 80, 1),
                     child: Center(
-                        child: Text(_output,
+                      child: Text(_output,
                       style: const TextStyle(fontSize: 28),
                     )),
                   ),
@@ -124,14 +123,14 @@ class _hal110118517State extends State<hal110118517> {
 }
 
 //Halaman ke 2
-class SecondPage extends StatefulWidget {
+class Halaman2 extends StatefulWidget {
   final String nim;
-  SecondPage({required this.nim});
+  Halaman2({required this.nim});
   @override
-  _SecondPageState createState() => _SecondPageState();
+  _Halaman2State createState() => _Halaman2State();
 }
 
-class _SecondPageState extends State<SecondPage> {
+class _Halaman2State extends State<Halaman2> {
   TextEditingController emailController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
   TextEditingController digitController = TextEditingController();
@@ -152,19 +151,19 @@ class _SecondPageState extends State<SecondPage> {
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            TextField(
-              controller: emailController,
-              keyboardType: TextInputType.emailAddress,
-              decoration: InputDecoration(
-                icon: Icon(Icons.mail),
-                labelText: 'Masukan Email anda',
-                border: OutlineInputBorder(),
-              ),
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          TextField(
+            controller: emailController,
+            keyboardType: TextInputType.emailAddress,
+            decoration: InputDecoration(
+              icon: Icon(Icons.mail),
+              labelText: 'Masukan Email anda',
+              border: OutlineInputBorder(),
             ),
-            SizedBox(height: 16.0),
-            TextField(
+            ),
+          SizedBox(height: 16.0),
+          TextField(
               controller: phoneController,
               keyboardType: TextInputType.phone,
               decoration: InputDecoration(
@@ -204,9 +203,9 @@ class _SecondPageState extends State<SecondPage> {
                 String phone1 = '${phoneController.text}';
                 final result = await Navigator.push(context,
                 MaterialPageRoute(
-                    builder: (context) => ThirdPage(
+                    builder: (context) => Halaman3(
                       email: emailController.text,
-                      phone: phoneController.text,
+                      hp: phoneController.text,
                       nim: widget.nim +digitController.text,
                     ),)
                   );
@@ -243,18 +242,18 @@ class _SecondPageState extends State<SecondPage> {
 }
 
 //Halaman ke 3
-class ThirdPage extends StatefulWidget {
+class Halaman3 extends StatefulWidget {
   final String email;
-  final String phone;
+  final String hp;
   final String nim;
 
-  ThirdPage({required this.email, required this.phone, required this.nim});
+  Halaman3({required this.email, required this.hp, required this.nim});
 
   @override
-  _ThirdPageState createState() => _ThirdPageState();
+  _Halaman3State createState() => _Halaman3State();
 }
 
-class _ThirdPageState extends State<ThirdPage> {
+class _Halaman3State extends State<Halaman3> {
   TextEditingController digitController = TextEditingController();
   String nim1 = '';
   String _output = '';
@@ -287,7 +286,7 @@ class _ThirdPageState extends State<ThirdPage> {
                 ),
                 SizedBox(height: 16.0),
                 Text(
-                  '${widget.phone}',
+                  '${widget.hp}',
                   style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 ),
@@ -318,13 +317,13 @@ class _ThirdPageState extends State<ThirdPage> {
                   child: Text('Next Page'),
                   onPressed: () async {
                     String NIM1 = '${widget.nim}' + '${digitController.text}';
-                    String HP1 = '${widget.phone}';
+                    String HP1 = '${widget.hp}';
                     final result = await Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => FourthPage(
+                        builder: (context) => Halaman4(
                           email: widget.email,
-                          phone: HP1,
+                          hp: HP1,
                           nim: NIM1,
                         ),
                       ),
@@ -340,7 +339,8 @@ class _ThirdPageState extends State<ThirdPage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text("NIM/No. Telp."),
+                  child: Text("NIM/No. Telp.", textAlign: TextAlign.center,),
+                  
                 ),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(20.0),
@@ -365,26 +365,26 @@ class _ThirdPageState extends State<ThirdPage> {
 }
 
 //Halaman ke 4
-class FourthPage extends StatefulWidget {
+class Halaman4 extends StatefulWidget {
   final String email;
-  final String phone;
+  final String hp;
   final String nim;
   
-  FourthPage({required this.email, required this.phone, required this.nim});
+  Halaman4({required this.email, required this.hp, required this.nim});
 
   @override
-  _FourthPageState createState() => _FourthPageState();
+  _Halaman4State createState() => _Halaman4State();
 }
 
-class _FourthPageState extends State<FourthPage> {
+class _Halaman4State extends State<Halaman4> {
   String _output = '';
  
 
   @override
   Widget build(BuildContext context) {
     List<String> nimList = widget.nim.split('');
-    List<String> phoneList = widget.phone.split('');
-    String pesan = '${widget.nim}/${widget.phone}';
+    List<String> phoneList = widget.hp.split('');
+    String pesan = '${widget.nim}/${widget.hp}';
 
     return Scaffold(
       appBar: AppBar(
@@ -397,7 +397,7 @@ class _FourthPageState extends State<FourthPage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Text(
-              '${widget.nim} / ${widget.phone}',
+              '${widget.nim} / ${widget.hp}',
               style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
             ),
             ElevatedButton(
