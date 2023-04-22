@@ -175,7 +175,7 @@ class _hal1101202469_2State extends State<hal1101202469_2> {
                 controller: _textEditingController2,
                 decoration: InputDecoration(
                   icon: Icon(Icons.numbers_outlined),
-                  hintText: 'Inputkan Digit pertama NIM kamu',
+                  hintText: 'Inputkan Digit Ke-8 NIM kamu',
                 ),
               ),
               SizedBox(
@@ -200,7 +200,7 @@ class _hal1101202469_2State extends State<hal1101202469_2> {
                       child: ElevatedButton(
                         child: Text('Next Page'),
                         onPressed: () async {
-                          if (_textEditingController2.text == 1.toString()) {
+                          if (_textEditingController2.text == 4.toString()) {
                             String NIM5angka =
                                 '${widget.msg1}' + _textEditingController2.text;
                             final result = await Navigator.push(
@@ -287,7 +287,7 @@ class _hal1101202469_3State extends State<hal1101202469_3> {
                 child: Column(
                   children: [
                     CircleAvatar(
-                      backgroundImage: AssetImage('lib/images/Abbey_bgmerah.jpg'),
+                      backgroundImage: AssetImage('lib/images/Abbey.jpg'),
                       radius: 100,
                     ),
                     SizedBox(
