@@ -56,7 +56,8 @@ class _hal1101194190State extends State<hal1101194190> {
                             child: ElevatedButton(
                               child: const Text('Main Page'),
                               onPressed: () {
-                                Navigator.pop(context, _textEditingController);
+                                Navigator.pop(
+                                    context, _textEditingController.text);
                               },
                             ),
                           ),
