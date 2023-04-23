@@ -13,7 +13,6 @@ class hal1101194190 extends StatefulWidget {
 class _hal1101194190State extends State<hal1101194190> {
   final TextEditingController _textEditingController = TextEditingController();
   String _message = '';
-  String NIM = "1101194190/081224000057";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,7 +56,8 @@ class _hal1101194190State extends State<hal1101194190> {
                             child: ElevatedButton(
                               child: const Text('Main Page'),
                               onPressed: () {
-                                Navigator.pop(context, NIM);
+                                Navigator.pop(
+                                    context, _textEditingController.text);
                               },
                             ),
                           ),
@@ -126,11 +126,10 @@ class hal1101194190_2 extends StatefulWidget {
 }
 
 class _hal1101194190_2State extends State<hal1101194190_2> {
-  String NIM8 = "";
+  String _message = "";
   TextEditingController _textEditingController0 = TextEditingController();
   TextEditingController _textEditingController1 = TextEditingController();
   TextEditingController _textEditingController2 = TextEditingController();
-  String NIM = "1101194190/081224000057";
   //
   @override
   Widget build(BuildContext context) {
@@ -146,14 +145,14 @@ class _hal1101194190_2State extends State<hal1101194190_2> {
               TextField(
                 controller: _textEditingController0,
                 decoration: const InputDecoration(
-                    icon: Icon(Icons.key),
+                    icon: Icon(Icons.mail),
                     hintText: 'Ketikkan Alamat Email Anda'),
                 //dewi.n.achdalina@gmail.com
               ),
               TextField(
                 controller: _textEditingController1,
                 decoration: const InputDecoration(
-                    icon: Icon(Icons.key),
+                    icon: Icon(Icons.call),
                     hintText: 'Ketikkan No Handphone Anda'),
                 //081224000057
               ),
@@ -173,7 +172,7 @@ class _hal1101194190_2State extends State<hal1101194190_2> {
                       child: ElevatedButton(
                         child: const Text('Previous Page'),
                         onPressed: () {
-                          Navigator.pop(context, NIM);
+                          Navigator.pop(context, _message);
                         },
                       ),
                     ),
@@ -183,15 +182,19 @@ class _hal1101194190_2State extends State<hal1101194190_2> {
                         child: const Text('Next Page'),
                         onPressed: () async {
                           if (_textEditingController2.text == 1.toString()) {
+                            String NIM8 = '${widget.pesan1}' +
+                                _textEditingController2.text;
                             final result = await Navigator.push(
                               context,
                               MaterialPageRoute(
                                 builder: (context) => hal1101194190_3(
-                                    pesan1: _textEditingController2.text),
+                                    pesan1: NIM8,
+                                    pesan2: _textEditingController0.text,
+                                    pesan3: _textEditingController1.text),
                               ),
                             );
                             setState(() {
-                              NIM8 = result ?? '';
+                              _message = result ?? '';
                             });
                           }
                         },
@@ -216,7 +219,7 @@ class _hal1101194190_2State extends State<hal1101194190_2> {
                   color: const Color(0xffFF0E58),
                   child: Center(
                       child: Text(
-                    NIM8,
+                    _message,
                     style: const TextStyle(fontSize: 28),
                   )),
                 ),
@@ -232,16 +235,21 @@ class _hal1101194190_2State extends State<hal1101194190_2> {
 class hal1101194190_3 extends StatefulWidget {
   // hal1101194190_3({super.key,required this.pesan1});
   String pesan1 = '';
-  hal1101194190_3({super.key, required this.pesan1});
+  String pesan2 = '';
+  String pesan3 = '';
+  hal1101194190_3(
+      {super.key,
+      required this.pesan1,
+      required this.pesan2,
+      required this.pesan3});
   @override
   _hal1101194190_3State createState() => _hal1101194190_3State();
 }
 
 class _hal1101194190_3State extends State<hal1101194190_3> {
   String NIM910 = "";
-  final String Email = "dewi.n.achdalina@gmail.com";
-  final String Nohp = "081224000057";
-  String NIM = "1101194190/081224000057";
+  String notl = "";
+  String _message = "";
   TextEditingController _textEditingController3 = TextEditingController();
 
   //
@@ -263,8 +271,16 @@ class _hal1101194190_3State extends State<hal1101194190_3> {
           Center(
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-              Text('$Email'),
-              Text('$Nohp'),
+              Text(
+                '${widget.pesan2}',
+                style: TextStyle(fontSize: 22),
+              ),
+              //dewi.n.achdalina@gmail.com
+              Text(
+                '${widget.pesan3}',
+                style: TextStyle(fontSize: 22),
+              ),
+              //081224000057
             ]),
           ),
           Center(
@@ -287,7 +303,7 @@ class _hal1101194190_3State extends State<hal1101194190_3> {
                         child: ElevatedButton(
                           child: const Text('Previous Page'),
                           onPressed: () {
-                            Navigator.pop(context, NIM);
+                            Navigator.pop(context, _message);
                           },
                         ),
                       ),
@@ -297,15 +313,21 @@ class _hal1101194190_3State extends State<hal1101194190_3> {
                           child: const Text('Next Page'),
                           onPressed: () async {
                             if (_textEditingController3.text == 90.toString()) {
+                              String NIM910 = '${widget.pesan1}' +
+                                  _textEditingController3.text;
+                              String notl = '${widget.pesan3}';
                               final result = await Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => hal1101194190_4(
-                                      pesan1: _textEditingController3.text),
+                                    pesan1: NIM910,
+                                    pesan2: notl,
+                                    pesan3: _textEditingController3.text,
+                                  ),
                                 ),
                               );
                               setState(() {
-                                NIM910 = result ?? '';
+                                _message = result ?? '';
                               });
                             }
                           },
@@ -330,7 +352,7 @@ class _hal1101194190_3State extends State<hal1101194190_3> {
                     color: const Color(0xffFF0E58),
                     child: Center(
                         child: Text(
-                      NIM910,
+                      _message,
                       style: const TextStyle(fontSize: 28),
                     )),
                   ),
@@ -347,111 +369,84 @@ class _hal1101194190_3State extends State<hal1101194190_3> {
 class hal1101194190_4 extends StatefulWidget {
   // hal1101194190_4({super.key,required this.pesan1});
   String pesan1 = '';
-  hal1101194190_4({super.key, required this.pesan1});
+  String pesan2 = '';
+  String pesan3 = '';
+  hal1101194190_4(
+      {super.key,
+      required this.pesan1,
+      required this.pesan2,
+      required this.pesan3});
   @override
   _hal1101194190_4State createState() => _hal1101194190_4State();
 }
 
 class _hal1101194190_4State extends State<hal1101194190_4> {
-  String NIM = "1101194190/081224000057";
-
   //
   @override
   Widget build(BuildContext context) {
+    String allmessage = '${widget.pesan1}/${widget.pesan2}';
     return Scaffold(
       appBar: AppBar(
         title: const Text('Dewi Nurulaeni Achdalina/Page-4'),
       ),
-      body: ListView(
-        children: [
-          Center(
-            child: Text(NIM),
-          ),
-          Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ElevatedButton(
-                child: const Text('Previous Page'),
-                onPressed: () {
-                  Navigator.pop(context, NIM);
-                },
+      body: Container(
+        child: Column(
+          children: [
+            Center(
+              child: Column(
+                children: [
+                  Text(
+                    '${widget.pesan1} / ${widget.pesan2}',
+                    style: TextStyle(fontSize: 22),
+                  ),
+                  Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ElevatedButton(
+                        child: const Text('Previous Page'),
+                        onPressed: () {
+                          Navigator.pop(context, allmessage);
+                        },
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-          ]),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              tombol_kalk("1", 30),
-              tombol_kalk("1", 30),
-              tombol_kalk("0", 30),
-              tombol_kalk("1", 30),
-              tombol_kalk("1", 30),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              tombol_kalk("9", 30),
-              tombol_kalk("4", 30),
-              tombol_kalk("1", 30),
-              tombol_kalk("9", 30),
-              tombol_kalk("0", 30),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              tombol_kalk("/", 30),
-              tombol_kalk("0", 30),
-              tombol_kalk("8", 30),
-              tombol_kalk("1", 30),
-              tombol_kalk("2", 30),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              tombol_kalk("2", 30),
-              tombol_kalk("4", 30),
-              tombol_kalk("0", 30),
-              tombol_kalk("0", 30),
-              tombol_kalk("0", 30),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              tombol_kalk("0", 30),
-              tombol_kalk("5", 30),
-              tombol_kalk("7", 30),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget tombol_kalk(String x, double z) {
-    return Card(
-      color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
-      child: Padding(
-        padding: EdgeInsets.all(30),
-        child: Center(
-          child: Text(
-            x,
-            style: TextStyle(fontSize: z),
-          ),
+            Expanded(
+              child: GridView(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 1),
+                children: [
+                  GridView.count(
+                    crossAxisCount: 5,
+                    scrollDirection: Axis.vertical,
+                    padding: EdgeInsets.all(0),
+                    children: List.generate(allmessage.length, (index) {
+                      return Container(
+                        height: 1,
+                        child: Card(
+                          color: Colors.primaries[
+                              Random().nextInt(Colors.primaries.length)],
+                          child: Center(
+                            child: Text(
+                              allmessage[index],
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ),
+                      );
+                    }),
+                  )
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );
   }
-}
-
-class hasil {
-  String nama = "Dewi Nurulaeni Achdalina";
-  String email = "dewi.n.achdalina@gmail.com";
-  String nohp = "081224000057";
-  String nim = "1101194190";
-
-  hasil(this.nama, this.email, this.nohp, this.nim);
 }
