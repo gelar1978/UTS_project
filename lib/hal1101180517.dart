@@ -3,14 +3,14 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class hal110118517 extends StatefulWidget {
-  const hal110118517({Key? key}) : super(key: key);
+class hal1101180517 extends StatefulWidget {
+  hal1101180517({Key? key}) : super(key: key);
 
   @override
-  _hal110118517State createState() => _hal110118517State();
+  _hal1101180517State createState() => _hal1101180517State();
 }
 
-class _hal110118517State extends State<hal110118517> {
+class _hal1101180517State extends State<hal1101180517> {
   TextEditingController _textEditingController = TextEditingController();
   String _output = '';
 
@@ -48,55 +48,54 @@ class _hal110118517State extends State<hal110118517> {
                     hintText: 'Masukan 7 digit NIM Anda',
                   ),
                 ),
-              Center(
-                child:
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all (8.0),
-                      child:ElevatedButton(
-                        child: Text('Main menu'),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.green,
-                        ),
-                      onPressed: () {
-                        Navigator.pop(
-                        context, _textEditingController.text);
-                      },
-                      )
-                    ),
-                    ElevatedButton(
-                        child: const Text('Next Page'),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Color.fromRGBO(76, 175, 80, 1),
-                        ),
-                        onPressed: () async {
-                          String nim = _textEditingController.text;
-                          if (nim.length == 7) {
-                            final result = await Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                Halaman2(nim: nim)),
-                            );
-                            setState(() {
-                              _output = result ?? '';
-                            });
-                          } else if (nim.length < 7) {
-                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                              content:
-                                  const Text('NIM harus 7 digit'),
-                            ));
-                          } else if (nim.length > 7) {
-                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                              content: const Text('NIM tidak boleh lebih dari 7!!!'),
-                            ));
-                          }
-                        })
-                  ],
+                Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: ElevatedButton(
+                            child: Text('Main menu'),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.green,
+                            ),
+                            onPressed: () {
+                              Navigator.pop(
+                                  context, _textEditingController.text);
+                            },
+                          )),
+                      ElevatedButton(
+                          child: const Text('Next Page'),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Color.fromRGBO(76, 175, 80, 1),
+                          ),
+                          onPressed: () async {
+                            String nim = _textEditingController.text;
+                            if (nim.length == 7) {
+                              final result = await Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Halaman2(nim: nim)),
+                              );
+                              setState(() {
+                                _output = result ?? '';
+                              });
+                            } else if (nim.length < 7) {
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(SnackBar(
+                                content: const Text('NIM harus 7 digit'),
+                              ));
+                            } else if (nim.length > 7) {
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(SnackBar(
+                                content: const Text(
+                                    'NIM tidak boleh lebih dari 7!!!'),
+                              ));
+                            }
+                          })
+                    ],
+                  ),
                 ),
-              ),
                 const Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Text("NIM/No. Telp."),
@@ -108,7 +107,8 @@ class _hal110118517State extends State<hal110118517> {
                     width: 390.0,
                     color: Color.fromRGBO(76, 175, 80, 1),
                     child: Center(
-                      child: Text(_output,
+                        child: Text(
+                      _output,
                       style: const TextStyle(fontSize: 28),
                     )),
                   ),
@@ -138,10 +138,11 @@ class _Halaman2State extends State<Halaman2> {
   String _output = '';
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
     nim = widget.nim;
   }
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -151,19 +152,19 @@ class _Halaman2State extends State<Halaman2> {
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          TextField(
-            controller: emailController,
-            keyboardType: TextInputType.emailAddress,
-            decoration: InputDecoration(
-              icon: Icon(Icons.mail),
-              labelText: 'Masukan Email anda',
-              border: OutlineInputBorder(),
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            TextField(
+              controller: emailController,
+              keyboardType: TextInputType.emailAddress,
+              decoration: InputDecoration(
+                icon: Icon(Icons.mail),
+                labelText: 'Masukan Email anda',
+                border: OutlineInputBorder(),
+              ),
             ),
-            ),
-          SizedBox(height: 16.0),
-          TextField(
+            SizedBox(height: 16.0),
+            TextField(
               controller: phoneController,
               keyboardType: TextInputType.phone,
               decoration: InputDecoration(
@@ -184,39 +185,34 @@ class _Halaman2State extends State<Halaman2> {
               ),
             ),
             ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.green
-                      ),
-                      child: Text('Go back to First Page'),
-                      onPressed: () {
-                        Navigator.pop(context, _output);
-                      }
-            ),
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
+                child: Text('Go back to First Page'),
+                onPressed: () {
+                  Navigator.pop(context, _output);
+                }),
             SizedBox(height: 16.0),
             ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green
-              ),
-              child: Text('Next Page'),
-              onPressed: () async{
-                String NIM1 = '${widget.nim}'+'${digitController.text}';
-                String phone1 = '${phoneController.text}';
-                final result = await Navigator.push(context,
-                MaterialPageRoute(
-                    builder: (context) => Halaman3(
-                      email: emailController.text,
-                      hp: phoneController.text,
-                      nim: widget.nim +digitController.text,
-                    ),)
-                  );
-                setState(() {
-                   _output = result ?? '';
-               });
-              }
-            ),
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
+                child: Text('Next Page'),
+                onPressed: () async {
+                  String NIM1 = '${widget.nim}' + '${digitController.text}';
+                  String phone1 = '${phoneController.text}';
+                  final result = await Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Halaman3(
+                          email: emailController.text,
+                          hp: phoneController.text,
+                          nim: widget.nim + digitController.text,
+                        ),
+                      ));
+                  setState(() {
+                    _output = result ?? '';
+                  });
+                }),
             Column(
-                children: [
-                  const Padding(
+              children: [
+                const Padding(
                   padding: EdgeInsets.all(8.0),
                   child: Text("NIM/No. Telp."),
                 ),
@@ -227,12 +223,13 @@ class _Halaman2State extends State<Halaman2> {
                     width: 390.0,
                     color: Color.fromRGBO(76, 175, 80, 1),
                     child: Center(
-                        child: Text('$_output',
+                        child: Text(
+                      '$_output',
                       style: const TextStyle(fontSize: 28),
                     )),
                   ),
                 ),
-                ],
+              ],
             )
           ],
         ),
@@ -339,8 +336,10 @@ class _Halaman3State extends State<Halaman3> {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text("NIM/No. Telp.", textAlign: TextAlign.center,),
-                  
+                  child: Text(
+                    "NIM/No. Telp.",
+                    textAlign: TextAlign.center,
+                  ),
                 ),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(20.0),
@@ -369,7 +368,7 @@ class Halaman4 extends StatefulWidget {
   final String email;
   final String hp;
   final String nim;
-  
+
   Halaman4({required this.email, required this.hp, required this.nim});
 
   @override
@@ -378,7 +377,6 @@ class Halaman4 extends StatefulWidget {
 
 class _Halaman4State extends State<Halaman4> {
   String _output = '';
- 
 
   @override
   Widget build(BuildContext context) {
@@ -406,7 +404,7 @@ class _Halaman4State extends State<Halaman4> {
               ),
               child: Text('Previous Page'),
               onPressed: () {
-                Navigator.pop(context,pesan);
+                Navigator.pop(context, pesan);
               },
             ),
             GridView.builder(
@@ -416,7 +414,8 @@ class _Halaman4State extends State<Halaman4> {
               itemCount: nimList.length,
               itemBuilder: (BuildContext context, int index) {
                 return Card(
-                  color: Color.fromRGBO(Random().nextInt(256), Random().nextInt(256), Random().nextInt(256), 1),
+                  color: Color.fromRGBO(Random().nextInt(256),
+                      Random().nextInt(256), Random().nextInt(256), 1),
                   child: Center(
                     child: Text(nimList[index]),
                   ),
@@ -430,7 +429,8 @@ class _Halaman4State extends State<Halaman4> {
               itemCount: phoneList.length,
               itemBuilder: (BuildContext context, int index) {
                 return Card(
-                  color: Color.fromRGBO(Random().nextInt(256), Random().nextInt(256), Random().nextInt(256), 1),
+                  color: Color.fromRGBO(Random().nextInt(256),
+                      Random().nextInt(256), Random().nextInt(256), 1),
                   child: Center(
                     child: Text(phoneList[index]),
                   ),

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 // import '1108780030/hal1108780030.dart';
 import '1108780030/login1108780030.dart';
 import 'data.dart' as data;
+import 'hal1101180517.dart';
 import 'hal1101190002.dart';
 import 'hal1101190196.dart';
 import 'hal1101193090.dart';
@@ -14,7 +15,7 @@ import 'hal1101194190.dart';
 import 'hal1101194298.dart';
 import 'hal1101194477.dart';
 import 'hal1101200196.dart';
-import 'hal1101200372.dart';
+import '1101200372/hal1101200372.dart';
 import 'hal1101201509.dart';
 import 'hal1101201512.dart';
 import 'hal1101202016.dart';
@@ -72,15 +73,15 @@ class _Hal1State extends State<Hal1> {
                     _message = result ?? '';
                   });
                 } else if (NIM[index] == 1101180517) {
-                  // final result = await Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //     builder: (context) => hal1101180517(),
-                  //   ),
-                  // );
-                  // setState(() {
-                  //   _message = result ?? '';
-                  // });
+                  final result = await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => hal1101180517(),
+                    ),
+                  );
+                  setState(() {
+                    _message = result ?? '';
+                  });
                 } else if (NIM[index] == 1101190002) {
                   final result = await Navigator.push(
                     context,
