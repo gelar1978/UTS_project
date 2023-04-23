@@ -1,12 +1,11 @@
-import 'dart:ffi';
+// ignore_for_file: non_constant_identifier_names, camel_case_types
+
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_application_1/hal1101204011.dart';
 
 class hal1101200372 extends StatefulWidget {
-  hal1101200372({super.key});
+  const hal1101200372({super.key});
 
   @override
   State<hal1101200372> createState() => _hal1101200372State();
@@ -27,7 +26,7 @@ class _hal1101200372State extends State<hal1101200372> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
+            SizedBox(
               height: MediaQuery.of(context).size.height * 0.05,
               width: MediaQuery.of(context).size.width * 1.0,
               // color: Colors.amber,
@@ -35,7 +34,7 @@ class _hal1101200372State extends State<hal1101200372> {
             Container(
               height: MediaQuery.of(context).size.height * 0.40,
               width: MediaQuery.of(context).size.width * 1.0,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: NetworkImage(
                       'https://anaktelkom.com/wp-content/uploads/2021/08/Logo-Telkom-University-900x1024.png'),
@@ -43,7 +42,7 @@ class _hal1101200372State extends State<hal1101200372> {
                 ),
               ),
             ),
-            Container(
+            SizedBox(
               height: MediaQuery.of(context).size.height * 0.10,
               width: MediaQuery.of(context).size.width * 1.0,
               // color: Colors.amber,
@@ -66,7 +65,7 @@ class _hal1101200372State extends State<hal1101200372> {
                                 color: isInputValid ? Colors.blue : Colors.red),
                           ),
                           hintText: 'Masukkan 7 digit pertama NIM'),
-                      style: TextStyle(fontSize: 20.0),
+                      style: const TextStyle(fontSize: 20.0),
                       onChanged: (value) {
                         if (inputnim_7.text.length == 7) {
                           isInputValid = true;
@@ -80,7 +79,7 @@ class _hal1101200372State extends State<hal1101200372> {
                 ],
               ),
             ),
-            Container(
+            SizedBox(
               height: MediaQuery.of(context).size.height * 0.10,
               width: MediaQuery.of(context).size.width * 1.0,
               // color: Colors.green,
@@ -142,7 +141,7 @@ class _hal1101200372State extends State<hal1101200372> {
               child: Center(
                 child: Text(
                   NIM_NOTEL,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
                       color: Colors.white),
@@ -180,16 +179,17 @@ class _SecondPageState extends State<SecondPage> {
     nim = widget.nim_7;
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Aldira Fadillah Lazuardi - Page 2'),
+        title: const Text('Aldira Fadillah Lazuardi - Page 2'),
         backgroundColor: Colors.redAccent,
       ),
       body: SingleChildScrollView(
           child: Column(
         children: [
-          Container(
+          SizedBox(
             height: MediaQuery.of(context).size.height * 0.08,
             width: MediaQuery.of(context).size.width * 1.0,
           ),
@@ -201,7 +201,7 @@ class _SecondPageState extends State<SecondPage> {
                 keyboardType: TextInputType.emailAddress,
                 controller: email,
                 decoration: InputDecoration(
-                    icon: Icon(Icons.mail),
+                    icon: const Icon(Icons.mail),
                     iconColor: isInputValidE ? Colors.blue : Colors.red,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.0),
@@ -211,7 +211,7 @@ class _SecondPageState extends State<SecondPage> {
                           color: isInputValidE ? Colors.blue : Colors.red),
                     ),
                     hintText: 'Masukkan email anda'),
-                style: TextStyle(fontSize: 20.0),
+                style: const TextStyle(fontSize: 20.0),
                 onChanged: (value) {
                   if (email.text.contains('@')) {
                     isInputValidE = true;
@@ -231,7 +231,7 @@ class _SecondPageState extends State<SecondPage> {
                 keyboardType: TextInputType.phone,
                 controller: notel,
                 decoration: InputDecoration(
-                    icon: Icon(Icons.phone),
+                    icon: const Icon(Icons.phone),
                     iconColor: isInputValidN ? Colors.blue : Colors.red,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.0),
@@ -241,7 +241,7 @@ class _SecondPageState extends State<SecondPage> {
                           color: isInputValidN ? Colors.blue : Colors.red),
                     ),
                     hintText: 'Masukkan nomor telepon'),
-                style: TextStyle(fontSize: 20.0),
+                style: const TextStyle(fontSize: 20.0),
                 onChanged: (value) {
                   if (notel.text.length == 11 || notel.text.length == 12) {
                     isInputValidN = true;
@@ -261,7 +261,7 @@ class _SecondPageState extends State<SecondPage> {
                 keyboardType: TextInputType.number,
                 controller: nim_8,
                 decoration: InputDecoration(
-                    icon: Icon(Icons.key),
+                    icon: const Icon(Icons.key),
                     iconColor: isInputValidn ? Colors.blue : Colors.red,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.0),
@@ -271,7 +271,7 @@ class _SecondPageState extends State<SecondPage> {
                           color: isInputValidn ? Colors.blue : Colors.red),
                     ),
                     hintText: 'Masukkan digit ke-8 NIM'),
-                style: TextStyle(fontSize: 20.0),
+                style: const TextStyle(fontSize: 20.0),
                 onChanged: (value) {
                   if (nim_8.text.length == 1) {
                     isInputValidn = true;
@@ -295,7 +295,7 @@ class _SecondPageState extends State<SecondPage> {
                         Colors.redAccent,
                       ),
                     ),
-                    child: Text('Previous Page'),
+                    child: const Text('Previous Page'),
                     onPressed: () {
                       Navigator.pop(
                         context,
@@ -304,7 +304,7 @@ class _SecondPageState extends State<SecondPage> {
                     },
                   ),
                 ),
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ElevatedButton(
@@ -313,7 +313,7 @@ class _SecondPageState extends State<SecondPage> {
                         isInputValidn ? Colors.blue : Colors.redAccent,
                       ),
                     ),
-                    child: Text('Next Page'),
+                    child: const Text('Next Page'),
                     onPressed: () async {
                       String digit8 = nim_8.text;
                       if (digit8 == "3") {
@@ -347,7 +347,7 @@ class _SecondPageState extends State<SecondPage> {
             child: Center(
               child: Text(
                 NIM_NOTEL,
-                style: TextStyle(
+                style: const TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
                     color: Colors.white),
@@ -365,7 +365,7 @@ class ThirdPage extends StatefulWidget {
   final String notelpush;
   final String nim8push;
 
-  ThirdPage(
+  const ThirdPage(
       {required this.emailpush,
       required this.notelpush,
       required this.nim8push});
@@ -384,7 +384,7 @@ class _ThirdPageState extends State<ThirdPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.redAccent,
-        title: Text('Aldira Fadillah Lazuardi - Page 3'),
+        title: const Text('Aldira Fadillah Lazuardi - Page 3'),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -392,7 +392,7 @@ class _ThirdPageState extends State<ThirdPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              CircleAvatar(
+              const CircleAvatar(
                 radius: 200,
                 backgroundImage: NetworkImage(
                   'https://raw.githubusercontent.com/ajur-ajur/Embed-Image/main/assets/1.png',
@@ -402,17 +402,19 @@ class _ThirdPageState extends State<ThirdPage> {
                 height: MediaQuery.of(context).size.height * 0.03,
               ),
               Text(
-                '${widget.emailpush}',
-                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.normal),
+                widget.emailpush,
+                style: const TextStyle(
+                    fontSize: 20.0, fontWeight: FontWeight.normal),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
               Text(
-                '${widget.notelpush}',
-                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.normal),
+                widget.notelpush,
+                style: const TextStyle(
+                    fontSize: 20.0, fontWeight: FontWeight.normal),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
               TextField(
                 controller: nimLAST,
                 keyboardType: TextInputType.number,
@@ -449,7 +451,7 @@ class _ThirdPageState extends State<ThirdPage> {
                             Navigator.pop(context, NIM_NOTEL);
                           }),
                     ),
-                    SizedBox(height: 16.0),
+                    const SizedBox(height: 16.0),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: ElevatedButton(
@@ -458,7 +460,7 @@ class _ThirdPageState extends State<ThirdPage> {
                             isInputValidnn ? Colors.blue : Colors.redAccent,
                           ),
                         ),
-                        child: Text('Next Page'),
+                        child: const Text('Next Page'),
                         onPressed: () async {
                           if (nimLAST.text == '72') {
                             final result = await Navigator.push(
@@ -491,7 +493,7 @@ class _ThirdPageState extends State<ThirdPage> {
                 child: Center(
                   child: Text(
                     NIM_NOTEL,
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
                         color: Colors.white),
@@ -511,8 +513,9 @@ class FourthPage extends StatefulWidget {
   final String NOTEL_INDEX;
   final String NIM_INDEX;
 
-  FourthPage(
-      {required this.EMAIL_INDEX,
+  const FourthPage(
+      {super.key,
+      required this.EMAIL_INDEX,
       required this.NOTEL_INDEX,
       required this.NIM_INDEX});
 
@@ -525,25 +528,26 @@ class _FourthPageState extends State<FourthPage> {
   Widget build(BuildContext context) {
     List<String> nimList = widget.NIM_INDEX.split('');
     List<String> phoneList = widget.NOTEL_INDEX.split('');
-    String NIM_NOTEL = widget.NIM_INDEX + " / " + widget.NOTEL_INDEX;
+    String NIM_NOTEL = "${widget.NIM_INDEX} / ${widget.NOTEL_INDEX}";
     return Scaffold(
       appBar: AppBar(
-        title: Text('Aldira Fadillah Lazuardi - Page 5'),
+        title: const Text('Aldira Fadillah Lazuardi - Page 5'),
         backgroundColor: Colors.redAccent,
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Text(
               '${widget.NIM_INDEX} / ${widget.NOTEL_INDEX}',
-              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+              style:
+                  const TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
             ),
             GridView.builder(
               shrinkWrap: true,
-              gridDelegate:
-                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 5),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 5),
               itemCount: nimList.length,
               itemBuilder: (BuildContext context, int index) {
                 return Card(
@@ -557,8 +561,8 @@ class _FourthPageState extends State<FourthPage> {
             ),
             GridView.builder(
               shrinkWrap: true,
-              gridDelegate:
-                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 5),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 5),
               itemCount: phoneList.length,
               itemBuilder: (BuildContext context, int index) {
                 return Card(
@@ -571,12 +575,12 @@ class _FourthPageState extends State<FourthPage> {
               },
             ),
             ElevatedButton(
-              child: Text('Previous Page'),
               style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(Colors.blue)),
               onPressed: () {
                 Navigator.pop(context, NIM_NOTEL);
               },
+              child: const Text('Previous Page'),
             ),
           ],
         ),
