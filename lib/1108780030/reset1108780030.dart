@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/1108780030/hal1108780030.dart';
+import 'package:flutter_application_1/1108780030/login1108780030.dart';
 
 // void main() => runApp(const MyApp());
 
 class reset1108780030 extends StatelessWidget {
   const reset1108780030({Key? key}) : super(key: key);
 
-  static const String _title = 'Sample App';
+  static const String _title = 'FORGOT PASSWORD';
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +31,7 @@ class MyStatefulWidget extends StatefulWidget {
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController passwordController2 = TextEditingController();
   String _message = '';
   @override
   Widget build(BuildContext context) {
@@ -65,7 +67,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(10),
                 child: const Text(
-                  'Reset Password',
+                  'Change Password',
                   style: TextStyle(fontSize: 20),
                 )),
             Container(
@@ -86,6 +88,17 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Password',
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+              child: TextField(
+                obscureText: true,
+                controller: passwordController2,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Confirmed Password',
                 ),
               ),
             ),
@@ -127,7 +140,13 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     style: TextStyle(fontSize: 20),
                   ),
                   onPressed: () {
-                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => hal1108780030new(),
+                      ),
+                    );
+                    // Navigator.pop(context);
                     //signin screen
                   },
                 )

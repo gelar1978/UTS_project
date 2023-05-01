@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/1108780030/hal1108780030.dart';
 import 'package:flutter_application_1/1108780030/reset1108780030.dart';
-
+import 'package:flutter_application_1/1108780030/signup1108780030.dart';
+import 'package:sign_button/sign_button.dart';
+// import 'package:flutter_signin_button/flutter_signin_button.dart';
+// import 'package:sign_button/sign_button.dart'
 // void main() => runApp(const MyApp());
 
 class hal1108780030new extends StatelessWidget {
@@ -40,19 +43,29 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           children: <Widget>[
             Container(
                 alignment: Alignment.center,
-                padding: const EdgeInsets.all(10),
+                padding: const EdgeInsets.all(1),
                 child: const Text(
                   'Gelar Budiman',
                   style: TextStyle(
+                      color: Colors.red,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 20),
+                )),
+            Container(
+                alignment: Alignment.center,
+                padding: const EdgeInsets.all(1),
+                child: const Text(
+                  '1108780030',
+                  style: TextStyle(
                       color: Colors.blue,
                       fontWeight: FontWeight.w500,
-                      fontSize: 30),
+                      fontSize: 20),
                 )),
             CircleAvatar(
-              radius: 80,
+              radius: 60,
               child: Container(
-                height: 170,
-                width: 170,
+                height: 120,
+                width: 120,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage("lib/images/glb.jpg"),
@@ -125,6 +138,23 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   //   print(passwordController.text);
                   // },
                 )),
+            // SignInButton(
+            //   btnText: 'Login',
+            //   buttonSize: ButtonSize.small,
+            //   onPressed: () {},
+            //   buttonType: ButtonType.microsoft,
+            // ),
+            SignInButton(
+              buttonSize: ButtonSize.small,
+              onPressed: () {},
+              buttonType: ButtonType.google,
+            ),
+            SignInButton(
+              // shape: ,
+              buttonSize: ButtonSize.small,
+              onPressed: () {},
+              buttonType: ButtonType.facebook,
+            ),
             Row(
               children: <Widget>[
                 const Text('Does not have account?'),
@@ -134,6 +164,12 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     style: TextStyle(fontSize: 20),
                   ),
                   onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SignUpScreen(),
+                      ),
+                    );
                     //signup screen
                   },
                 )

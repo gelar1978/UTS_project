@@ -48,6 +48,10 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_local_notifications: ^14.0.0+1
   timezone: ^0.9.2
+  flutter_signin_button: ^2.0.0
+  sign_button: ^2.0.3
+  flutter_svg: ^1.1.6
+  alert_dialog: ^1.0.1
 
 dev_dependencies:
   flutter_test:
@@ -88,6 +92,9 @@ flutter:
     - lib/images/arya.jpg
     - lib/images/hilmy.jpeg
     - lib/images/Abbey.jpg
+    - assets/google_logo.svg
+    - assets/facebook_logo.svg
+    
     # - lib/images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

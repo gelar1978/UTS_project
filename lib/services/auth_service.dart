@@ -104,7 +104,7 @@ class AuthService {
 
         UserCredential userCredential =
             await _auth.signInWithCredential(authCredential);
-
+        print("Success");
         await FirestoreService.addUserDataToFirestore(userCredential.user);
       }
     } on FirebaseAuthException catch (e) {
@@ -141,6 +141,7 @@ class AuthService {
             });
       }
     } catch (e) {
+      print("Not success");
       print(e.toString());
     }
   }
