@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/1108780030/hal1108780030.dart';
-import 'package:flutter_application_1/1108780030/reset1108780030.dart';
 
 // void main() => runApp(const MyApp());
 
-class hal1108780030new extends StatelessWidget {
-  const hal1108780030new({Key? key}) : super(key: key);
+class reset1108780030 extends StatelessWidget {
+  const reset1108780030({Key? key}) : super(key: key);
 
-  static const String _title = 'LOGIN PAGE';
+  static const String _title = 'Sample App';
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +65,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(10),
                 child: const Text(
-                  'Sign in',
+                  'Reset Password',
                   style: TextStyle(fontSize: 20),
                 )),
             Container(
@@ -90,35 +89,29 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 ),
               ),
             ),
-            TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => reset1108780030(),
-                  ),
-                );
-                //forgot password screen
-              },
-              child: const Text(
-                'Forgot Password',
-              ),
-            ),
+            // TextButton(
+            //   onPressed: () {
+            //     //forgot password screen
+            //   },
+            //   child: const Text(
+            //     'Forgot Password',
+            //   ),
+            // ),
             Container(
                 height: 50,
                 padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                 child: ElevatedButton(
-                  child: const Text('Login'),
+                  child: const Text('Change'),
                   onPressed: () async {
-                    final result = await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => hal1108780030old(),
-                      ),
-                    );
-                    setState(() {
-                      _message = result ?? '';
-                    });
+                    // final result = await Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => hal1108780030old(),
+                    //   ),
+                    // );
+                    // setState(() {
+                    //   _message = result ?? '';
+                    // });
                   },
                   // onPressed: () {
                   //   print(nameController.text);
@@ -130,11 +123,12 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 const Text('Does not have account?'),
                 TextButton(
                   child: const Text(
-                    'Sign Up',
+                    'Sign in',
                     style: TextStyle(fontSize: 20),
                   ),
                   onPressed: () {
-                    //signup screen
+                    Navigator.pop(context);
+                    //signin screen
                   },
                 )
               ],

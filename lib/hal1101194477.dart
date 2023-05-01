@@ -7,7 +7,7 @@ class hal1101194477 extends StatefulWidget {
   hal1101194477({super.key});
 
   @override
-  State<hal1101200196> createState() => _hal1101194477State();
+  State<hal1101194477> createState() => _hal1101194477State();
 }
 
 class _hal1101194477State extends State<hal1101194477> {
