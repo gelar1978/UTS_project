@@ -53,11 +53,13 @@ class AuthService {
 
         UserCredential userCredential =
             await _auth.signInWithCredential(authCredential);
+        print('success');
 
         await FirestoreService.addUserDataToFirestore(userCredential.user);
       }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'account-exists-with-different-credential') {
+        print("account-exists-with-different-credential");
         showDialog(
             context: context,
             builder: (BuildContext context) {
@@ -90,6 +92,7 @@ class AuthService {
             });
       }
     } catch (e) {
+      print('not success');
       print(e.toString());
     }
   }
@@ -109,6 +112,7 @@ class AuthService {
       }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'account-exists-with-different-credential') {
+        print("account-exists-with-different-credential");
         showDialog(
             context: context,
             builder: (BuildContext context) {
