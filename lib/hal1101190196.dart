@@ -290,7 +290,7 @@ class ThirdPage extends StatelessWidget {
                         child: Text('Next Page'),
                         onPressed: () {
                           String digit = digitNIM.text;
-                          if (digit == '90') {
+                          if (digit == '96') {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
