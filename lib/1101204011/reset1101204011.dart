@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/1108780030/hal1108780030.dart';
-import 'package:flutter_application_1/1108780030/login1108780030.dart';
+import 'package:flutter_application_1/1101204011/hal1101204011.dart';
+import 'package:flutter_application_1/1101204011/login1101204011.dart';
 
 // void main() => runApp(const MyApp());
 
-class reset1108780030 extends StatelessWidget {
-  const reset1108780030({Key? key}) : super(key: key);
+class reset1101204011 extends StatelessWidget {
+  const reset1101204011({Key? key}) : super(key: key);
 
   static const String _title = 'FORGOT PASSWORD';
 
@@ -41,19 +41,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           children: <Widget>[
             Container(
                 alignment: Alignment.center,
-                padding: const EdgeInsets.all(1),
+                padding: const EdgeInsets.all(10),
                 child: const Text(
-                  'Gelar Budiman',
-                  style: TextStyle(
-                      color: Colors.blue,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 30),
-                )),
-            Container(
-                alignment: Alignment.center,
-                padding: const EdgeInsets.all(1),
-                child: const Text(
-                  '1108780030',
+                  'Fajar Adhitia Pratama',
                   style: TextStyle(
                       color: Colors.blue,
                       fontWeight: FontWeight.w500,
@@ -66,7 +56,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 width: 170,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("lib/images/glb.jpg"),
+                    image: AssetImage("lib/images/fajar.png"),
                     fit: BoxFit.fitWidth,
                   ),
                   shape: BoxShape.circle,
@@ -153,7 +143,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => hal1101194080new(),
+                        builder: (context) => hal1101204011new(),
                       ),
                     );
                     // Navigator.pop(context);

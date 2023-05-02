@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/1101194080/reset1101194080.dart';
-import 'package:flutter_application_1/1108780030/hal1108780030.dart';
-import 'package:flutter_application_1/1108780030/reset1108780030.dart';
-import 'package:flutter_application_1/1108780030/signup1108780030.dart';
+import 'package:flutter_application_1/1101194080/hal1101194080.dart';
+import 'package:flutter_application_1/1101194080/reset1101194080.dart';
+import 'package:flutter_application_1/1101194080/signup1101194080.dart';
 import 'package:sign_button/sign_button.dart';
 // import 'package:flutter_signin_button/flutter_signin_button.dart';
 // import 'package:sign_button/sign_button.dart'

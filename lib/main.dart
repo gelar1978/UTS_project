@@ -11,22 +11,26 @@ import 'hal1101190196.dart';
 import 'hal1101193090.dart';
 import 'hal1101193387.dart';
 import '1101194080/hal1101194080.dart';
+<<<<<<< HEAD
 import 'hal1101194190.dart';
+=======
+import '1101194190/hal1101194190.dart';
+>>>>>>> d8d2856fb1bb7763f7ca123f91a1cb8133147f51
 import 'hal1101194298.dart';
 import 'hal1101194477.dart';
 import 'hal1101200196.dart';
 import '1101200372/hal1101200372.dart';
 import 'hal1101201509.dart';
-import 'hal1101201512.dart';
-import 'hal1101202016.dart';
+import '1101201512/hal1101201512.dart';
+import '1101202016/hal1101202016.dart';
 import 'hal1101202469.dart';
 import 'hal1101202505.dart';
 import 'hal1101202549.dart';
-import 'hal1101204011.dart';
+import '1101204011/login1101204011.dart';
 import 'hal1101204104.dart';
-import 'hal1101204132.dart';
-import 'hal1101204173.dart';
-import 'hal1101204197.dart';
+import '1101204132/hal1101204132.dart';
+import '1101204173/hal1101204173.dart';
+import '1101204197/hal1101204197.dart';
 import 'hal1101204257.dart';
 import 'hal1101204403.dart';
 // import '1108780030/hal1108780030.dart';
@@ -226,7 +230,7 @@ class _Hal1State extends State<Hal1> {
                   final result = await Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => hal1101204011(),
+                      builder: (context) => hal1101204011new(),
                     ),
                   );
                   setState(() {
