@@ -17,12 +17,12 @@ import 'hal1101194477.dart';
 import 'hal1101200196.dart';
 import '1101200372/hal1101200372.dart';
 import 'hal1101201509.dart';
-import 'hal1101201512.dart';
+import '1101201512/hal1101201512.dart';
 import '1101202016/hal1101202016.dart';
 import 'hal1101202469.dart';
 import 'hal1101202505.dart';
 import 'hal1101202549.dart';
-import '1101204011/hal1101204011.dart';
+import '1101204011/login1101204011.dart';
 import 'hal1101204104.dart';
 import '1101204132/hal1101204132.dart';
 import 'hal1101204173.dart';
@@ -226,7 +226,7 @@ class _Hal1State extends State<Hal1> {
                   final result = await Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => hal1101204011(),
+                      builder: (context) => hal1101204011new(),
                     ),
                   );
                   setState(() {
