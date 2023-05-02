@@ -16,14 +16,14 @@ import 'package:get/get.dart';
 // import 'package:terature/services/auth_service.dart';
 // import 'package:terature/services/firestore_service.dart';
 
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({Key? key}) : super(key: key);
+class SignUpScreen1108780030 extends StatefulWidget {
+  const SignUpScreen1108780030({Key? key}) : super(key: key);
 
   @override
-  _SignUpScreenState createState() => _SignUpScreenState();
+  _SignUpScreen1108780030State createState() => _SignUpScreen1108780030State();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
+class _SignUpScreen1108780030State extends State<SignUpScreen1108780030> {
   // final themeController = Get.find<AppTheme>();
   final themeController = Get.put(AppTheme());
 

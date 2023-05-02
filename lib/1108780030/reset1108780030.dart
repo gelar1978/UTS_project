@@ -41,9 +41,19 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           children: <Widget>[
             Container(
                 alignment: Alignment.center,
-                padding: const EdgeInsets.all(10),
+                padding: const EdgeInsets.all(1),
                 child: const Text(
                   'Gelar Budiman',
+                  style: TextStyle(
+                      color: Colors.blue,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 30),
+                )),
+            Container(
+                alignment: Alignment.center,
+                padding: const EdgeInsets.all(1),
+                child: const Text(
+                  '1108780030',
                   style: TextStyle(
                       color: Colors.blue,
                       fontWeight: FontWeight.w500,
