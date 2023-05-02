@@ -15,7 +15,7 @@ import '1101194080/hal1101194080.dart';
 import 'hal1101194190.dart';
 =======
 import '1101194190/hal1101194190.dart';
->>>>>>> d8d2856fb1bb7763f7ca123f91a1cb8133147f51
+import '1101194080/hal1101194080.dart';
 import 'hal1101194298.dart';
 import 'hal1101194477.dart';
 import 'hal1101200196.dart';
