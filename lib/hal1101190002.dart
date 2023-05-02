@@ -67,7 +67,7 @@ class _hal1101190002State extends State<hal1101190002> {
                               child: Text('Next Page'),
                               onPressed: () async {
                                 if (_textEditingController.text ==
-                                    1101200.toString()) {
+                                    1101900.toString()) {
                                   final result = await Navigator.push(
                                     context,
                                     MaterialPageRoute(
@@ -345,7 +345,7 @@ class _hal1101190002_3State extends State<hal1101190002_3> {
                               child: Text('Next Page'),
                               onPressed: () async {
                                 if (_textEditingController3.text ==
-                                    96.toString()) {
+                                    02.toString()) {
                                   String NIM10 = '${widget.pesan1}' +
                                       _textEditingController3.text;
                                   String TLP = '${widget.pesan3}';
