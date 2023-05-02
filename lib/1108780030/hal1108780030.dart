@@ -12,15 +12,15 @@ import 'package:flutter/material.dart';
 // import 'components/center_widget/center_widget.dart';
 // import 'components/login_content.dart';
 
-class hal1108780030old extends StatefulWidget {
+class hal1101194080old extends StatefulWidget {
   // final String message;
-  hal1108780030old({super.key});
+  hal1101194080old({super.key});
 
   @override
-  State<hal1108780030old> createState() => _hal1108780030oldState();
+  State<hal1101194080old> createState() => _hal1101194080oldState();
 }
 
-class _hal1108780030oldState extends State<hal1108780030old> {
+class _hal1101194080oldState extends State<hal1101194080old> {
   final TextEditingController _textEditingController = TextEditingController();
   String _message = '';
   @override

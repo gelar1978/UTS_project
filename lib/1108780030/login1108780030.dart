@@ -7,8 +7,8 @@ import 'package:sign_button/sign_button.dart';
 // import 'package:sign_button/sign_button.dart'
 // void main() => runApp(const MyApp());
 
-class hal1108780030new extends StatelessWidget {
-  const hal1108780030new({Key? key}) : super(key: key);
+class hal1101194080new extends StatelessWidget {
+  const hal1101194080new({Key? key}) : super(key: key);
 
   static const String _title = 'LOGIN PAGE';
 
@@ -126,7 +126,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     final result = await Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => hal1108780030old(),
+                        builder: (context) => hal1101194080old(),
                       ),
                     );
                     setState(() {

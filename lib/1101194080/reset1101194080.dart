@@ -4,8 +4,8 @@ import 'package:flutter_application_1/1108780030/login1108780030.dart';
 
 // void main() => runApp(const MyApp());
 
-class reset1108780030 extends StatelessWidget {
-  const reset1108780030({Key? key}) : super(key: key);
+class reset1101194080 extends StatelessWidget {
+  const reset1101194080({Key? key}) : super(key: key);
 
   static const String _title = 'FORGOT PASSWORD';
 
@@ -43,7 +43,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(10),
                 child: const Text(
-                  'Gelar Budiman',
+                  'Dhean Ardani R',
                   style: TextStyle(
                       color: Colors.blue,
                       fontWeight: FontWeight.w500,
@@ -56,7 +56,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 width: 170,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("lib/images/glb.jpg"),
+                    image: AssetImage("lib/images/dhean.png"),
                     fit: BoxFit.fitWidth,
                   ),
                   shape: BoxShape.circle,
@@ -119,7 +119,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     // final result = await Navigator.push(
                     //   context,
                     //   MaterialPageRoute(
-                    //     builder: (context) => hal1108780030old(),
+                    //     builder: (context) => hal1101194080old(),
                     //   ),
                     // );
                     // setState(() {
