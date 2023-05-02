@@ -24,7 +24,7 @@ import 'hal1101202505.dart';
 import 'hal1101202549.dart';
 import 'hal1101204011.dart';
 import 'hal1101204104.dart';
-import 'hal1101204132.dart';
+import '1101204132/hal1101204132.dart';
 import 'hal1101204173.dart';
 import 'hal1101204197.dart';
 import 'hal1101204257.dart';
