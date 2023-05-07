@@ -2,15 +2,15 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-class hal1101204403 extends StatefulWidget {
+class hal1101204403old extends StatefulWidget {
   // final String message;
-  hal1101204403({super.key});
+  hal1101204403old({super.key});
 
   @override
-  State<hal1101204403> createState() => _hal1101204403State();
+  State<hal1101204403old> createState() => _hal1101204403oldState();
 }
 
-class _hal1101204403State extends State<hal1101204403> {
+class _hal1101204403oldState extends State<hal1101204403old> {
   final TextEditingController _textEditingController = TextEditingController();
   String _message = '';
   @override
@@ -71,7 +71,7 @@ class _hal1101204403State extends State<hal1101204403> {
                                   final result = await Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => hal1101204403_2(
+                                      builder: (context) => hal1101204403old_2(
                                           pesan1: _textEditingController.text),
                                     ),
                                   );
@@ -117,15 +117,15 @@ class _hal1101204403State extends State<hal1101204403> {
   }
 }
 
-class hal1101204403_2 extends StatefulWidget {
-  // hal1101204403_2({super.key,required this.pesan1});
+class hal1101204403old_2 extends StatefulWidget {
+  // hal1101204403old_2({super.key,required this.pesan1});
   String pesan1 = '';
-  hal1101204403_2({super.key, required this.pesan1});
+  hal1101204403old_2({super.key, required this.pesan1});
   @override
-  _hal1101204403_2State createState() => _hal1101204403_2State();
+  _hal1101204403old_2State createState() => _hal1101204403old_2State();
 }
 
-class _hal1101204403_2State extends State<hal1101204403_2> {
+class _hal1101204403old_2State extends State<hal1101204403old_2> {
   String NIM7 = '';
   TextEditingController _textEditingController0 = TextEditingController();
   TextEditingController _textEditingController1 = TextEditingController();
@@ -208,7 +208,7 @@ class _hal1101204403_2State extends State<hal1101204403_2> {
                                   final result = await Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => hal1101204403_3(
+                                      builder: (context) => hal1101204403old_3(
                                         pesan1: NIM7,
                                         pesan2: _textEditingController0.text,
                                         pesan3: _textEditingController1.text,
@@ -258,20 +258,20 @@ class _hal1101204403_2State extends State<hal1101204403_2> {
   }
 }
 
-class hal1101204403_3 extends StatefulWidget {
+class hal1101204403old_3 extends StatefulWidget {
   String pesan1 = '';
   String pesan2 = '';
   String pesan3 = '';
-  hal1101204403_3(
+  hal1101204403old_3(
       {super.key,
       required this.pesan1,
       required this.pesan2,
       required this.pesan3});
   @override
-  _hal1101204403_3State createState() => _hal1101204403_3State();
+  _hal1101204403old_3State createState() => _hal1101204403old_3State();
 }
 
-class _hal1101204403_3State extends State<hal1101204403_3> {
+class _hal1101204403old_3State extends State<hal1101204403old_3> {
   String NIM10 = '';
   String TLP = '';
   TextEditingController _textEditingController3 = TextEditingController();
@@ -351,7 +351,7 @@ class _hal1101204403_3State extends State<hal1101204403_3> {
                                   final result = await Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => hal1101204403_4(
+                                      builder: (context) => hal1101204403old_4(
                                         pesan1: NIM10,
                                         pesan2: TLP,
                                         pesan3: _textEditingController3.text,
@@ -400,21 +400,21 @@ class _hal1101204403_3State extends State<hal1101204403_3> {
   }
 }
 
-class hal1101204403_4 extends StatefulWidget {
-  // hal1101204403_2({super.key,required this.pesan1});
+class hal1101204403old_4 extends StatefulWidget {
+  // hal1101204403old_2({super.key,required this.pesan1});
   String pesan1 = '';
   String pesan2 = '';
   String pesan3 = '';
-  hal1101204403_4(
+  hal1101204403old_4(
       {super.key,
       required this.pesan1,
       required this.pesan2,
       required this.pesan3});
   @override
-  _hal1101204403_4State createState() => _hal1101204403_4State();
+  _hal1101204403old_4State createState() => _hal1101204403old_4State();
 }
 
-class _hal1101204403_4State extends State<hal1101204403_4> {
+class _hal1101204403old_4State extends State<hal1101204403old_4> {
   //
   @override
   Widget build(BuildContext context) {
