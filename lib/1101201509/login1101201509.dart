@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/1101201509/hal1101201509.dart';
+import 'package:flutter_application_1/1101201509/reset1101201509.dart';
 import 'package:flutter_application_1/1101201509/signup1101201509.dart';
-import 'reset1101201509.dart';
+import 'package:flutter_application_1/1101202505/hal1101202505.dart';
+import 'package:sign_button/sign_button.dart';
 
 class hal1101201509new extends StatelessWidget {
   const hal1101201509new({Key? key}) : super(key: key);
@@ -29,6 +32,7 @@ class MyStatefulWidget extends StatefulWidget {
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  String _message = '';
 
   @override
   Widget build(BuildContext context) {
@@ -38,23 +42,23 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           children: <Widget>[
             Container(
                 alignment: Alignment.center,
-                padding: const EdgeInsets.all(10),
+                padding: const EdgeInsets.all(1),
                 child: const Text(
                   'Aldra Kasyfil Aziz',
                   style: TextStyle(
                       color: Colors.deepOrange,
                       fontWeight: FontWeight.w500,
-                      fontSize: 30),
+                      fontSize: 20),
                 )),
             Container(
                 alignment: Alignment.center,
-                padding: const EdgeInsets.all(10),
+                padding: const EdgeInsets.all(1),
                 child: const Text(
                   '1101201509',
                   style: TextStyle(
                       color: Colors.blue,
                       fontWeight: FontWeight.w500,
-                      fontSize: 30),
+                      fontSize: 20),
                 )),
             CircleAvatar(
               backgroundImage: AssetImage('lib/images/aldra.jpg'),
@@ -106,9 +110,16 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                 child: ElevatedButton(
                   child: const Text('Login'),
-                  onPressed: () {
-                    print(nameController.text);
-                    print(passwordController.text);
+                  onPressed: () async {
+                    final result = await Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => hal1101202505old(),
+                      ),
+                    );
+                    setState(() {
+                      _message = result ?? '';
+                    });
                   },
                 )),
             SignInButton(
