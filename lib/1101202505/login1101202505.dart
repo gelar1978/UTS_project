@@ -45,7 +45,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(1),
                 child: const Text(
-                  'Gelar Budiman',
+                  'Rabby Fitriana',
                   style: TextStyle(
                       color: Colors.red,
                       fontWeight: FontWeight.w500,
@@ -68,7 +68,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 width: 120,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("lib/images/glb.jpg"),
+                    image: AssetImage("lib/images/rabby.jpg"),
                     fit: BoxFit.fitWidth,
                   ),
                   shape: BoxShape.circle,
