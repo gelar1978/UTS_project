@@ -4,14 +4,14 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-class hal1101200372 extends StatefulWidget {
-  const hal1101200372({super.key});
+class hal1101200372old extends StatefulWidget {
+  const hal1101200372old({super.key});
 
   @override
-  State<hal1101200372> createState() => _hal1101200372State();
+  State<hal1101200372old> createState() => _hal1101200372oldState();
 }
 
-class _hal1101200372State extends State<hal1101200372> {
+class _hal1101200372oldState extends State<hal1101200372old> {
   String NIM_NOTEL = '';
   bool isInputValid = false;
   TextEditingController inputnim_7 = TextEditingController();
@@ -388,14 +388,24 @@ class _ThirdPageState extends State<ThirdPage> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const CircleAvatar(
-                radius: 200,
-                backgroundImage: NetworkImage(
-                  'https://raw.githubusercontent.com/ajur-ajur/Embed-Image/main/assets/1.png',
+              Container(
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(
+                    color: Colors.redAccent,
+                    width: 2,
+                  ),
+                ),
+                child: const FittedBox(
+                  fit: BoxFit.contain,
+                  child: CircleAvatar(
+                    radius: 10,
+                    backgroundImage: AssetImage('lib/images/aldira.png'),
+                  ),
                 ),
               ),
               Container(
@@ -534,55 +544,58 @@ class _FourthPageState extends State<FourthPage> {
         title: const Text('Aldira Fadillah Lazuardi - Page 5'),
         backgroundColor: Colors.redAccent,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Text(
-              '${widget.NIM_INDEX} / ${widget.NOTEL_INDEX}',
-              style:
-                  const TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
-            ),
-            GridView.builder(
-              shrinkWrap: true,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 5),
-              itemCount: nimList.length,
-              itemBuilder: (BuildContext context, int index) {
-                return Card(
-                  color: Color.fromRGBO(Random().nextInt(256),
-                      Random().nextInt(256), Random().nextInt(256), 1),
-                  child: Center(
-                    child: Text(nimList[index]),
-                  ),
-                );
-              },
-            ),
-            GridView.builder(
-              shrinkWrap: true,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 5),
-              itemCount: phoneList.length,
-              itemBuilder: (BuildContext context, int index) {
-                return Card(
-                  color: Color.fromRGBO(Random().nextInt(256),
-                      Random().nextInt(256), Random().nextInt(256), 1),
-                  child: Center(
-                    child: Text(phoneList[index]),
-                  ),
-                );
-              },
-            ),
-            ElevatedButton(
-              style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.blue)),
-              onPressed: () {
-                Navigator.pop(context, NIM_NOTEL);
-              },
-              child: const Text('Previous Page'),
-            ),
-          ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Text(
+                '${widget.NIM_INDEX} / ${widget.NOTEL_INDEX}',
+                style: const TextStyle(
+                    fontSize: 18.0, fontWeight: FontWeight.bold),
+              ),
+              GridView.builder(
+                shrinkWrap: true,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 5),
+                itemCount: nimList.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return Card(
+                    color: Color.fromRGBO(Random().nextInt(256),
+                        Random().nextInt(256), Random().nextInt(256), 1),
+                    child: Center(
+                      child: Text(nimList[index]),
+                    ),
+                  );
+                },
+              ),
+              GridView.builder(
+                shrinkWrap: true,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 5),
+                itemCount: phoneList.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return Card(
+                    color: Color.fromRGBO(Random().nextInt(256),
+                        Random().nextInt(256), Random().nextInt(256), 1),
+                    child: Center(
+                      child: Text(phoneList[index]),
+                    ),
+                  );
+                },
+              ),
+              ElevatedButton(
+                style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all(Colors.redAccent)),
+                onPressed: () {
+                  Navigator.pop(context, NIM_NOTEL);
+                },
+                child: const Text('Previous Page'),
+              ),
+            ],
+          ),
         ),
       ),
     );

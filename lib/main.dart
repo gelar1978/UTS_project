@@ -18,7 +18,7 @@ import '1101194080/hal1101194080.dart';
 import 'hal1101194298.dart';
 import 'hal1101194477.dart';
 import 'hal1101200196.dart';
-import '1101200372/hal1101200372.dart';
+import '1101200372/login1101200372.dart';
 import 'hal1101201509.dart';
 import '1101201512/hal1101201512.dart';
 import '1101202016/hal1101202016.dart';
@@ -179,7 +179,7 @@ class _Hal1State extends State<Hal1> {
                   final result = await Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => hal1101200372(),
+                      builder: (context) => hal1101200372new(),
                     ),
                   );
                   setState(() {
