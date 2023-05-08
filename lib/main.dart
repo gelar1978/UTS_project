@@ -22,7 +22,7 @@ import '1101200372/hal1101200372.dart';
 import 'hal1101201509.dart';
 import '1101201512/hal1101201512.dart';
 import '1101202016/hal1101202016.dart';
-import 'hal1101202469.dart';
+import '1101202469/hal1101202469.dart';
 import 'hal1101202505.dart';
 import 'hal1101202549.dart';
 import '1101204011/login1101204011.dart';
