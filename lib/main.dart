@@ -259,7 +259,7 @@ class _Hal1State extends State<Hal1> {
                   final result = await Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => hal1101204132(),
+                      builder: (context) => hal1101204132old(),
                     ),
                   );
                   setState(() {
