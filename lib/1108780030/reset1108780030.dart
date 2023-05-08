@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/1108780030/hal1108780030.dart';
 import 'package:flutter_application_1/1108780030/login1108780030.dart';
+import 'package:flutter_application_1/services/auth_service.dart';
 
 // void main() => runApp(const MyApp());
 
@@ -12,6 +13,7 @@ class reset1108780030 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: _title,
       home: Scaffold(
         appBar: AppBar(title: const Text(_title)),
@@ -86,7 +88,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 controller: nameController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'User Name',
+                  labelText: 'Email',
                 ),
               ),
             ),
@@ -126,6 +128,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 child: ElevatedButton(
                   child: const Text('Change'),
                   onPressed: () async {
+                    AuthService.resetPassword(nameController.text);
+                    Navigator.pop(context);
                     // final result = await Navigator.push(
                     //   context,
                     //   MaterialPageRoute(

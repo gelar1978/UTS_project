@@ -52,6 +52,9 @@ dependencies:
   sign_button: ^2.0.3
   flutter_svg: ^1.1.6
   alert_dialog: ^1.0.1
+  image_picker: ^0.8.7+4
+  gallery_saver: ^2.3.2
+  firebase_analytics: ^10.3.0
 
 dev_dependencies:
   flutter_test:

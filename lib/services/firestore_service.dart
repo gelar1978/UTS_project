@@ -14,7 +14,8 @@ import 'notification.dart';
 // import 'package:terature/model/user.dart';
 // import 'package:terature/services/notification.dart';
 
-final userController = Get.find<UserController>();
+// final userController = Get.find<UserController>();
+final userController = Get.put(UserController());
 
 class FirestoreService {
   static void addTask(User? user, Task task) {
