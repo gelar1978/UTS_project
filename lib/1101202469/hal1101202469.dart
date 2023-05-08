@@ -3,14 +3,14 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class hal1101202469 extends StatefulWidget {
-  hal1101202469({super.key});
+class hal1101202469old extends StatefulWidget {
+  hal1101202469old({super.key});
 
   @override
-  State<hal1101202469> createState() => _hal1101202469State();
+  State<hal1101202469old> createState() => _hal1101202469oldState();
 }
 
-class _hal1101202469State extends State<hal1101202469> {
+class _hal1101202469oldState extends State<hal1101202469old> {
   final TextEditingController _textEditingController = TextEditingController();
   String _massage = '';
   @override
