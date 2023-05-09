@@ -66,7 +66,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 width: 170,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: NetworkImage('https://cdndata.telkomuniversity.ac.id/pmb/2021/PAS_FOTO/11481182620_PAS_FOTO_1.jpg'),
+                    image: AssetImage("lib/images/Sabila.jpg"),
                     fit: BoxFit.fitWidth,
                   ),
                   shape: BoxShape.circle,
