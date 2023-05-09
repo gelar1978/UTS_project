@@ -9,7 +9,7 @@ import 'package:sign_button/sign_button.dart';
 // import 'package:sign_button/sign_button.dart'
 // void main() => runApp(const MyApp());
 
-class hal11011901960new extends StatelessWidget {
+class hal1101190196new extends StatelessWidget {
   const hal1101190196new({Key? key}) : super(key: key);
 
   static const String _title = 'LOGIN PAGE';
