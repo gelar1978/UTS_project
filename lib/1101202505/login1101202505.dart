@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/1101202505/hal1101202505.dart';
 import 'package:flutter_application_1/1101202505/reset1101202505.dart';
 import 'package:flutter_application_1/1101202505/signup1101202505.dart';
+import 'package:flutter_application_1/services/auth_service.dart';
+import 'package:get/route_manager.dart';
 import 'package:sign_button/sign_button.dart';
 // import 'package:flutter_signin_button/flutter_signin_button.dart';
 // import 'package:sign_button/sign_button.dart'
@@ -15,9 +17,25 @@ class hal1101202505new extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: _title,
       home: Scaffold(
-        appBar: AppBar(title: const Text(_title)),
+        appBar: AppBar(
+          title: const Text(_title),
+          actions: <Widget>[
+            IconButton(
+              icon: const Icon(
+                Icons.arrow_back,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                // _showAlertDialog(context);
+                // Get.back();
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
         body: const MyStatefulWidget(),
       ),
     );
@@ -123,6 +141,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 child: ElevatedButton(
                   child: const Text('Login'),
                   onPressed: () async {
+                    AuthService.signIn(
+                        nameController.text, passwordController.text);
                     final result = await Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -146,15 +166,27 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             // ),
             SignInButton(
               buttonSize: ButtonSize.small,
-              onPressed: () {},
+              onPressed: () async {
+                await AuthService.googleSignIn(context);
+                // Navigator.pop(context);
+                final result = await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => hal1101202505old(),
+                  ),
+                );
+                setState(() {
+                  _message = result ?? '';
+                });
+              },
               buttonType: ButtonType.google,
             ),
-            SignInButton(
-              // shape: ,
-              buttonSize: ButtonSize.small,
-              onPressed: () {},
-              buttonType: ButtonType.facebook,
-            ),
+            // SignInButton(
+            //   // shape: ,
+            //   buttonSize: ButtonSize.small,
+            //   onPressed: () {},
+            //   buttonType: ButtonType.facebook,
+            // ),
             Row(
               children: <Widget>[
                 const Text('Does not have account?'),
