@@ -63,7 +63,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(1),
                 child: const Text(
-                  'Gelar Budiman',
+                  'Rifqi Fadhilah Firdaus',
                   style: TextStyle(
                       color: Colors.red,
                       fontWeight: FontWeight.w500,
