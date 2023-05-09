@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/1101201509/hal1101201509.dart';
-import 'package:flutter_application_1/1101201509/reset1101201509.dart';
-import 'package:flutter_application_1/1101201509/signup1101201509.dart';
-import 'package:flutter_application_1/1101202505/hal1101202505.dart';
+import 'package:flutter_application_1/1101190196/hal1101190196.dart';
+import 'package:flutter_application_1/1101190196/reset1101190196.dart';
+import 'package:flutter_application_1/1101190196/signup1101190196.dart';
 import 'package:flutter_application_1/services/auth_service.dart';
 import 'package:get/route_manager.dart';
 import 'package:sign_button/sign_button.dart';
+// import 'package:flutter_signin_button/flutter_signin_button.dart';
+// import 'package:sign_button/sign_button.dart'
+// void main() => runApp(const MyApp());
 
-class hal1101201509new extends StatelessWidget {
-  const hal1101201509new({Key? key}) : super(key: key);
+class hal11011901960new extends StatelessWidget {
+  const hal1101190196new({Key? key}) : super(key: key);
 
-  static const String _title = 'Login Page';
+  static const String _title = 'LOGIN PAGE';
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: _title,
       home: Scaffold(
         appBar: AppBar(
@@ -50,7 +53,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   String _message = '';
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -61,9 +63,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(1),
                 child: const Text(
-                  'Aldra Kasyfil Aziz',
+                  'Gelar Budiman',
                   style: TextStyle(
-                      color: Colors.deepOrange,
+                      color: Colors.red,
                       fontWeight: FontWeight.w500,
                       fontSize: 20),
                 )),
@@ -71,15 +73,25 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(1),
                 child: const Text(
-                  '1101201509',
+                  '1101190196',
                   style: TextStyle(
                       color: Colors.blue,
                       fontWeight: FontWeight.w500,
                       fontSize: 20),
                 )),
             CircleAvatar(
-              backgroundImage: AssetImage('lib/images/aldra.jpg'),
               radius: 60,
+              child: Container(
+                height: 120,
+                width: 120,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage("lib/images/glb.jpg"),
+                    fit: BoxFit.fitWidth,
+                  ),
+                  shape: BoxShape.circle,
+                ),
+              ),
             ),
             Container(
                 alignment: Alignment.center,
@@ -114,9 +126,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => reset1101201509(),
+                    builder: (context) => reset1101190196(),
                   ),
                 );
+                //forgot password screen
               },
               child: const Text(
                 'Forgot Password',
@@ -133,14 +146,24 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     final result = await Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => hal1101202505old(),
+                        builder: (context) => hal1101190196old(),
                       ),
                     );
                     setState(() {
                       _message = result ?? '';
                     });
                   },
+                  // onPressed: () {
+                  //   print(nameController.text);
+                  //   print(passwordController.text);
+                  // },
                 )),
+            // SignInButton(
+            //   btnText: 'Login',
+            //   buttonSize: ButtonSize.small,
+            //   onPressed: () {},
+            //   buttonType: ButtonType.microsoft,
+            // ),
             SignInButton(
               buttonSize: ButtonSize.small,
               onPressed: () async {
@@ -149,7 +172,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 final result = await Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => hal1101201509old(),
+                    builder: (context) => hal1101190196old(),
                   ),
                 );
                 setState(() {
@@ -169,16 +192,17 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 const Text('Does not have account?'),
                 TextButton(
                   child: const Text(
-                    'Sign up',
+                    'Sign Up',
                     style: TextStyle(fontSize: 20),
                   ),
                   onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => SignUpScreen1101201509(),
+                        builder: (context) => SignUpScreen1101190196(),
                       ),
                     );
+                    //signup screen
                   },
                 )
               ],
