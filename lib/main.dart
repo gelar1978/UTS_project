@@ -1,7 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/1101201509/login1101201509.dart';
+import 'package:flutter_application_1/1101202469/login1101202469.dart';
 import 'package:flutter_application_1/1101202505/login1101202505.dart';
+import 'package:flutter_application_1/1101202549/login1101202549.dart';
+import 'package:flutter_application_1/1101204257/login1101204257.dart';
 import 'package:flutter_application_1/1101204403/login1101204403.dart';
 import 'package:flutter_application_1/hal1101190144.dart';
 // import 'package:flutter_application_1/1108780030/hal1108780030.dart';
@@ -37,7 +40,7 @@ import '1101202016/hal1101202016.dart';
 import '1101202469/hal1101202469.dart';
 // import 'hal1101202505.dart';
 // >>>>>>> 32cfca60aada368de2bf985c745d07198d987491
-import 'hal1101202549.dart';
+// import 'hal1101202549.dart';
 import '1101204011/login1101204011.dart';
 import '1101204104/hal1101204104.dart';
 import '1101204132/hal1101204132.dart';
@@ -142,15 +145,15 @@ class _Hal1State extends State<Hal1> {
                   //   _message = result ?? '';
                   // });
                 } else if (NIM[index] == 1101190196) {
-                  final result = await Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => hal1101190196(),
-                    ),
-                  );
-                  setState(() {
-                    _message = result ?? '';
-                  });
+                  // final result = await Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (context) => hal1101190196(),
+                  //   ),
+                  // );
+                  // setState(() {
+                  //   _message = result ?? '';
+                  // });
                 } else if (NIM[index] == 1101193090) {
                   final result = await Navigator.push(
                     context,
@@ -255,7 +258,7 @@ class _Hal1State extends State<Hal1> {
                   final result = await Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => hal1101202549(),
+                      builder: (context) => hal1101202549new(),
                     ),
                   );
                   setState(() {
@@ -315,7 +318,7 @@ class _Hal1State extends State<Hal1> {
                   final result = await Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => hal1101204257(),
+                      builder: (context) => hal1101204257new(),
                     ),
                   );
                   setState(() {
@@ -335,7 +338,7 @@ class _Hal1State extends State<Hal1> {
                   final result = await Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => hal1101202469(),
+                      builder: (context) => hal1101202469new(),
                     ),
                   );
                   setState(() {
