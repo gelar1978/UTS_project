@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/1101202016/hal1101202016.dart';
 import 'package:flutter_application_1/1101202016/reset1101202016.dart';
 import 'package:flutter_application_1/1101202016/signup1101202016.dart';
+import 'package:flutter_application_1/services/auth_service.dart';
 import 'package:sign_button/sign_button.dart';
 // import 'package:flutter_signin_button/flutter_signin_button.dart';
 // import 'package:sign_button/sign_button.dart'
@@ -160,15 +161,27 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             // ),
             SignInButton(
               buttonSize: ButtonSize.small,
-              onPressed: () {},
+              onPressed: () async {
+                await AuthService.googleSignIn(context);
+                // Navigator.pop(context);
+                final result = await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => hal1101202016old(),
+                  ),
+                );
+                setState(() {
+                  _message = result ?? '';
+                });
+              },
               buttonType: ButtonType.google,
             ),
-            SignInButton(
-              // shape: ,
-              buttonSize: ButtonSize.small,
-              onPressed: () {},
-              buttonType: ButtonType.facebook,
-            ),
+            // SignInButton(
+            //   // shape: ,
+            //   buttonSize: ButtonSize.small,
+            //   onPressed: () {},
+            //   buttonType: ButtonType.facebook,
+            // ),
             Row(
               children: <Widget>[
                 const Text('Does not have account?'),
@@ -181,7 +194,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => SignUpScreen(),
+                        builder: (context) => SignUpScreen1101202016(),
                       ),
                     );
                     //signup screen
