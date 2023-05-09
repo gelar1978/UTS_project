@@ -28,20 +28,22 @@ class _hal1101194080oldState extends State<hal1101194080old> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:
-          AppBar(title: const Text('Gelar Budiman/Page-1'), actions: <Widget>[
-        IconButton(
-          icon: const Icon(
-            Icons.logout,
-            color: Colors.white,
+      appBar: AppBar(
+        title: const Text('Gelar Budiman/Page-1'),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(
+              Icons.logout,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              // _showAlertDialog(context);
+              AuthService.signOut();
+              Navigator.pop(context);
+            },
           ),
-          onPressed: () {
-            // _showAlertDialog(context);
-            AuthService.signOut();
-            Navigator.pop(context);
-          },
-        ),
-      ]),
+        ],
+      ),
       body: ListView(
         children: [
           Column(
