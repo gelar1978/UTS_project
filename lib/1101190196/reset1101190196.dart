@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/1101202505/hal1101202505.dart';
-import 'package:flutter_application_1/1101202505/login1101202505.dart';
+import 'package:flutter_application_1/1101190196/hal1101190196.dart';
+import 'package:flutter_application_1/1101190196/login1101190196.dart';
 import 'package:flutter_application_1/services/auth_service.dart';
 
 // void main() => runApp(const MyApp());
 
-class reset1101202505 extends StatelessWidget {
-  const reset1101202505({Key? key}) : super(key: key);
+class reset1101190196 extends StatelessWidget {
+  const reset1101190196({Key? key}) : super(key: key);
 
   static const String _title = 'FORGOT PASSWORD';
 
@@ -55,7 +55,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(1),
                 child: const Text(
-                  '1101202505',
+                  '1101190196',
                   style: TextStyle(
                       color: Colors.blue,
                       fontWeight: FontWeight.w500,
@@ -92,28 +92,28 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 ),
               ),
             ),
-            // Container(
-            //   padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-            //   child: TextField(
-            //     obscureText: true,
-            //     controller: passwordController,
-            //     decoration: const InputDecoration(
-            //       border: OutlineInputBorder(),
-            //       labelText: 'Password',
-            //     ),
-            //   ),
-            // ),
-            // Container(
-            //   padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-            //   child: TextField(
-            //     obscureText: true,
-            //     controller: passwordController2,
-            //     decoration: const InputDecoration(
-            //       border: OutlineInputBorder(),
-            //       labelText: 'Confirmed Password',
-            //     ),
-            //   ),
-            // ),
+            Container(
+              padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+              child: TextField(
+                obscureText: true,
+                controller: passwordController,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Password',
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+              child: TextField(
+                obscureText: true,
+                controller: passwordController2,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Confirmed Password',
+                ),
+              ),
+            ),
             // TextButton(
             //   onPressed: () {
             //     //forgot password screen
@@ -133,7 +133,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     // final result = await Navigator.push(
                     //   context,
                     //   MaterialPageRoute(
-                    //     builder: (context) => hal1101202505old(),
+                    //     builder: (context) => hal1101190196old(),
                     //   ),
                     // );
                     // setState(() {
@@ -157,7 +157,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => hal1101202505new(),
+                        builder: (context) => hal1101190196new(),
                       ),
                     );
                     // Navigator.pop(context);
