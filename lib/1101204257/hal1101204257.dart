@@ -473,9 +473,9 @@ class _hal1101204257old_4State extends State<hal1101204257old_4> {
                             child: Text(
                               allPesan[index],
                               style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 30,
-                                  ),
+                                color: Colors.black,
+                                fontSize: 30,
+                              ),
                             ),
                           ),
                         ),
