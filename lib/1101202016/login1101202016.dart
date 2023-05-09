@@ -17,8 +17,22 @@ class hal1101202016new extends StatelessWidget {
     return MaterialApp(
       title: _title,
       home: Scaffold(
-        appBar: AppBar(title: const Text(_title)),
+        appBar: AppBar(
+          title: const Text(_title),
+          automaticallyImplyLeading: false,
+        leadingWidth: 100,
+        leading: ElevatedButton.icon(
+          onPressed: () => Navigator.of(context).pop(),
+          icon: const Icon(Icons.arrow_left_sharp),
+          label: const Text('Balek'),
+          style: ElevatedButton.styleFrom(
+            elevation: 0,
+            backgroundColor: Color.fromARGB(0, 15, 69, 230),
+          ),
+        ),
+          ),
         body: const MyStatefulWidget(),
+        
       ),
     );
   }

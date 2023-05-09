@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/1101204403/hal1101204403.dart';
 import 'package:flutter_application_1/1101204403/login1101204403.dart';
+import 'package:flutter_application_1/services/auth_service.dart';
 
 // void main() => runApp(const MyApp());
 
@@ -12,6 +13,7 @@ class reset1101204403 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: _title,
       home: Scaffold(
         appBar: AppBar(title: const Text(_title)),
@@ -43,7 +45,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(1),
                 child: const Text(
-                  'Gelar Budiman',
+                  'Muhammad Dafa Maulana',
                   style: TextStyle(
                       color: Colors.blue,
                       fontWeight: FontWeight.w500,
@@ -66,7 +68,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 width: 170,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("lib/images/glb.jpg"),
+                    image: AssetImage("lib/images/m_dafa_m.jpg"),
                     fit: BoxFit.fitWidth,
                   ),
                   shape: BoxShape.circle,
@@ -86,7 +88,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 controller: nameController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'User Name',
+                  labelText: 'Email',
                 ),
               ),
             ),
@@ -126,6 +128,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 child: ElevatedButton(
                   child: const Text('Change'),
                   onPressed: () async {
+                    AuthService.resetPassword(nameController.text);
+                    Navigator.pop(context);
                     // final result = await Navigator.push(
                     //   context,
                     //   MaterialPageRoute(
