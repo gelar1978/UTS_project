@@ -3,6 +3,8 @@ import 'package:flutter_application_1/1101201509/hal1101201509.dart';
 import 'package:flutter_application_1/1101201509/reset1101201509.dart';
 import 'package:flutter_application_1/1101201509/signup1101201509.dart';
 import 'package:flutter_application_1/1101202505/hal1101202505.dart';
+import 'package:flutter_application_1/services/auth_service.dart';
+import 'package:get/route_manager.dart';
 import 'package:sign_button/sign_button.dart';
 
 class hal1101201509new extends StatelessWidget {
@@ -15,7 +17,22 @@ class hal1101201509new extends StatelessWidget {
     return MaterialApp(
       title: _title,
       home: Scaffold(
-        appBar: AppBar(title: const Text(_title)),
+        appBar: AppBar(
+          title: const Text(_title),
+          actions: <Widget>[
+            IconButton(
+              icon: const Icon(
+                Icons.arrow_back,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                // _showAlertDialog(context);
+                // Get.back();
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
         body: const MyStatefulWidget(),
       ),
     );
@@ -62,7 +79,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 )),
             CircleAvatar(
               backgroundImage: AssetImage('lib/images/aldra.jpg'),
-              radius: 100,
+              radius: 60,
             ),
             Container(
                 alignment: Alignment.center,
@@ -111,6 +128,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 child: ElevatedButton(
                   child: const Text('Login'),
                   onPressed: () async {
+                    AuthService.signIn(
+                        nameController.text, passwordController.text);
                     final result = await Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -124,15 +143,27 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 )),
             SignInButton(
               buttonSize: ButtonSize.small,
-              onPressed: () {},
+              onPressed: () async {
+                await AuthService.googleSignIn(context);
+                // Navigator.pop(context);
+                final result = await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => hal1101201509old(),
+                  ),
+                );
+                setState(() {
+                  _message = result ?? '';
+                });
+              },
               buttonType: ButtonType.google,
             ),
-            SignInButton(
-              // shape: ,
-              buttonSize: ButtonSize.small,
-              onPressed: () {},
-              buttonType: ButtonType.facebook,
-            ),
+            // SignInButton(
+            //   // shape: ,
+            //   buttonSize: ButtonSize.small,
+            //   onPressed: () {},
+            //   buttonType: ButtonType.facebook,
+            // ),
             Row(
               children: <Widget>[
                 const Text('Does not have account?'),
