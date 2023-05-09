@@ -1,41 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/1108780030/hal1108780030.dart';
-import 'package:flutter_application_1/1108780030/reset1108780030.dart';
-import 'package:flutter_application_1/1108780030/signup1108780030.dart';
-import 'package:flutter_application_1/services/auth_service.dart';
-import 'package:get/route_manager.dart';
+import 'package:flutter_application_1/1101204257/hal1101204257.dart';
+import 'package:flutter_application_1/1101204257/reset1101204257.dart';
+import 'package:flutter_application_1/1101204257/signup1101204257.dart';
 import 'package:sign_button/sign_button.dart';
 // import 'package:flutter_signin_button/flutter_signin_button.dart';
 // import 'package:sign_button/sign_button.dart'
 // void main() => runApp(const MyApp());
 
-class hal1101194080new extends StatelessWidget {
-  const hal1101194080new({Key? key}) : super(key: key);
+class hal1101204257new extends StatelessWidget {
+  const hal1101204257new({Key? key}) : super(key: key);
 
   static const String _title = 'LOGIN PAGE';
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       title: _title,
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text(_title),
-          actions: <Widget>[
-            IconButton(
-              icon: const Icon(
-                Icons.arrow_back,
-                color: Colors.white,
-              ),
-              onPressed: () {
-                // _showAlertDialog(context);
-                // Get.back();
-                Navigator.pop(context);
-              },
-            ),
-          ],
-        ),
+        appBar: AppBar(title: const Text(_title)),
         body: const MyStatefulWidget(),
       ),
     );
@@ -73,7 +55,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(1),
                 child: const Text(
-                  '1108780030',
+                  '1101204257',
                   style: TextStyle(
                       color: Colors.blue,
                       fontWeight: FontWeight.w500,
@@ -126,7 +108,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => reset1108780030(),
+                    builder: (context) => reset1101204257(),
                   ),
                 );
                 //forgot password screen
@@ -141,12 +123,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 child: ElevatedButton(
                   child: const Text('Login'),
                   onPressed: () async {
-                    AuthService.signIn(
-                        nameController.text, passwordController.text);
                     final result = await Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => hal1101194080old(),
+                        builder: (context) => hal1101204257old(),
                       ),
                     );
                     setState(() {
@@ -166,27 +146,15 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             // ),
             SignInButton(
               buttonSize: ButtonSize.small,
-              onPressed: () async {
-                await AuthService.googleSignIn(context);
-                // Navigator.pop(context);
-                final result = await Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => hal1101194080old(),
-                  ),
-                );
-                setState(() {
-                  _message = result ?? '';
-                });
-              },
+              onPressed: () {},
               buttonType: ButtonType.google,
             ),
-            // SignInButton(
-            //   // shape: ,
-            //   buttonSize: ButtonSize.small,
-            //   onPressed: () {},
-            //   buttonType: ButtonType.facebook,
-            // ),
+            SignInButton(
+              // shape: ,
+              buttonSize: ButtonSize.small,
+              onPressed: () {},
+              buttonType: ButtonType.facebook,
+            ),
             Row(
               children: <Widget>[
                 const Text('Does not have account?'),
@@ -199,7 +167,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => SignUpScreen1108780030(),
+                        builder: (context) => SignUpScreen1101204257(),
                       ),
                     );
                     //signup screen

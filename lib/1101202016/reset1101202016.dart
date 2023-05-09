@@ -4,8 +4,8 @@ import 'package:flutter_application_1/1108780030/login1108780030.dart';
 
 // void main() => runApp(const MyApp());
 
-class reset1108780030 extends StatelessWidget {
-  const reset1108780030({Key? key}) : super(key: key);
+class reset1101202016 extends StatelessWidget {
+  const reset1101202016({Key? key}) : super(key: key);
 
   static const String _title = 'FORGOT PASSWORD';
 
@@ -140,12 +140,12 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     style: TextStyle(fontSize: 20),
                   ),
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => hal1108780030new(),
-                      ),
-                    );
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => hal1108780030new(),
+                    //   ),
+                    // );
                     // Navigator.pop(context);
                     //signin screen
                   },

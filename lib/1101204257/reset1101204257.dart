@@ -1,41 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/1108780030/hal1108780030.dart';
-import 'package:flutter_application_1/1108780030/reset1108780030.dart';
-import 'package:flutter_application_1/1108780030/signup1108780030.dart';
-import 'package:flutter_application_1/services/auth_service.dart';
-import 'package:get/route_manager.dart';
-import 'package:sign_button/sign_button.dart';
-// import 'package:flutter_signin_button/flutter_signin_button.dart';
-// import 'package:sign_button/sign_button.dart'
+import 'package:flutter_application_1/1101204257/hal1101204257.dart';
+import 'package:flutter_application_1/1101204257/login1101204257.dart';
+
 // void main() => runApp(const MyApp());
 
-class hal1101194080new extends StatelessWidget {
-  const hal1101194080new({Key? key}) : super(key: key);
+class reset1101204257 extends StatelessWidget {
+  const reset1101204257({Key? key}) : super(key: key);
 
-  static const String _title = 'LOGIN PAGE';
+  static const String _title = 'FORGOT PASSWORD';
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       title: _title,
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text(_title),
-          actions: <Widget>[
-            IconButton(
-              icon: const Icon(
-                Icons.arrow_back,
-                color: Colors.white,
-              ),
-              onPressed: () {
-                // _showAlertDialog(context);
-                // Get.back();
-                Navigator.pop(context);
-              },
-            ),
-          ],
-        ),
+        appBar: AppBar(title: const Text(_title)),
         body: const MyStatefulWidget(),
       ),
     );
@@ -52,6 +31,7 @@ class MyStatefulWidget extends StatefulWidget {
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController passwordController2 = TextEditingController();
   String _message = '';
   @override
   Widget build(BuildContext context) {
@@ -65,25 +45,25 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 child: const Text(
                   'Gelar Budiman',
                   style: TextStyle(
-                      color: Colors.red,
+                      color: Colors.blue,
                       fontWeight: FontWeight.w500,
-                      fontSize: 20),
+                      fontSize: 30),
                 )),
             Container(
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(1),
                 child: const Text(
-                  '1108780030',
+                  '1101204257',
                   style: TextStyle(
                       color: Colors.blue,
                       fontWeight: FontWeight.w500,
-                      fontSize: 20),
+                      fontSize: 30),
                 )),
             CircleAvatar(
-              radius: 60,
+              radius: 80,
               child: Container(
-                height: 120,
-                width: 120,
+                height: 170,
+                width: 170,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage("lib/images/glb.jpg"),
@@ -97,7 +77,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(10),
                 child: const Text(
-                  'Sign in',
+                  'Change Password',
                   style: TextStyle(fontSize: 20),
                 )),
             Container(
@@ -121,88 +101,63 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 ),
               ),
             ),
-            TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => reset1108780030(),
-                  ),
-                );
-                //forgot password screen
-              },
-              child: const Text(
-                'Forgot Password',
+            Container(
+              padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+              child: TextField(
+                obscureText: true,
+                controller: passwordController2,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Confirmed Password',
+                ),
               ),
             ),
+            // TextButton(
+            //   onPressed: () {
+            //     //forgot password screen
+            //   },
+            //   child: const Text(
+            //     'Forgot Password',
+            //   ),
+            // ),
             Container(
                 height: 50,
                 padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                 child: ElevatedButton(
-                  child: const Text('Login'),
+                  child: const Text('Change'),
                   onPressed: () async {
-                    AuthService.signIn(
-                        nameController.text, passwordController.text);
-                    final result = await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => hal1101194080old(),
-                      ),
-                    );
-                    setState(() {
-                      _message = result ?? '';
-                    });
+                    // final result = await Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => hal1101204257old(),
+                    //   ),
+                    // );
+                    // setState(() {
+                    //   _message = result ?? '';
+                    // });
                   },
                   // onPressed: () {
                   //   print(nameController.text);
                   //   print(passwordController.text);
                   // },
                 )),
-            // SignInButton(
-            //   btnText: 'Login',
-            //   buttonSize: ButtonSize.small,
-            //   onPressed: () {},
-            //   buttonType: ButtonType.microsoft,
-            // ),
-            SignInButton(
-              buttonSize: ButtonSize.small,
-              onPressed: () async {
-                await AuthService.googleSignIn(context);
-                // Navigator.pop(context);
-                final result = await Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => hal1101194080old(),
-                  ),
-                );
-                setState(() {
-                  _message = result ?? '';
-                });
-              },
-              buttonType: ButtonType.google,
-            ),
-            // SignInButton(
-            //   // shape: ,
-            //   buttonSize: ButtonSize.small,
-            //   onPressed: () {},
-            //   buttonType: ButtonType.facebook,
-            // ),
             Row(
               children: <Widget>[
                 const Text('Does not have account?'),
                 TextButton(
                   child: const Text(
-                    'Sign Up',
+                    'Sign in',
                     style: TextStyle(fontSize: 20),
                   ),
                   onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => SignUpScreen1108780030(),
+                        builder: (context) => hal1101204257new(),
                       ),
                     );
-                    //signup screen
+                    // Navigator.pop(context);
+                    //signin screen
                   },
                 )
               ],
