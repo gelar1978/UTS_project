@@ -292,7 +292,7 @@ class _hal1101204257old_3State extends State<hal1101204257old_3> {
                 child: Column(
                   children: [
                     CircleAvatar(
-                      backgroundImage: AssetImage('lib/images/m_dafa_m.jpg'),
+                      backgroundImage: AssetImage('lib/images/rifqi.jpg'),
                       radius: 100,
                     ),
                     SizedBox(
