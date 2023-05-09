@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/1101194190/hal1101194190.dart';
-import 'package:flutter_application_1/1101194190/reset1101194190.dart';
-import 'package:flutter_application_1/1101194190/signup1101194190.dart';
+import 'package:flutter_application_1/1101194477/hal1101194477.dart';
+import 'package:flutter_application_1/1101194477/login1101194477.dart';
 import 'package:flutter_application_1/services/auth_service.dart';
-import 'package:get/route_manager.dart';
-import 'package:sign_button/sign_button.dart';
-// import 'package:flutter_signin_button/flutter_signin_button.dart';
-// import 'package:sign_button/sign_button.dart'
+
 // void main() => runApp(const MyApp());
 
-class hal1101194190new extends StatelessWidget {
-  const hal1101194190new({Key? key}) : super(key: key);
+class reset1101194477 extends StatelessWidget {
+  const reset1101194477({Key? key}) : super(key: key);
 
-  static const String _title = 'LOGIN PAGE';
+  static const String _title = 'FORGOT PASSWORD';
 
   @override
   Widget build(BuildContext context) {
@@ -20,22 +16,7 @@ class hal1101194190new extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: _title,
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text(_title),
-          actions: <Widget>[
-            IconButton(
-              icon: const Icon(
-                Icons.arrow_back,
-                color: Colors.white,
-              ),
-              onPressed: () {
-                // _showAlertDialog(context);
-                // Get.back();
-                Navigator.pop(context);
-              },
-            ),
-          ],
-        ),
+        appBar: AppBar(title: const Text(_title)),
         body: const MyStatefulWidget(),
       ),
     );
@@ -52,6 +33,7 @@ class MyStatefulWidget extends StatefulWidget {
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController passwordController2 = TextEditingController();
   String _message = '';
   @override
   Widget build(BuildContext context) {
@@ -63,30 +45,30 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(1),
                 child: const Text(
-                  'Dewi Nurulaeni Achdalina',
+                  'Gelar Budiman',
                   style: TextStyle(
-                      color: Colors.red,
+                      color: Colors.blue,
                       fontWeight: FontWeight.w500,
-                      fontSize: 20),
+                      fontSize: 30),
                 )),
             Container(
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(1),
                 child: const Text(
-                  '1101194190',
+                  '1101194477',
                   style: TextStyle(
                       color: Colors.blue,
                       fontWeight: FontWeight.w500,
-                      fontSize: 20),
+                      fontSize: 30),
                 )),
             CircleAvatar(
-              radius: 60,
+              radius: 80,
               child: Container(
-                height: 120,
-                width: 120,
+                height: 170,
+                width: 170,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("lib/images/DewiNA.jpg"),
+                    image: AssetImage("lib/images/glb.jpg"),
                     fit: BoxFit.fitWidth,
                   ),
                   shape: BoxShape.circle,
@@ -97,7 +79,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(10),
                 child: const Text(
-                  'Sign in',
+                  'Change Password',
                   style: TextStyle(fontSize: 20),
                 )),
             Container(
@@ -106,7 +88,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 controller: nameController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'User Name',
+                  labelText: 'Email',
                 ),
               ),
             ),
@@ -121,88 +103,65 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 ),
               ),
             ),
-            TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => reset1101194190(),
-                  ),
-                );
-                //forgot password screen
-              },
-              child: const Text(
-                'Forgot Password',
+            Container(
+              padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+              child: TextField(
+                obscureText: true,
+                controller: passwordController2,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Confirmed Password',
+                ),
               ),
             ),
+            // TextButton(
+            //   onPressed: () {
+            //     //forgot password screen
+            //   },
+            //   child: const Text(
+            //     'Forgot Password',
+            //   ),
+            // ),
             Container(
                 height: 50,
                 padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                 child: ElevatedButton(
-                  child: const Text('Login'),
+                  child: const Text('Change'),
                   onPressed: () async {
-                    AuthService.signIn(
-                        nameController.text, passwordController.text);
-                    final result = await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => hal1101194190old(),
-                      ),
-                    );
-                    setState(() {
-                      _message = result ?? '';
-                    });
+                    AuthService.resetPassword(nameController.text);
+                    Navigator.pop(context);
+                    // final result = await Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => hal1101194477old(),
+                    //   ),
+                    // );
+                    // setState(() {
+                    //   _message = result ?? '';
+                    // });
                   },
                   // onPressed: () {
                   //   print(nameController.text);
                   //   print(passwordController.text);
                   // },
                 )),
-            // SignInButton(
-            //   btnText: 'Login',
-            //   buttonSize: ButtonSize.small,
-            //   onPressed: () {},
-            //   buttonType: ButtonType.microsoft,
-            // ),
-            SignInButton(
-              buttonSize: ButtonSize.small,
-              onPressed: () async {
-                await AuthService.googleSignIn(context);
-                // Navigator.pop(context);
-                final result = await Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => hal1101194190old(),
-                  ),
-                );
-                setState(() {
-                  _message = result ?? '';
-                });
-              },
-              buttonType: ButtonType.google,
-            ),
-            // SignInButton(
-            //   // shape: ,
-            //   buttonSize: ButtonSize.small,
-            //   onPressed: () {},
-            //   buttonType: ButtonType.facebook,
-            // ),
             Row(
               children: <Widget>[
                 const Text('Does not have account?'),
                 TextButton(
                   child: const Text(
-                    'Sign Up',
+                    'Sign in',
                     style: TextStyle(fontSize: 20),
                   ),
                   onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => signup1101194190(),
+                        builder: (context) => hal1101194080new(),
                       ),
                     );
-                    //signup screen
+                    // Navigator.pop(context);
+                    //signin screen
                   },
                 )
               ],

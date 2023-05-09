@@ -1,16 +1,18 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/controller/image_upload.dart';
+import 'package:flutter_application_1/services/auth_service.dart';
 
-class hal1101204197 extends StatefulWidget {
+class hal1101204197old extends StatefulWidget {
   // final String message;
-  hal1101204197({super.key});
+  hal1101204197old({super.key});
 
   @override
-  State<hal1101204197> createState() => _hal1101204197State();
+  State<hal1101204197old> createState() => _hal1101204197oldState();
 }
 
-class _hal1101204197State extends State<hal1101204197> {
+class _hal1101204197oldState extends State<hal1101204197old> {
   final TextEditingController _textEditingController = TextEditingController();
   String _message = '';
   @override
@@ -250,6 +252,16 @@ class _hal1101204197_2State extends State<hal1101204197_2> {
                   )),
                 ),
               ),
+              TextButton(
+                  onPressed: (() {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ImageUploads(),
+                      ),
+                    );
+                  }),
+                  child: Text("Upload Image"))
             ],
           ),
         ],
