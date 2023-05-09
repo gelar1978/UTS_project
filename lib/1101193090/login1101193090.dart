@@ -42,7 +42,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(10),
                 child: const Text(
-                  'Raiyan Adi Wibowo',
+                  'Rima Ananda Kurnia Ismanto',
                   style: TextStyle(
                       color: Colors.deepOrange,
                       fontWeight: FontWeight.w500,
@@ -95,7 +95,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => reset1101200196(),
+                    builder: (context) => reset1101193090(),
                   ),
                 );
               },
