@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_application_1/controller/image_upload.dart';
 
 class hal1101202016old extends StatefulWidget {
   hal1101202016old({super.key});
@@ -111,6 +112,16 @@ class _hal1101202016oldState extends State<hal1101202016old> {
                   )),
                 ),
               ),
+              TextButton(
+                  onPressed: (() {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ImageUploads(),
+                      ),
+                    );
+                  }),
+                  child: Text("Upload Image"))
             ],
           ),
         ],
