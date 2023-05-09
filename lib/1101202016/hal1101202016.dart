@@ -3,14 +3,14 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class hal1101202016 extends StatefulWidget {
-  hal1101202016({super.key});
+class hal1101202016old extends StatefulWidget {
+  hal1101202016old({super.key});
 
   @override
-  State<hal1101202016> createState() => _hal1101202016State();
+  State<hal1101202016old> createState() => _hal1101202016oldState();
 }
 
-class _hal1101202016State extends State<hal1101202016> {
+class _hal1101202016oldState extends State<hal1101202016old> {
   TextEditingController _textEditingController = TextEditingController();
 
   String _message = '';
@@ -282,7 +282,7 @@ class _Page3State extends State<Page3> {
                     CircleAvatar(
                 radius: 100,
                 backgroundImage:
-                    AssetImage('lib/images/andri.jpg'), 
+                    AssetImage('lib/images/Andri.png'), 
               ),
               SizedBox(height: 12),
               Text(

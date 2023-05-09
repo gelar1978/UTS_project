@@ -2,9 +2,9 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class hal1101190196 extends StatelessWidget {
+class hal1101200196old extends StatelessWidget {
   // final String message;
-  hal1101190196({super.key});
+  hal1101200196old({super.key});
 
   TextEditingController _textEditingController = TextEditingController();
 
@@ -12,7 +12,7 @@ class hal1101190196 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Feni Nur Septiani/Page-1'),
+        title: Text('Lulu Balqis Zianka Faza/Page-1'),
       ),
       body: Column(
         children: [
@@ -59,7 +59,7 @@ class hal1101190196 extends StatelessWidget {
                             child: Text('Next Page'),
                             onPressed: () async {
                               String nim = _textEditingController.text;
-                              if (nim == 1101190.toString()) {
+                              if (nim == 1101200.toString()) {
                                 final result = await Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -123,7 +123,7 @@ class _SecondPageState extends State<SecondPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Feni Nur Septiani/Page-2'),
+        title: Text('Lulu Balqis Zianka Faza/Page-2'),
       ),
       body: Padding(
         padding: EdgeInsets.all(15.0),
@@ -169,7 +169,7 @@ class _SecondPageState extends State<SecondPage> {
                     child: ElevatedButton(
                         child: Text('Previous Page'),
                         onPressed: () {
-                          Navigator.pop(context, hal1101190196());
+                          Navigator.pop(context, hal1101200196old());
                         }),
                   ),
                   SizedBox(height: 16.0),
@@ -238,7 +238,7 @@ class ThirdPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Feni Nur Septiani/Page-3'),
+          title: Text('Lulu Balqis Zianka Faza/Page-3'),
         ),
         body: Padding(
           padding: EdgeInsets.all(16.0),
@@ -248,7 +248,7 @@ class ThirdPage extends StatelessWidget {
               CircleAvatar(
                 radius: 100, // ukuran radius avatar
                 backgroundImage:
-                    AssetImage('lib/images/feninrs..png'), // gambar dari assets
+                    AssetImage('lib/images/balqis.jpeg'), // gambar dari assets
               ),
               Text(
                 '$emailFinal',
@@ -280,7 +280,7 @@ class ThirdPage extends StatelessWidget {
                       child: ElevatedButton(
                           child: Text('Previous Page'),
                           onPressed: () {
-                            Navigator.pop(context, hal1101190196());
+                            Navigator.pop(context, hal1101200196old());
                           }),
                     ),
                     SizedBox(height: 16.0),
@@ -350,7 +350,7 @@ class FourthPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Feni Nur Septiani/Page-4'),
+        title: Text('Lulu Balqis Zianka Faza/Page-4'),
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
@@ -394,7 +394,7 @@ class FourthPage extends StatelessWidget {
             ElevatedButton(
               child: Text('Previous Page'),
               onPressed: () {
-                Navigator.pop(context, hal1101190196());
+                Navigator.pop(context, hal1101200196old());
               },
             ),
           ],
