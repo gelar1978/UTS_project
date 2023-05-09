@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/1108780030/hal1108780030.dart';
-import 'package:flutter_application_1/1108780030/login1108780030.dart';
+import 'package:flutter_application_1/1101202016/hal1101202016.dart';
+import 'package:flutter_application_1/1101202016/login1101202016.dart';
 
 // void main() => runApp(const MyApp());
 
@@ -43,7 +43,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(10),
                 child: const Text(
-                  'Gelar Budiman',
+                  'Andri Satia Permana',
                   style: TextStyle(
                       color: Colors.blue,
                       fontWeight: FontWeight.w500,
@@ -56,7 +56,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 width: 170,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("lib/images/glb.jpg"),
+                    image: AssetImage("lib/images/Andri.png"),
                     fit: BoxFit.fitWidth,
                   ),
                   shape: BoxShape.circle,
@@ -80,28 +80,28 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 ),
               ),
             ),
-            Container(
-              padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-              child: TextField(
-                obscureText: true,
-                controller: passwordController,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Password',
-                ),
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-              child: TextField(
-                obscureText: true,
-                controller: passwordController2,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Confirmed Password',
-                ),
-              ),
-            ),
+            // Container(
+            //   padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+            //   child: TextField(
+            //     obscureText: true,
+            //     controller: passwordController,
+            //     decoration: const InputDecoration(
+            //       border: OutlineInputBorder(),
+            //       labelText: 'Password',
+            //     ),
+            //   ),
+            // ),
+            // Container(
+            //   padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+            //   child: TextField(
+            //     obscureText: true,
+            //     controller: passwordController2,
+            //     decoration: const InputDecoration(
+            //       border: OutlineInputBorder(),
+            //       labelText: 'Confirmed Password',
+            //     ),
+            //   ),
+            // ),
             // TextButton(
             //   onPressed: () {
             //     //forgot password screen
@@ -119,7 +119,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     // final result = await Navigator.push(
                     //   context,
                     //   MaterialPageRoute(
-                    //     builder: (context) => hal1108780030old(),
+                    //     builder: (context) => hal1101202016old(),
                     //   ),
                     // );
                     // setState(() {
@@ -140,12 +140,12 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     style: TextStyle(fontSize: 20),
                   ),
                   onPressed: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) => hal1108780030new(),
-                    //   ),
-                    // );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => hal1101202016new(),
+                      ),
+                    );
                     // Navigator.pop(context);
                     //signin screen
                   },
