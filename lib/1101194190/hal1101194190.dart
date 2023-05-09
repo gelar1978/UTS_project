@@ -2,15 +2,15 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 // import 'package:flutter/widgets.dart';
 
-class hal1101194190 extends StatefulWidget {
+class hal1101194190old extends StatefulWidget {
   // final String message;
-  hal1101194190({super.key});
+  hal1101194190old({super.key});
 
   @override
-  State<hal1101194190> createState() => _hal1101194190State();
+  State<hal1101194190old> createState() => _hal1101194190oldState();
 }
 
-class _hal1101194190State extends State<hal1101194190> {
+class _hal1101194190oldState extends State<hal1101194190old> {
   final TextEditingController _textEditingController = TextEditingController();
   String _message = '';
   @override

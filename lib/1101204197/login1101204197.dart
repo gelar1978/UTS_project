@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/1101194190/hal1101194190.dart';
-import 'package:flutter_application_1/1101194190/reset1101194190.dart';
-import 'package:flutter_application_1/1101194190/signup1101194190.dart';
+import 'package:flutter_application_1/1101204197/hal1101204197.dart';
+import 'package:flutter_application_1/1101204197/reset1101204197.dart';
+import 'package:flutter_application_1/1101204197/signup1101204197.dart';
 import 'package:flutter_application_1/services/auth_service.dart';
 import 'package:get/route_manager.dart';
 import 'package:sign_button/sign_button.dart';
@@ -9,8 +9,8 @@ import 'package:sign_button/sign_button.dart';
 // import 'package:sign_button/sign_button.dart'
 // void main() => runApp(const MyApp());
 
-class hal1101194190new extends StatelessWidget {
-  const hal1101194190new({Key? key}) : super(key: key);
+class hal1101204197new extends StatelessWidget {
+  const hal1101204197new({Key? key}) : super(key: key);
 
   static const String _title = 'LOGIN PAGE';
 
@@ -63,7 +63,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(1),
                 child: const Text(
-                  'Dewi Nurulaeni Achdalina',
+                  'Gelar Budiman',
                   style: TextStyle(
                       color: Colors.red,
                       fontWeight: FontWeight.w500,
@@ -73,7 +73,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(1),
                 child: const Text(
-                  '1101194190',
+                  '1108780030',
                   style: TextStyle(
                       color: Colors.blue,
                       fontWeight: FontWeight.w500,
@@ -86,7 +86,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 width: 120,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("lib/images/DewiNA.jpg"),
+                    image: AssetImage("lib/images/Reyhan_F.jpg"),
                     fit: BoxFit.fitWidth,
                   ),
                   shape: BoxShape.circle,
@@ -126,7 +126,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => reset1101194190(),
+                    builder: (context) => reset1101204197(),
                   ),
                 );
                 //forgot password screen
@@ -146,7 +146,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     final result = await Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => hal1101194190old(),
+                        builder: (context) => hal1101204197old(),
                       ),
                     );
                     setState(() {
@@ -172,7 +172,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 final result = await Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => hal1101194190old(),
+                    builder: (context) => hal1101204197old(),
                   ),
                 );
                 setState(() {
@@ -199,7 +199,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => signup1101194190(),
+                        builder: (context) => SignUpScreen1101204197(),
                       ),
                     );
                     //signup screen
