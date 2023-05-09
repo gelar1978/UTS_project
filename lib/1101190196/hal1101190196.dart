@@ -2,15 +2,15 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-class hal0196 extends StatefulWidget {
+class hal1101190196old extends StatefulWidget {
   // final String output;
-  hal0196({super.key});
+  hal1101190196old({super.key});
 
   @override
-  State<hal0196> createState() => _hal0196State();
+  State<hal1101190196old> createState() => _hal1101190196oldState();
 }
 
-class _hal0196State extends State<hal0196> {
+class _hal1101190196oldState extends State<hal1101190196old> {
   final TextEditingController _textEditingController = TextEditingController();
   String _output = '';
   @override
@@ -491,4 +491,189 @@ class _hal1101190196_4State extends State<hal1101190196_4> {
       ),
     );
   }
+// <<<<<<< Updated upstream
+// =======
+}
+
+//This Third Page
+class ThirdPage extends StatelessWidget {
+  final String emailFinal;
+  final String phoneFinal;
+  final String nimFinal;
+
+  ThirdPage(
+      {required this.emailFinal,
+      required this.phoneFinal,
+      required this.nimFinal});
+  TextEditingController digitNIM = TextEditingController();
+  String nim1 = '';
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: Text('Feni Nur Septiani/Page-3'),
+        ),
+        body: Padding(
+          padding: EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              CircleAvatar(
+                radius: 100, // ukuran radius avatar
+                backgroundImage:
+                    AssetImage('lib/images/fotofeni.png'), // gambar dari assets
+              ),
+              Text(
+                '$emailFinal',
+                style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.normal),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: 12.0),
+              Text(
+                '$phoneFinal',
+                style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.normal),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: 12.0),
+              TextField(
+                controller: digitNIM,
+                keyboardType: TextInputType.number,
+                maxLength: 2,
+                decoration: InputDecoration(
+                  labelText: 'Masukkan digit ke-9 dan 10 NIM anda',
+                  border: OutlineInputBorder(),
+                ),
+              ),
+              Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ElevatedButton(
+                          child: Text('Previous Page'),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          }),
+                    ),
+                    SizedBox(height: 16.0),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ElevatedButton(
+                        child: Text('Next Page'),
+                        onPressed: () {
+                          String digit = digitNIM.text;
+                          if (digit == '96') {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => FourthPage(
+                                  emailFinal: emailFinal,
+                                  phoneFinal: phoneFinal,
+                                  nimFinal: nimFinal + digitNIM.text,
+                                ),
+                              ),
+                            );
+                          } else {
+                            showDialog(
+                                context: context,
+                                builder: ((context) {
+                                  return AlertDialog(
+                                    title: Text('Error'),
+                                    content: Text(
+                                        'Masukkan NIM ke-9 & 10 dengan benar!'),
+                                    actions: <Widget>[
+                                      TextButton(
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: Text('OK'),
+                                      )
+                                    ],
+                                  );
+                                }));
+                          }
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ));
+  }
+}
+
+//This Fourth Page
+class FourthPage extends StatelessWidget {
+  final String emailFinal;
+  final String phoneFinal;
+  final String nimFinal;
+
+  FourthPage(
+      {required this.emailFinal,
+      required this.phoneFinal,
+      required this.nimFinal});
+
+  @override
+  Widget build(BuildContext context) {
+    List<String> nimList = nimFinal.split('');
+    List<String> phoneList = phoneFinal.split('');
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Feni Nur Septiani/Page-4'),
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Text(
+              '$nimFinal / $phoneFinal',
+              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+            ),
+            GridView.builder(
+              shrinkWrap: true,
+              gridDelegate:
+                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 5),
+              itemCount: nimList.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Card(
+                  color: Color.fromRGBO(Random().nextInt(256),
+                      Random().nextInt(256), Random().nextInt(256), 1),
+                  child: Center(
+                    child: Text(nimList[index]),
+                  ),
+                );
+              },
+            ),
+            GridView.builder(
+              shrinkWrap: true,
+              gridDelegate:
+                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 5),
+              itemCount: phoneList.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Card(
+                  color: Color.fromRGBO(Random().nextInt(256),
+                      Random().nextInt(256), Random().nextInt(256), 1),
+                  child: Center(
+                    child: Text(phoneList[index]),
+                  ),
+                );
+              },
+            ),
+            ElevatedButton(
+              child: Text('Previous Page'),
+              onPressed: () {
+                Navigator.pop(context, hal1101190196());
+              },
+            ),
+          ],
+        ),
+   )
+    )
+  }
+>>>>>>> Stashed changes
 }
