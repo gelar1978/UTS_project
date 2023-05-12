@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/1101202469/hal1101202469.dart';
 import 'package:flutter_application_1/1101202469/reset1101202469.dart';
 import 'package:flutter_application_1/1101202469/signup1101202469.dart';
+import 'package:flutter_application_1/services/auth_service.dart';
 import 'package:sign_button/sign_button.dart';
 // import 'package:flutter_signin_button/flutter_signin_button.dart';
 // import 'package:sign_button/sign_button.dart'
@@ -15,9 +16,25 @@ class hal1101202469new extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: _title,
       home: Scaffold(
-        appBar: AppBar(title: const Text(_title)),
+        appBar: AppBar(
+          title: const Text(_title),
+          actions: <Widget>[
+            IconButton(
+              icon: const Icon(
+                Icons.arrow_back,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                // _showAlertDialog(context);
+                // Get.back();
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
         body: const MyStatefulWidget(),
       ),
     );
@@ -45,7 +62,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(1),
                 child: const Text(
-                  'Gelar Budiman',
+                  'Fabiano Abbey Karo Sekali',
                   style: TextStyle(
                       color: Colors.red,
                       fontWeight: FontWeight.w500,
@@ -68,7 +85,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 width: 120,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("lib/images/glb.jpg"),
+                    image: AssetImage("lib/images/Abbey.jpg"),
                     fit: BoxFit.fitWidth,
                   ),
                   shape: BoxShape.circle,
@@ -123,6 +140,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 child: ElevatedButton(
                   child: const Text('Login'),
                   onPressed: () async {
+                    AuthService.signIn(nameController.text, passwordController.text);
                     final result = await Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -145,16 +163,27 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             //   buttonType: ButtonType.microsoft,
             // ),
             SignInButton(
-              buttonSize: ButtonSize.small,
-              onPressed: () {},
+              onPressed: () async {
+                await AuthService.googleSignIn(context);
+                // Navigator.pop(context);
+                final result = await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => hal1101202469old(),
+                  ),
+                );
+                setState(() {
+                  _message = result ?? '';
+                });
+              },
               buttonType: ButtonType.google,
             ),
-            SignInButton(
-              // shape: ,
-              buttonSize: ButtonSize.small,
-              onPressed: () {},
-              buttonType: ButtonType.facebook,
-            ),
+            // SignInButton(
+            //   // shape: ,
+            //   buttonSize: ButtonSize.small,
+            //   onPressed: () {},
+            //   buttonType: ButtonType.facebook,
+            // ),
             Row(
               children: <Widget>[
                 const Text('Does not have account?'),
