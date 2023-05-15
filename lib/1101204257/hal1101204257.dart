@@ -202,7 +202,7 @@ class _hal1101204257old_2State extends State<hal1101204257old_2> {
                               child: Text('Next Page'),
                               onPressed: () async {
                                 if (_textEditingController2.text ==
-                                    4.toString()) {
+                                    2.toString()) {
                                   String NIM7 = '${widget.pesan1}' +
                                       _textEditingController2.text;
                                   final result = await Navigator.push(
@@ -292,7 +292,7 @@ class _hal1101204257old_3State extends State<hal1101204257old_3> {
                 child: Column(
                   children: [
                     CircleAvatar(
-                      backgroundImage: AssetImage('lib/images/m_dafa_m.jpg'),
+                      backgroundImage: AssetImage('lib/images/rifqi.jpg'),
                       radius: 100,
                     ),
                     SizedBox(

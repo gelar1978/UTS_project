@@ -2,9 +2,9 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class hal1101193090 extends StatelessWidget {
+class hal1101194298old extends StatelessWidget {
   // final String message;
-  hal1101193090({super.key});
+  hal1101194298old({super.key});
 
   TextEditingController _textEditingController = TextEditingController();
 
@@ -12,7 +12,7 @@ class hal1101193090 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Rima Ananda Kurnia ismanto/Page-1'),
+        title: Text('Raiyan Adi Wibowo/Page-1'),
       ),
       body: Column(
         children: [
@@ -23,7 +23,7 @@ class hal1101193090 extends StatelessWidget {
               // color: Colors.red.withOpacity(0.1),
               image: DecorationImage(
                 image: NetworkImage(
-                    'https://upload.wikimedia.org/wikipedia/commons/0/03/Logo_Telkom_University_potrait.png'),
+                    'https://cdn.kibrispdr.org/data/766/logo-telkom-university-png-0.png'),
                 fit: BoxFit.fitHeight,
               ),
             ),
@@ -59,7 +59,7 @@ class hal1101193090 extends StatelessWidget {
                             child: Text('Next Page'),
                             onPressed: () async {
                               String nim = _textEditingController.text;
-                              if (nim == 1101193.toString()) {
+                              if (nim == 1101194.toString()) {
                                 final result = await Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -123,7 +123,7 @@ class _SecondPageState extends State<SecondPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Rima Ananda Kurnia Ismanto/Page-2'),
+        title: Text('Raiyan Adi Wibowo/Page-2'),
       ),
       body: Padding(
         padding: EdgeInsets.all(15.0),
@@ -169,7 +169,7 @@ class _SecondPageState extends State<SecondPage> {
                     child: ElevatedButton(
                         child: Text('Previous Page'),
                         onPressed: () {
-                          Navigator.pop(context, hal1101193090());
+                          Navigator.pop(context, hal1101194298old());
                         }),
                   ),
                   SizedBox(height: 16.0),
@@ -179,7 +179,7 @@ class _SecondPageState extends State<SecondPage> {
                         child: Text('Next Page'),
                         onPressed: () {
                           String digit = digitnim.text;
-                          if (digit == '0') {
+                          if (digit == '2') {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
@@ -238,7 +238,7 @@ class ThirdPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Rima Ananda Kurnia Ismanto/Page-3'),
+          title: Text('Raiyan Adi Wibowo/Page-3'),
         ),
         body: Padding(
           padding: EdgeInsets.all(16.0),
@@ -248,7 +248,7 @@ class ThirdPage extends StatelessWidget {
               CircleAvatar(
                 radius: 100, // ukuran radius avatar
                 backgroundImage:
-                    AssetImage('lib/images/Rima_Ananda.jpeg'), // gambar dari assets
+                    AssetImage('lib/images/Raiyan_Adi.jpeg'), // gambar dari assets
               ),
               Text(
                 '$emailFinal',
@@ -280,7 +280,7 @@ class ThirdPage extends StatelessWidget {
                       child: ElevatedButton(
                           child: Text('Previous Page'),
                           onPressed: () {
-                            Navigator.pop(context, hal1101193090());
+                            Navigator.pop(context, hal1101194298old());
                           }),
                     ),
                     SizedBox(height: 16.0),
@@ -290,7 +290,7 @@ class ThirdPage extends StatelessWidget {
                         child: Text('Next Page'),
                         onPressed: () {
                           String digit = digitNIM.text;
-                          if (digit == '90') {
+                          if (digit == '98') {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -350,7 +350,7 @@ class FourthPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Rima Ananda Kurnia Ismanto/Page-4'),
+        title: Text('Raiyan Adi Wibowo/Page-4'),
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
@@ -394,7 +394,7 @@ class FourthPage extends StatelessWidget {
             ElevatedButton(
               child: Text('Previous Page'),
               onPressed: () {
-                Navigator.pop(context, hal1101193090());
+                Navigator.pop(context, hal1101194298old());
               },
             ),
           ],

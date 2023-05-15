@@ -92,28 +92,28 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 ),
               ),
             ),
-            Container(
-              padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-              child: TextField(
-                obscureText: true,
-                controller: passwordController,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Password',
-                ),
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-              child: TextField(
-                obscureText: true,
-                controller: passwordController2,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Confirmed Password',
-                ),
-              ),
-            ),
+            // Container(
+            //   padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+            //   child: TextField(
+            //     obscureText: true,
+            //     controller: passwordController,
+            //     decoration: const InputDecoration(
+            //       border: OutlineInputBorder(),
+            //       labelText: 'Password',
+            //     ),
+            //   ),
+            // ),
+            // Container(
+            //   padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+            //   child: TextField(
+            //     obscureText: true,
+            //     controller: passwordController2,
+            //     decoration: const InputDecoration(
+            //       border: OutlineInputBorder(),
+            //       labelText: 'Confirmed Password',
+            //     ),
+            //   ),
+            // ),
             // TextButton(
             //   onPressed: () {
             //     //forgot password screen
@@ -157,7 +157,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => hal1101194080new(),
+                        builder: (context) => hal1108780030new(),
                       ),
                     );
                     // Navigator.pop(context);

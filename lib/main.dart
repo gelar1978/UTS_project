@@ -1,9 +1,14 @@
+import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/1101194190/login1101194190.dart';
 import 'package:flutter_application_1/1101201509/login1101201509.dart';
+import 'package:flutter_application_1/1101202016/login1101202016.dart';
 import 'package:flutter_application_1/1101202469/login1101202469.dart';
 import 'package:flutter_application_1/1101202505/login1101202505.dart';
 import 'package:flutter_application_1/1101202549/login1101202549.dart';
+import 'package:flutter_application_1/1101204132/login1101204132.dart';
+import 'package:flutter_application_1/1101204197/login1101204197.dart';
 import 'package:flutter_application_1/1101204257/login1101204257.dart';
 import 'package:flutter_application_1/1101204403/login1101204403.dart';
 import 'package:flutter_application_1/hal1101190144.dart';
@@ -58,6 +63,10 @@ import '1101204403/hal1101204403.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  await FirebaseAppCheck.instance.activate(
+    webRecaptchaSiteKey: 'recaptcha-v3-site-key',
+    androidProvider: AndroidProvider.debug,
+  );
   runApp(const Hal1());
 }
 // void main() {
@@ -98,7 +107,7 @@ class _Hal1State extends State<Hal1> {
                   final result = await Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => hal1101194080new(),
+                      builder: (context) => hal1108780030new(),
                     ),
                   );
                   setState(() {
@@ -178,7 +187,7 @@ class _Hal1State extends State<Hal1> {
                   final result = await Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => hal1101194190(),
+                      builder: (context) => hal1101194190new(),
                     ),
                   );
                   setState(() {
@@ -238,7 +247,7 @@ class _Hal1State extends State<Hal1> {
                   final result = await Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => hal1101202016(),
+                      builder: (context) => hal1101202016new(),
                     ),
                   );
                   setState(() {
@@ -288,7 +297,7 @@ class _Hal1State extends State<Hal1> {
                   final result = await Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => hal1101204132old(),
+                      builder: (context) => hal1101204132new(),
                     ),
                   );
                   setState(() {
@@ -308,7 +317,7 @@ class _Hal1State extends State<Hal1> {
                   final result = await Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => hal1101204197(),
+                      builder: (context) => hal1101204197new(),
                     ),
                   );
                   setState(() {

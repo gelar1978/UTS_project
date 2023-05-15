@@ -278,7 +278,7 @@ class _hal1101204132_3State extends State<hal1101204132_3> {
                   children: [
                     CircleAvatar(
                       radius: 80,
-                      backgroundImage: NetworkImage('https://cdndata.telkomuniversity.ac.id/pmb/2021/PAS_FOTO/11481182620_PAS_FOTO_1.jpg'),
+                      backgroundImage: AssetImage("lib/images/Sabila.jpg"),
                     ),
                     SizedBox(height: 16),
                     Text('${widget.email}',

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/1101201509/hal1101201509.dart';
 import 'package:flutter_application_1/1101201509/login1101201509.dart';
-
-import 'login1101201509.dart';
+import 'package:flutter_application_1/services/auth_service.dart';
 
 // void main() => runApp(const MyApp());
 
@@ -14,6 +13,7 @@ class reset1101201509 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: _title,
       home: Scaffold(
         appBar: AppBar(title: const Text(_title)),
@@ -88,32 +88,32 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 controller: nameController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'User Name',
+                  labelText: 'Email',
                 ),
               ),
             ),
-            Container(
-              padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-              child: TextField(
-                obscureText: true,
-                controller: passwordController,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Password',
-                ),
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-              child: TextField(
-                obscureText: true,
-                controller: passwordController2,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Confirmed Password',
-                ),
-              ),
-            ),
+            // Container(
+            //   padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+            //   child: TextField(
+            //     obscureText: true,
+            //     controller: passwordController,
+            //     decoration: const InputDecoration(
+            //       border: OutlineInputBorder(),
+            //       labelText: 'Password',
+            //     ),
+            //   ),
+            // ),
+            // Container(
+            //   padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+            //   child: TextField(
+            //     obscureText: true,
+            //     controller: passwordController2,
+            //     decoration: const InputDecoration(
+            //       border: OutlineInputBorder(),
+            //       labelText: 'Confirmed Password',
+            //     ),
+            //   ),
+            // ),
             // TextButton(
             //   onPressed: () {
             //     //forgot password screen
@@ -128,6 +128,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 child: ElevatedButton(
                   child: const Text('Change'),
                   onPressed: () async {
+                    AuthService.resetPassword(nameController.text);
+                    Navigator.pop(context);
                     // final result = await Navigator.push(
                     //   context,
                     //   MaterialPageRoute(

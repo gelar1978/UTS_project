@@ -1,6 +1,7 @@
 // import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/1108780030/imageView1108780030.dart';
 import 'package:flutter_application_1/controller/image_upload.dart';
 import 'package:flutter_application_1/services/auth_service.dart';
 // import 'package:flutter/widgets.dart';
@@ -28,20 +29,22 @@ class _hal1101194080oldState extends State<hal1101194080old> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:
-          AppBar(title: const Text('Gelar Budiman/Page-1'), actions: <Widget>[
-        IconButton(
-          icon: const Icon(
-            Icons.logout,
-            color: Colors.white,
+      appBar: AppBar(
+        title: const Text('Gelar Budiman/Page-1'),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(
+              Icons.logout,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              // _showAlertDialog(context);
+              AuthService.signOut();
+              Navigator.pop(context);
+            },
           ),
-          onPressed: () {
-            // _showAlertDialog(context);
-            AuthService.signOut();
-            Navigator.pop(context);
-          },
-        ),
-      ]),
+        ],
+      ),
       body: ListView(
         children: [
           Column(
@@ -141,7 +144,17 @@ class _hal1101194080oldState extends State<hal1101194080old> {
                       ),
                     );
                   }),
-                  child: Text("Upload Image"))
+                  child: Text("Upload Image")),
+              TextButton(
+                  onPressed: (() {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ImageView(),
+                      ),
+                    );
+                  }),
+                  child: Text("View Image"))
             ],
           ),
         ],
