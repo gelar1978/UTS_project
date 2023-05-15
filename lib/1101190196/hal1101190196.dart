@@ -667,13 +667,12 @@ class FourthPage extends StatelessWidget {
             ElevatedButton(
               child: Text('Previous Page'),
               onPressed: () {
-                Navigator.pop(context, hal1101190196());
+                Navigator.pop(context, hal1101190196old());
               },
             ),
           ],
         ),
-   )
-    )
-  }
->>>>>>> Stashed changes
+      ),
+    );
+  }
 }

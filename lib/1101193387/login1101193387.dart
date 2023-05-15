@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/1101193387/signup1101193387.dart';
 import 'package:flutter_application_1/1101193387/reset1101193387.dart';
+import 'package:flutter_application_1/1101193387/singup1101193387.dart';
 import 'package:sign_button/create_button.dart';
 import 'package:sign_button/sign_button.dart';
 
