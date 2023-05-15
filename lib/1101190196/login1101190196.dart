@@ -143,15 +143,15 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   onPressed: () async {
                     AuthService.signIn(
                         nameController.text, passwordController.text);
-                    final result = await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => hal1101190196old(),
-                      ),
-                    );
-                    setState(() {
-                      _message = result ?? '';
-                    });
+                    // final result = await Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => hal1101190196(),
+                    //   ),
+                    // );
+                    // setState(() {
+                    //   _message = result ?? '';
+                    // });
                   },
                   // onPressed: () {
                   //   print(nameController.text);
@@ -169,15 +169,15 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               onPressed: () async {
                 await AuthService.googleSignIn(context);
                 // Navigator.pop(context);
-                final result = await Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => hal1101190196old(),
-                  ),
-                );
-                setState(() {
-                  _message = result ?? '';
-                });
+                // final result = await Navigator.push(
+                //   context,
+                //   MaterialPageRoute(
+                //     builder: (context) => hal1101190196old(),
+                //   ),
+                // );
+                // setState(() {
+                //   _message = result ?? '';
+                // });
               },
               buttonType: ButtonType.google,
             ),

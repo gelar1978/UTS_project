@@ -15,15 +15,15 @@ import 'package:flutter_application_1/services/auth_service.dart';
 // import 'components/center_widget/center_widget.dart';
 // import 'components/login_content.dart';
 
-class hal1101194080old extends StatefulWidget {
+class hal1108780030old extends StatefulWidget {
   // final String message;
-  hal1101194080old({super.key});
+  hal1108780030old({super.key});
 
   @override
-  State<hal1101194080old> createState() => _hal1101194080oldState();
+  State<hal1108780030old> createState() => _hal1108780030oldState();
 }
 
-class _hal1101194080oldState extends State<hal1101194080old> {
+class _hal1108780030oldState extends State<hal1108780030old> {
   final TextEditingController _textEditingController = TextEditingController();
   String _message = '';
   @override
@@ -186,8 +186,141 @@ class _hal1108780030_2State extends State<hal1108780030_2> {
       ),
       body: ListView(
         children: [
-          //Silakan lanjutkan........................
+          Column(
+            children: [
+              Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(padding: EdgeInsets.all(10)),
+                    TextField(
+                      controller: _textEditingController0,
+                      decoration: InputDecoration(
+                        icon: Icon(Icons.key),
+                        hintText: 'Ketikkan Alamat Email Anda',
+                      ),
+                    ),
+                    Padding(padding: EdgeInsets.all(10)),
+                    TextField(
+                      controller: _textEditingController1,
+                      decoration: InputDecoration(
+                        icon: Icon(Icons.key),
+                        hintText: 'Ketikkan No Handphone Anda',
+                      ),
+                    ),
+                    Padding(padding: EdgeInsets.all(10)),
+                    TextField(
+                      controller: _textEditingController2,
+                      decoration: InputDecoration(
+                        icon: Icon(Icons.key),
+                        hintText: 'Masukkan digit ke-8 NIM anda',
+                      ),
+                    ),
+                    // Text('$message'),
+                    Center(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: ElevatedButton(
+                              child: Text('Previous Page'),
+                              onPressed: () {
+                                Navigator.pop(context, NIM7);
+                              },
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: ElevatedButton(
+                              child: Text('Next Page'),
+                              onPressed: () async {
+                                if (_textEditingController2.text ==
+                                    0.toString()) {
+                                  List<String> datakehal3 = [
+                                    widget.pesan1,
+                                    _textEditingController0.text,
+                                    _textEditingController1.text,
+                                    _textEditingController2.text
+                                  ];
+                                  final result = await Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => hal1108780030_3(
+                                        nim: widget.pesan1 +
+                                            _textEditingController2.text,
+                                        email: _textEditingController0.text,
+                                        nomor: _textEditingController1.text,
+                                      ),
+                                    ),
+                                  );
+                                  setState(() {
+                                    NIM7 = result ?? '';
+                                  });
+                                }
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 20,
+                width: 20,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text("NIM/No. Telp."),
+              ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(20.0), //or 15.0
+                child: Container(
+                  height: 70.0,
+                  width: 370.0,
+                  color: Color(0xffFF0E58),
+                  child: Center(
+                      child: Text(
+                    NIM7,
+                    style: TextStyle(fontSize: 28),
+                  )),
+                ),
+              ),
+            ],
+          ),
         ],
+      ),
+    );
+  }
+}
+
+class hal1108780030_3 extends StatefulWidget {
+  // hal1108780030_2({super.key,required this.pesan1});
+  // List<String> pesan1 = Null;
+  String email, nomor, nim = "";
+  hal1108780030_3(
+      {super.key, required this.nim, required this.email, required this.nomor});
+  @override
+  State<hal1108780030_3> createState() => _hal1108780030_3State();
+}
+
+class _hal1108780030_3State extends State<hal1108780030_3> {
+  String NIM8 = "";
+  // String email = "";
+  // String nohp = "";
+  TextEditingController _textEditingController0 = TextEditingController();
+  TextEditingController _textEditingController1 = TextEditingController();
+  TextEditingController _textEditingController2 = TextEditingController();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Gelar Budiman/Page-3'),
+      ),
+      body: ListView(
+        children: [Text("Halaman 3")],
       ),
     );
   }

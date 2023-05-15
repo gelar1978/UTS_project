@@ -156,6 +156,33 @@ class FirestoreService {
     }
   }
 
+  static Future<bool> updateLoggedUserPassword(
+      String uid, String newPassword) async {
+    try {
+      await FirebaseFirestore.instance
+          .collection('user')
+          .doc(uid)
+          .update({'password': newPassword});
+      return true;
+    } catch (e) {
+      debugPrint(e.toString());
+      return false;
+    }
+  }
+
+  static Future<bool> updateUserPassword(String uid, String newPassword) async {
+    try {
+      await FirebaseFirestore.instance
+          .collection("user")
+          .doc(uid)
+          .update({"password": newPassword});
+      return true;
+    } catch (e) {
+      debugPrint(e.toString());
+      return false;
+    }
+  }
+
   static Future<void> updateData(
       String uid, String newData, String type) async {
     FirebaseFirestore.instance

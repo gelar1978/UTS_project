@@ -1,16 +1,55 @@
+import 'dart:convert';
 import 'dart:math';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/services/firestore_service.dart';
+import 'package:flutter_application_1/services/pref_service.dart';
+import 'package:flutter_application_1/services/shared_pref.dart';
+import 'package:flutter_application_1/services/util.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+// import 'package:shared_preferences/shared_preferences.dart';
 // import 'package:terature/services/firestore_service.dart';
 
 class AuthService {
   static final FirebaseAuth _auth = FirebaseAuth.instance;
   static final GoogleSignIn _googleSignIn = GoogleSignIn();
   // static final Facebook
+  // static Future<bool> updateLoggedUserPassword(
+  //     String uid, String newPassword) async {
+  //   try {
+  //     await FirebaseFirestore.instance
+  //         .collection('user')
+  //         .doc(uid)
+  //         .update({'password': newPassword});
+  //     return true;
+  //   } catch (e) {
+  //     debugPrint(e.toString());
+  //     return false;
+  //   }
+  // }
+
+  static Future<bool> changePassword(
+      String email, String currentPassword, String newPassword) async {
+    try {
+      var user = FirebaseAuth.instance.currentUser!;
+
+      final cred =
+          EmailAuthProvider.credential(email: email, password: currentPassword);
+      user.reauthenticateWithCredential(cred).then((value) async {
+        await user.updatePassword(newPassword);
+        FirestoreService.updateLoggedUserPassword(
+            user.uid, hashPass(newPassword));
+        SharedPrefService.setNewPassword(hashPass(newPassword));
+      });
+      return true;
+    } catch (e) {
+      debugPrint("Password can't be changed" + e.toString());
+      return false;
+    }
+  }
 
   static Future<User?> signUp(String email, String password) async {
     UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
@@ -39,6 +78,15 @@ class AuthService {
 
     await _googleSignIn.signOut();
     // await _f
+  }
+
+  static Future<String> getUserLoggedInName() async {
+    final prefs = await SharedPreferences.getInstance();
+
+    String? encodedMap = prefs.getString('loggedUser');
+    Map<String, dynamic> decodedMap = json.decode(encodedMap!);
+    debugPrint(decodedMap["name"]);
+    return decodedMap["name"];
   }
 
   static Future<void> googleSignIn(BuildContext context) async {

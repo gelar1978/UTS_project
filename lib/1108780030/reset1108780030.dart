@@ -129,7 +129,12 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   child: const Text('Change'),
                   onPressed: () async {
                     AuthService.resetPassword(nameController.text);
-                    Navigator.pop(context);
+                    debugPrint(
+                        "Pesan telah dikirim ke email, silakan ubah password di link yang dikirimkan ke email");
+                    _showSnackbarReview(false,
+                        "Pesan telah dikirim ke email, silakan ubah password di link yang dikirimkan ke email");
+
+                    // Navigator.pop(context);
                     // final result = await Navigator.push(
                     //   context,
                     //   MaterialPageRoute(
@@ -169,5 +174,15 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             ),
           ],
         ));
+  }
+
+  void _showSnackbarReview(bool isError, String message) {
+    final snackbar = SnackBar(
+      content: Text(message),
+      backgroundColor: !isError ? Colors.green : Colors.red,
+      behavior: SnackBarBehavior.floating,
+    );
+
+    ScaffoldMessenger.of(context).showSnackBar(snackbar);
   }
 }

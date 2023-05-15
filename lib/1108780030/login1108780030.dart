@@ -1,8 +1,14 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/1108780030/hal1108780030.dart';
+import 'package:flutter_application_1/1108780030/nav1108780030.dart';
 import 'package:flutter_application_1/1108780030/reset1108780030.dart';
 import 'package:flutter_application_1/1108780030/signup1108780030.dart';
+import 'package:flutter_application_1/controller/create_new_pass.dart';
 import 'package:flutter_application_1/services/auth_service.dart';
+import 'package:flutter_application_1/services/confirm_pass.dart';
+import 'package:flutter_application_1/services/pref_service.dart';
+import 'package:flutter_application_1/services/util.dart';
 import 'package:get/route_manager.dart';
 import 'package:sign_button/sign_button.dart';
 // import 'package:flutter_signin_button/flutter_signin_button.dart';
@@ -53,6 +59,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   String _message = '';
+  User? user1;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -141,17 +148,73 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 child: ElevatedButton(
                   child: const Text('Login'),
                   onPressed: () async {
-                    AuthService.signIn(
-                        nameController.text, passwordController.text);
-                    final result = await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => hal1101194080old(),
-                      ),
-                    );
-                    setState(() {
-                      _message = result ?? '';
-                    });
+                    // print("test");
+                    if (passwordController.text.isNotEmpty) {
+                      // final userLoggedIn =
+                      //     await SharedPrefService.getLoggedInUserData();
+
+                      debugPrint(hashPass(passwordController.text));
+                      // debugPrint(userLoggedIn.password);
+                      try {
+                        final FirebaseAuth _auth = FirebaseAuth.instance;
+                        UserCredential userCredential =
+                            await _auth.signInWithEmailAndPassword(
+                                email: nameController.text,
+                                password: passwordController.text);
+
+                        User? user1 = userCredential.user;
+
+                        // user1 = await AuthService.signIn(
+                        //     nameController.text, passwordController.text);
+                        // user1 = hasil;
+                        _showSnackbarReview(
+                            false, user1!.email.toString() + ' Berhasil Masuk');
+                        // debugPrint(user1.toString() + " success123");
+                        final result = await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => NavBarView(),
+                          ),
+                        );
+                        setState(() {
+                          _message = result ?? '';
+                        });
+                      } catch (e) {
+                        _showSnackbarReview(true, 'Password Salah');
+
+                        debugPrint("gagal karena : " + e.toString());
+                      }
+
+                      // if (hashPass(passwordController.text) ==
+                      //     userLoggedIn.password) {
+                      //   Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //       builder: (context) => CreateNewPasswordView(
+                      //         currentPassword: passwordController.text,
+                      //         email: nameController.text,
+                      //       ),
+                      //     ),
+                      //   );
+                      // } else {
+                      //   _showSnackbarReview(true, 'Password tidak sesuai');
+                      // }
+                    } else {
+                      _showSnackbarReview(
+                          true, 'Kolom password tidak boleh kosong');
+                    }
+
+                    // AuthService.signIn(
+                    //     nameController.text, passwordController.text);
+                    // final result = await Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => hal1101194080old(),
+                    //   ),
+                    // );
+                    // setState(() {
+                    //   _message = result ?? '';
+                    // });
                   },
                   // onPressed: () {
                   //   print(nameController.text);
@@ -172,7 +235,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 final result = await Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => hal1101194080old(),
+                    builder: (context) => NavBarView(),
                   ),
                 );
                 setState(() {
@@ -210,5 +273,15 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             ),
           ],
         ));
+  }
+
+  void _showSnackbarReview(bool isError, String message) {
+    final snackbar = SnackBar(
+      content: Text(message),
+      backgroundColor: !isError ? Colors.green : Colors.red,
+      behavior: SnackBarBehavior.floating,
+    );
+
+    ScaffoldMessenger.of(context).showSnackBar(snackbar);
   }
 }
