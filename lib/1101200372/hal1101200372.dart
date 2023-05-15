@@ -1,4 +1,4 @@
-// ignore_for_file: non_constant_identifier_names, camel_case_types
+// ignore_for_file: non_constant_identifier_names, camel_case_types, library_private_types_in_public_api
 
 import 'dart:math';
 
@@ -21,7 +21,7 @@ class _hal1101200372oldState extends State<hal1101200372old> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.redAccent,
-        title: Text('Aldira Fadillah Lazuardi - Page 1'),
+        title: const Text('Aldira Fadillah Lazuardi - Page 1'),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -55,7 +55,7 @@ class _hal1101200372oldState extends State<hal1101200372old> {
                       keyboardType: TextInputType.number,
                       controller: inputnim_7,
                       decoration: InputDecoration(
-                          icon: Icon(Icons.key),
+                          icon: const Icon(Icons.key),
                           iconColor: isInputValid ? Colors.blue : Colors.red,
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10.0),
@@ -87,28 +87,28 @@ class _hal1101200372oldState extends State<hal1101200372old> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8.0),
                     child: ElevatedButton(
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(
                           Colors.redAccent,
                         ),
                       ),
-                      child: Text("Main Page"),
+                      child: const Text("Main Page"),
                       onPressed: () {
                         Navigator.pop(context, NIM_NOTEL);
                       },
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8.0),
                     child: ElevatedButton(
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(
                           isInputValid ? Colors.blue : Colors.redAccent,
                         ),
                       ),
-                      child: Text("Next Page"),
+                      child: const Text("Next Page"),
                       onPressed: () async {
                         String nim = inputnim_7.text;
                         if (nim == "1101200") {
@@ -158,7 +158,7 @@ class _hal1101200372oldState extends State<hal1101200372old> {
 //This Second Page
 class SecondPage extends StatefulWidget {
   final String nim_7;
-  SecondPage({required this.nim_7});
+  SecondPage({super.key, required this.nim_7});
   @override
   _SecondPageState createState() => _SecondPageState();
 }
@@ -366,7 +366,8 @@ class ThirdPage extends StatefulWidget {
   final String nim8push;
 
   const ThirdPage(
-      {required this.emailpush,
+      {super.key,
+      required this.emailpush,
       required this.notelpush,
       required this.nim8push});
 
@@ -456,7 +457,7 @@ class _ThirdPageState extends State<ThirdPage> {
                               Colors.redAccent,
                             ),
                           ),
-                          child: Text('Previous Page'),
+                          child: const Text('Previous Page'),
                           onPressed: () {
                             Navigator.pop(context, NIM_NOTEL);
                           }),

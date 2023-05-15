@@ -13,7 +13,10 @@ class reset1101200372 extends StatelessWidget {
     return MaterialApp(
       title: _title,
       home: Scaffold(
-        appBar: AppBar(title: const Text(_title)),
+        appBar: AppBar(
+          title: const Text(_title),
+          backgroundColor: Colors.redAccent,
+        ),
         body: const MyStatefulWidget(),
       ),
     );

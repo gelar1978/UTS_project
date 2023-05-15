@@ -1,8 +1,12 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/1101200372/hal1101200372.dart';
 import 'package:flutter_application_1/1101200372/reset1101200372.dart';
 import 'package:flutter_application_1/1101200372/signup1101200372.dart';
 import 'package:sign_button/sign_button.dart';
+
+import '../services/auth_service.dart';
 
 class hal1101200372new extends StatelessWidget {
   const hal1101200372new({Key? key}) : super(key: key);
@@ -14,7 +18,23 @@ class hal1101200372new extends StatelessWidget {
     return MaterialApp(
       title: _title,
       home: Scaffold(
-        appBar: AppBar(title: const Text(_title)),
+        appBar: AppBar(
+          backgroundColor: Colors.redAccent,
+          title: const Text(_title),
+          actions: <Widget>[
+            IconButton(
+              icon: const Icon(
+                Icons.arrow_back,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                // _showAlertDialog(context);
+                // Get.back();
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
         body: const MyStatefulWidget(),
       ),
     );
@@ -105,7 +125,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => reset1101200372(),
+                    builder: (context) => const reset1101200372(),
                   ),
                 );
                 //forgot password screen
@@ -123,7 +143,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     final result = await Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => hal1101200372old(),
+                        builder: (context) => const hal1101200372old(),
                       ),
                     );
                     setState(() {
@@ -143,15 +163,27 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             // ),
             SignInButton(
               buttonSize: ButtonSize.small,
-              onPressed: () {},
+              onPressed: () async {
+                await AuthService.googleSignIn(context);
+                // Navigator.pop(context);
+                final result = await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const hal1101200372old(),
+                  ),
+                );
+                setState(() {
+                  _message = result ?? '';
+                });
+              },
               buttonType: ButtonType.google,
             ),
-            SignInButton(
-              // shape: ,
-              buttonSize: ButtonSize.small,
-              onPressed: () {},
-              buttonType: ButtonType.facebook,
-            ),
+            // SignInButton(
+            //   // shape: ,
+            //   buttonSize: ButtonSize.small,
+            //   onPressed: () {},
+            //   buttonType: ButtonType.facebook,
+            // ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -165,7 +197,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => SignUpScreen1101200372(),
+                        builder: (context) => const SignUpScreen1101200372(),
                       ),
                     );
                     //signup screen
