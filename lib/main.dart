@@ -1,6 +1,7 @@
 import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/1101190002/login1101190002.dart';
 import 'package:flutter_application_1/1101194190/login1101194190.dart';
 import 'package:flutter_application_1/1101200196/hal1101200196.dart';
 import 'package:flutter_application_1/1101201509/login1101201509.dart';
@@ -17,7 +18,7 @@ import 'package:flutter_application_1/hal1101190144.dart';
 import 'data.dart' as data;
 import '1108780030/login1108780030.dart';
 import 'hal1101180517.dart';
-import 'hal1101190002.dart';
+// import 'hal1101190002.dart';
 import '1101190196/hal1101190196.dart';
 import '1101193090/hal1101193090.dart';
 import 'hal1101193387.dart';
@@ -123,7 +124,7 @@ class _Hal1State extends State<Hal1> {
                   final result = await Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => hal1101190002(),
+                      builder: (context) => hal1101190002old(),
                     ),
                   );
                   setState(() {
