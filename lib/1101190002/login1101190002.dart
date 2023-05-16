@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/hal1101190002.dart';
+import 'package:flutter_application_1/1101190002/hal1101190002.dart';
 import 'package:flutter_application_1/1101190002/reset1101190002.dart';
 import 'package:flutter_application_1/1101190002/signup1101190002.dart';
 import 'package:sign_button/sign_button.dart';
+
+import '../1101190002/signup1101190002.dart';
 // import 'package:flutter_signin_button/flutter_signin_button.dart';
 // import 'package:sign_button/sign_button.dart'
 // void main() => runApp(const MyApp());
@@ -179,4 +181,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           ],
         ));
   }
+}
+
+SignUpScreen() {
+}
+
+hal1101190002old() {
 }

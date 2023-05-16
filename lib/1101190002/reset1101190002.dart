@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/1108780030/hal1108780030.dart';
 import 'package:flutter_application_1/1108780030/login1108780030.dart';
 
+import 'login1101190002.dart';
+
 // void main() => runApp(const MyApp());
 
 class reset1101190002 extends StatelessWidget {
@@ -143,7 +145,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => hal1108780030new(),
+                        builder: (context) => hal1101190002new(),
                       ),
                     );
                     // Navigator.pop(context);
