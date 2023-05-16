@@ -1,7 +1,5 @@
-// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter/services.dart';
 import 'package:flutter_application_1/constant/color.dart';
 import 'package:flutter_application_1/controller/theme_controller.dart';
 import 'package:flutter_application_1/model/user.dart';
@@ -9,21 +7,15 @@ import 'package:flutter_application_1/services/auth_service.dart';
 import 'package:flutter_application_1/services/firestore_service.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-// import 'package:terature/constant/color.dart';
-// import 'package:terature/controllers/theme_controller.dart';
-// import 'package:terature/model/user.dart';
-// import 'package:terature/screen/login_screen.dart';
-// import 'package:terature/services/auth_service.dart';
-// import 'package:terature/services/firestore_service.dart';
 
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({Key? key}) : super(key: key);
+class SignUpScreen1101202549 extends StatefulWidget {
+  const SignUpScreen1101202549({Key? key}) : super(key: key);
 
   @override
-  _SignUpScreenState createState() => _SignUpScreenState();
+  _SignUpScreen1101202549State createState() => _SignUpScreen1101202549State();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
+class _SignUpScreen1101202549State extends State<SignUpScreen1101202549> {
   // final themeController = Get.find<AppTheme>();
   final themeController = Get.put(AppTheme());
 
