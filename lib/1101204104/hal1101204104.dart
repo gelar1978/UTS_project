@@ -1,16 +1,19 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter_application_1/1101204104/imageView1101204104.dart';
+import 'package:flutter_application_1/1101204257/imageView1101204257.dart';
+import 'package:flutter_application_1/controller/image_upload.dart';
+import 'package:flutter_application_1/services/auth_service.dart';
 
-class hal1101204104 extends StatefulWidget {
+class hal1101204104old extends StatefulWidget {
   // final String message;
-  hal1101204104({super.key});
+  hal1101204104old({super.key});
 
   @override
-  State<hal1101204104> createState() => _hal1101204104State();
+  State<hal1101204104old> createState() => _hal1101204104oldState();
 }
 
-class _hal1101204104State extends State<hal1101204104> {
+class _hal1101204104oldState extends State<hal1101204104old> {
   final TextEditingController _textEditingController = TextEditingController();
   String _message = '';
   @override
@@ -19,6 +22,18 @@ class _hal1101204104State extends State<hal1101204104> {
       appBar: AppBar(
         title: const Text('Muhammad Naufal Nur Irawan/Page-1'),
         titleTextStyle: TextStyle(fontFamily: 'Times New Roman'),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(
+              Icons.logout,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              AuthService.signOut();
+              Navigator.pop(context);
+            },
+          )
+        ],
       ),
       body: ListView(
         children: [
@@ -110,6 +125,26 @@ class _hal1101204104State extends State<hal1101204104> {
                   )),
                 ),
               ),
+              TextButton(
+                  onPressed: (() {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ImageUploads(),
+                      ),
+                    );
+                  }),
+                  child: Text("Upload Image")),
+              TextButton(
+                  onPressed: (() {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ImageView(),
+                      ),
+                    );
+                  }),
+                  child: Text("View Image"))
             ],
           ),
         ],

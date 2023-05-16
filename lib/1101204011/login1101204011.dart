@@ -69,7 +69,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 child: const Text(
                   'Fajar Adhitia Pratama',
                   style: TextStyle(
-                      color: Colors.red,
+                      color: Color.fromARGB(255, 0, 0, 0),
                       fontWeight: FontWeight.w500,
                       fontSize: 20),
                 )),
@@ -79,7 +79,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 child: const Text(
                   '1101204011',
                   style: TextStyle(
-                      color: Colors.blue,
+                      color: Color.fromARGB(255, 0, 0, 0),
                       fontWeight: FontWeight.w500,
                       fontSize: 20),
                 )),
@@ -110,7 +110,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 controller: nameController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'User Name',
+                  labelText: 'Email',
                 ),
               ),
             ),
@@ -199,7 +199,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               buttonSize: ButtonSize.small,
               onPressed: () async {
                 await AuthService.googleSignIn(context);
-                // Navigator.pop(context);
+                Navigator.pop(context);
                 final result = await Navigator.push(
                   context,
                   MaterialPageRoute(

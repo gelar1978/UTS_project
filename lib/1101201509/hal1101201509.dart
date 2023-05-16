@@ -1,5 +1,8 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/1101201509/imageView1101201509.dart';
+import 'package:flutter_application_1/controller/image_upload.dart';
+import 'package:flutter_application_1/services/auth_service.dart';
 
 class hal1101201509old extends StatefulWidget {
   // final String message;
@@ -19,6 +22,19 @@ class _hal1101201509oldState extends State<hal1101201509old> {
       appBar: AppBar(
         title: const Text('Aldra Kasyfil Aziz/Page-1'),
         backgroundColor: Color.fromARGB(255, 39, 59, 105),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(
+              Icons.logout,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              // _showAlertDialog(context);
+              AuthService.signOut();
+              Navigator.pop(context);
+            },
+          ),
+        ],
       ),
       body: ListView(
         children: [
@@ -120,6 +136,26 @@ class _hal1101201509oldState extends State<hal1101201509old> {
                   )),
                 ),
               ),
+              TextButton(
+                  onPressed: (() {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ImageUploads(),
+                      ),
+                    );
+                  }),
+                  child: Text("Upload Image")),
+              TextButton(
+                  onPressed: (() {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ImageView(),
+                      ),
+                    );
+                  }),
+                  child: Text("View Image"))
             ],
           ),
         ],

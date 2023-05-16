@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/1101204104/hal1101204104.dart';
 import 'package:flutter_application_1/1101204104/login1101204104.dart';
+import 'package:flutter_application_1/services/auth_service.dart';
 
 // void main() => runApp(const MyApp());
 
@@ -42,7 +44,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(1),
                 child: const Text(
-                  'Gelar Budiman',
+                  'Muhammad Naufal Nur Irawan',
                   style: TextStyle(
                       color: Colors.blue,
                       fontWeight: FontWeight.w500,
@@ -52,7 +54,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(1),
                 child: const Text(
-                  '1108780030',
+                  '1101204104',
                   style: TextStyle(
                       color: Colors.blue,
                       fontWeight: FontWeight.w500,
@@ -65,7 +67,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 width: 170,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("lib/images/glb.jpg"),
+                    image: AssetImage("lib/images/nau1.jpeg"),
                     fit: BoxFit.fitWidth,
                   ),
                   shape: BoxShape.circle,
@@ -85,7 +87,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 controller: nameController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'User Name',
+                  labelText: 'Email',
                 ),
               ),
             ),
@@ -111,34 +113,18 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 ),
               ),
             ),
-            // TextButton(
-            //   onPressed: () {
-            //     //forgot password screen
-            //   },
-            //   child: const Text(
-            //     'Forgot Password',
-            //   ),
-            // ),
             Container(
                 height: 50,
                 padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                 child: ElevatedButton(
                   child: const Text('Change'),
                   onPressed: () async {
-                    // final result = await Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) => hal1108780030old(),
-                    //   ),
-                    // );
-                    // setState(() {
-                    //   _message = result ?? '';
-                    // });
+                    AuthService.resetPassword(nameController.text);
+                    debugPrint(
+                        "Pesan telah dikirim ke email, silahkan ubah password");
+                    _showSnackbarReview(false,
+                        "Pesan telah dikirim ke email, silakan ubah password di link yang dikirimkan ke email");
                   },
-                  // onPressed: () {
-                  //   print(nameController.text);
-                  //   print(passwordController.text);
-                  // },
                 )),
             Row(
               children: <Widget>[
@@ -152,7 +138,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => hal1101204104(),
+                        builder: (context) => hal1101204104new(),
                       ),
                     );
                     // Navigator.pop(context);
@@ -164,5 +150,14 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             ),
           ],
         ));
+  }
+
+  void _showSnackbarReview(bool isError, String message) {
+    final snackbar = SnackBar(
+      content: Text(message),
+      backgroundColor: !isError ? Colors.green : Colors.red,
+      behavior: SnackBarBehavior.floating,
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackbar);
   }
 }
