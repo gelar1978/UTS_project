@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/1101204011/hal1101204011.dart';
 import 'package:flutter_application_1/1101204011/login1101204011.dart';
+import 'package:flutter_application_1/services/auth_service.dart';
 
 // void main() => runApp(const MyApp());
 
@@ -49,6 +50,17 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                       fontWeight: FontWeight.w500,
                       fontSize: 30),
                 )),
+            Container(
+              alignment: Alignment.center,
+              padding: const EdgeInsets.all(1),
+              child: const Text(
+                '1101204011',
+                style: TextStyle(
+                    color: Colors.blue,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 30),
+              ),
+            ),
             CircleAvatar(
               radius: 80,
               child: Container(
@@ -76,32 +88,32 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 controller: nameController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'User Name',
+                  labelText: 'Email',
                 ),
               ),
             ),
-            Container(
-              padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-              child: TextField(
-                obscureText: true,
-                controller: passwordController,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Password',
-                ),
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-              child: TextField(
-                obscureText: true,
-                controller: passwordController2,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Confirmed Password',
-                ),
-              ),
-            ),
+            // Container(
+            //   padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+            //   child: TextField(
+            //     obscureText: true,
+            //     controller: passwordController,
+            //     decoration: const InputDecoration(
+            //       border: OutlineInputBorder(),
+            //       labelText: 'Password',
+            //     ),
+            //   ),
+            // ),
+            // Container(
+            //   padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+            //   child: TextField(
+            //     obscureText: true,
+            //     controller: passwordController2,
+            //     decoration: const InputDecoration(
+            //       border: OutlineInputBorder(),
+            //       labelText: 'Confirmed Password',
+            //     ),
+            //   ),
+            // ),
             // TextButton(
             //   onPressed: () {
             //     //forgot password screen
@@ -116,15 +128,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 child: ElevatedButton(
                   child: const Text('Change'),
                   onPressed: () async {
-                    // final result = await Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) => hal1108780030old(),
-                    //   ),
-                    // );
-                    // setState(() {
-                    //   _message = result ?? '';
-                    // });
+                    AuthService.resetPassword(nameController.text);
+                    debugPrint(
+                        "Pesan telah dikirim ke email, silahkan ubah password di link yang dikirimkan ke email");
+                    _showSnackbarReview(false,
+                        "Pesan telah dikirim ke email, silahkan ubah password di link yang dikirimkan ke email");
                   },
                   // onPressed: () {
                   //   print(nameController.text);
@@ -155,5 +163,15 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             ),
           ],
         ));
+  }
+
+  void _showSnackbarReview(bool isError, String message) {
+    final snackbar = SnackBar(
+      content: Text(message),
+      backgroundColor: !isError ? Colors.green : Colors.red,
+      behavior: SnackBarBehavior.floating,
+    );
+
+    ScaffoldMessenger.of(context).showSnackBar(snackbar);
   }
 }
