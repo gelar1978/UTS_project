@@ -90,9 +90,10 @@ class AuthService {
   }
 
   static Future<void> googleSignIn(BuildContext context) async {
+    print('awal1');
     try {
       GoogleSignInAccount? googleSignInAccount = await _googleSignIn.signIn();
-
+      print('awal2');
       if (googleSignInAccount != null) {
         GoogleSignInAuthentication googleSignInAuthentication =
             await googleSignInAccount.authentication;

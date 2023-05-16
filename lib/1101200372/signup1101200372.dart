@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api, avoid_print, use_build_context_synchronously
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/constant/color.dart';
@@ -19,16 +21,16 @@ class _SignUpScreen1101200372State extends State<SignUpScreen1101200372> {
   // final themeController = Get.find<AppTheme>();
   final themeController = Get.put(AppTheme());
 
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
-  TextEditingController _noController = TextEditingController();
-  TextEditingController _namaController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _noController = TextEditingController();
+  final TextEditingController _namaController = TextEditingController();
   final _key = GlobalKey<FormState>();
 
-  FocusNode _emailFieldFocus = FocusNode();
-  FocusNode _passwordFieldFocus = FocusNode();
-  FocusNode _noFieldFocus = FocusNode();
-  FocusNode _namaFieldFocus = FocusNode();
+  final FocusNode _emailFieldFocus = FocusNode();
+  final FocusNode _passwordFieldFocus = FocusNode();
+  final FocusNode _noFieldFocus = FocusNode();
+  final FocusNode _namaFieldFocus = FocusNode();
 
   Color _emailDarkColor = AppColor.darkFormFillColor;
   Color _passwordDarkColor = AppColor.darkFormFillColor;
@@ -42,10 +44,11 @@ class _SignUpScreen1101200372State extends State<SignUpScreen1101200372> {
 
   bool _obscureText = true;
 
-  OutlineInputBorder _outlineBorder = const OutlineInputBorder(
+  final OutlineInputBorder _outlineBorder = const OutlineInputBorder(
       borderRadius: BorderRadius.all(Radius.circular(10)),
       borderSide: BorderSide.none);
 
+  @override
   void dispose() {
     _emailController.dispose();
     _passwordController.dispose();
@@ -54,6 +57,7 @@ class _SignUpScreen1101200372State extends State<SignUpScreen1101200372> {
     super.dispose();
   }
 
+  @override
   void initState() {
     _emailFieldFocus.addListener(() {
       if (_emailFieldFocus.hasFocus) {
@@ -149,6 +153,7 @@ class _SignUpScreen1101200372State extends State<SignUpScreen1101200372> {
                 if (value!.isEmpty) {
                   return 'This field can\'t be empty';
                 }
+                return null;
               }),
     );
   }
@@ -291,6 +296,7 @@ class _SignUpScreen1101200372State extends State<SignUpScreen1101200372> {
                               } else if (value.length > 12) {
                                 return 'Phone number maximum 12 number';
                               }
+                              return null;
                             }, inputType: TextInputType.number)),
                         const SizedBox(
                           height: 25,

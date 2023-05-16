@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/1101200196/signup1101200196.dart';
 import 'package:flutter_application_1/1101200196/reset1101200196.dart';
+import 'package:flutter_application_1/services/util.dart';
 import 'package:sign_button/create_button.dart';
 import 'package:sign_button/sign_button.dart';
 
@@ -31,7 +33,7 @@ class MyStatefulWidget extends StatefulWidget {
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-
+  String _message = '';
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -108,9 +110,45 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                 child: ElevatedButton(
                   child: const Text('Login'),
-                  onPressed: () {
-                    print(nameController.text);
-                    print(passwordController.text);
+                  onPressed: () async {
+                    if (passwordController.text.isNotEmpty) {
+                      // final userLoggedIn =
+                      //     await SharedPrefService.getLoggedInUserData();
+
+                      debugPrint(hashPass(passwordController.text));
+                      // debugPrint(userLoggedIn.password);
+                      try {
+                        final FirebaseAuth _auth = FirebaseAuth.instance;
+                        UserCredential userCredential =
+                            await _auth.signInWithEmailAndPassword(
+                                email: nameController.text,
+                                password: passwordController.text);
+
+                        User? user1 = userCredential.user;
+
+                        _showSnackbarReview(
+                            false, user1!.email.toString() + ' Berhasil Masuk');
+                        // debugPrint(user1.toString() + " success123");
+                        // final result = await Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(
+                        //     builder: (context) => NavBarView(),
+                        //   ),
+                        // );
+                        // setState(() {
+                        //   _message = result ?? '';
+                        // });
+                      } catch (e) {
+                        _showSnackbarReview(true, 'Password Salah');
+
+                        debugPrint("gagal karena : " + e.toString());
+                      }
+                    } else {
+                      _showSnackbarReview(
+                          true, 'Kolom password tidak boleh kosong');
+                    }
+                    // print(nameController.text);
+                    // print(passwordController.text);
                   },
                 )),
             SignInButton(
@@ -146,5 +184,15 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             ),
           ],
         ));
+  }
+
+  void _showSnackbarReview(bool isError, String message) {
+    final snackbar = SnackBar(
+      content: Text(message),
+      backgroundColor: !isError ? Colors.green : Colors.red,
+      behavior: SnackBarBehavior.floating,
+    );
+
+    ScaffoldMessenger.of(context).showSnackBar(snackbar);
   }
 }
