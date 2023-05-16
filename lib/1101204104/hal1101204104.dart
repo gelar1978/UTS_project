@@ -1,7 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/1101204104/imageView1101204104.dart';
-import 'package:flutter_application_1/1101204257/imageView1101204257.dart';
 import 'package:flutter_application_1/controller/image_upload.dart';
 import 'package:flutter_application_1/services/auth_service.dart';
 
