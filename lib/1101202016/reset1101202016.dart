@@ -156,4 +156,13 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           ],
         ));
   }
+  void _showSnackbarReview(bool isError, String message) {
+    final snackbar = SnackBar(
+      content: Text(message),
+      backgroundColor: !isError ? Colors.green : Colors.red,
+      behavior: SnackBarBehavior.floating,
+    );
+
+    ScaffoldMessenger.of(context).showSnackBar(snackbar);
+  }
 }

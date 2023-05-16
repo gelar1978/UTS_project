@@ -42,7 +42,7 @@ class _home1101202016State extends State<home1101202016> {
                   alignment: Alignment.center,
                   padding: const EdgeInsets.all(1),
                   child: const Text(
-                    'Gelar Budiman',
+                    'Andri Satia Permana',
                     style: TextStyle(
                         color: Colors.red,
                         fontWeight: FontWeight.w500,
@@ -52,7 +52,7 @@ class _home1101202016State extends State<home1101202016> {
                   alignment: Alignment.center,
                   padding: const EdgeInsets.all(1),
                   child: const Text(
-                    '1108780030',
+                    '1101202016',
                     style: TextStyle(
                         color: Colors.blue,
                         fontWeight: FontWeight.w500,
