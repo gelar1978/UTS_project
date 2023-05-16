@@ -1,8 +1,14 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/1101204011/hal1101204011.dart';
 import 'package:flutter_application_1/1101204011/reset1101204011.dart';
 import 'package:flutter_application_1/1101204011/signup1101204011.dart';
+import 'package:flutter_application_1/1101204011/nav1101204011.dart';
+import 'package:flutter_application_1/services/util.dart';
 import 'package:sign_button/sign_button.dart';
+
+import '../services/auth_service.dart';
 // import 'package:flutter_signin_button/flutter_signin_button.dart';
 // import 'package:sign_button/sign_button.dart'
 // void main() => runApp(const MyApp());
@@ -15,9 +21,25 @@ class hal1101204011new extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: _title,
       home: Scaffold(
-        appBar: AppBar(title: const Text(_title)),
+        appBar: AppBar(
+          title: const Text(_title),
+          actions: <Widget>[
+            IconButton(
+              icon: const Icon(
+                Icons.arrow_back,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                // _showAlertDialog(context);
+                // Get.back();
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
         body: const MyStatefulWidget(),
       ),
     );
@@ -123,20 +145,49 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 child: ElevatedButton(
                   child: const Text('Login'),
                   onPressed: () async {
-                    final result = await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => hal1101204011(),
-                      ),
-                    );
-                    setState(() {
-                      _message = result ?? '';
-                    });
+                    if (passwordController.text.isNotEmpty) {
+                      debugPrint(hashPass(passwordController.text));
+                      try {
+                        final FirebaseAuth _auth = FirebaseAuth.instance;
+                        UserCredential userCredential =
+                            await _auth.signInWithEmailAndPassword(
+                                email: nameController.text,
+                                password: passwordController.text);
+                        User? user1 = userCredential.user;
+
+                        _showSnackbarReview(
+                            false, user1!.email.toString() + 'Berhasil Masuk');
+                        final result = await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => NavBarView(),
+                          ),
+                        );
+                        setState(() {
+                          _message = result ?? '';
+                        });
+                      } catch (e) {
+                        _showSnackbarReview(true, 'Password Salah');
+                        debugPrint("gagal karena : " + e.toString());
+                      }
+                      // final result = await Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (context) => hal1101204011(),
+                      //   ),
+                      // );
+                      // setState(() {
+                      //   _message = result ?? '';
+                      // });
+                    } else {
+                      _showSnackbarReview(
+                          true, 'kolom password tidak boleh kosong');
+                    }
+                    // onPressed: () {
+                    //   print(nameController.text);
+                    //   print(passwordController.text);
+                    // },
                   },
-                  // onPressed: () {
-                  //   print(nameController.text);
-                  //   print(passwordController.text);
-                  // },
                 )),
             // SignInButton(
             //   btnText: 'Login',
@@ -146,14 +197,20 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             // ),
             SignInButton(
               buttonSize: ButtonSize.small,
-              onPressed: () {},
+              onPressed: () async {
+                await AuthService.googleSignIn(context);
+                // Navigator.pop(context);
+                final result = await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => NavBarView(),
+                  ),
+                );
+                setState(() {
+                  _message = result ?? '';
+                });
+              },
               buttonType: ButtonType.google,
-            ),
-            SignInButton(
-              // shape: ,
-              buttonSize: ButtonSize.small,
-              onPressed: () {},
-              buttonType: ButtonType.facebook,
             ),
             Row(
               children: <Widget>[
@@ -178,5 +235,15 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             ),
           ],
         ));
+  }
+
+  void _showSnackbarReview(bool isError, String message) {
+    final snackbar = SnackBar(
+      content: Text(message),
+      backgroundColor: !isError ? Colors.green : Colors.red,
+      behavior: SnackBarBehavior.floating,
+    );
+
+    ScaffoldMessenger.of(context).showSnackBar(snackbar);
   }
 }

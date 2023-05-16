@@ -72,7 +72,6 @@ class _hal1101200372oldState extends State<hal1101200372old> {
                         } else {
                           isInputValid = false;
                         }
-                        ;
                       },
                     ),
                   ),
@@ -158,7 +157,7 @@ class _hal1101200372oldState extends State<hal1101200372old> {
 //This Second Page
 class SecondPage extends StatefulWidget {
   final String nim_7;
-  SecondPage({super.key, required this.nim_7});
+  const SecondPage({super.key, required this.nim_7});
   @override
   _SecondPageState createState() => _SecondPageState();
 }
@@ -218,7 +217,6 @@ class _SecondPageState extends State<SecondPage> {
                   } else {
                     isInputValidE = false;
                   }
-                  ;
                 },
               ),
             ),
@@ -248,7 +246,6 @@ class _SecondPageState extends State<SecondPage> {
                   } else {
                     isInputValidN = false;
                   }
-                  ;
                 },
               ),
             ),
@@ -278,7 +275,6 @@ class _SecondPageState extends State<SecondPage> {
                   } else {
                     isInputValidn = false;
                   }
-                  ;
                 },
               ),
             ),

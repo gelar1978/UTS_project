@@ -1,5 +1,6 @@
-// ignore_for_file: use_build_context_synchronously
+// ignore_for_file: use_build_context_synchronously, no_leading_underscores_for_local_identifiers, unused_field, camel_case_types
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/1101200372/hal1101200372.dart';
 import 'package:flutter_application_1/1101200372/reset1101200372.dart';
@@ -7,6 +8,8 @@ import 'package:flutter_application_1/1101200372/signup1101200372.dart';
 import 'package:sign_button/sign_button.dart';
 
 import '../services/auth_service.dart';
+import '../services/util.dart';
+import 'nav1101200372.dart';
 
 class hal1101200372new extends StatelessWidget {
   const hal1101200372new({Key? key}) : super(key: key);
@@ -140,6 +143,62 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 child: ElevatedButton(
                   child: const Text('Login'),
                   onPressed: () async {
+                    if (passwordController.text.isNotEmpty) {
+                      // final userLoggedIn =
+                      //     await SharedPrefService.getLoggedInUserData();
+
+                      debugPrint(hashPass(passwordController.text));
+                      // debugPrint(userLoggedIn.password);
+                      try {
+                        final FirebaseAuth _auth = FirebaseAuth.instance;
+                        UserCredential userCredential =
+                            await _auth.signInWithEmailAndPassword(
+                                email: nameController.text,
+                                password: passwordController.text);
+
+                        User? user1 = userCredential.user;
+
+                        // user1 = await AuthService.signIn(
+                        //     nameController.text, passwordController.text);
+                        // user1 = hasil;
+                        _showSnackbarReview(
+                            false, '${user1!.email} Berhasil Masuk');
+                        // debugPrint(user1.toString() + " success123");
+                        final result = await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => NavBarView(),
+                          ),
+                        );
+                        setState(
+                          () {
+                            _message = result ?? '';
+                          },
+                        );
+                      } catch (e) {
+                        _showSnackbarReview(true, 'Password Salah');
+
+                        debugPrint("gagal karena : $e");
+                      }
+
+                      // if (hashPass(passwordController.text) ==
+                      //     userLoggedIn.password) {
+                      //   Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //       builder: (context) => CreateNewPasswordView(
+                      //         currentPassword: passwordController.text,
+                      //         email: nameController.text,
+                      //       ),
+                      //     ),
+                      //   );
+                      // } else {
+                      //   _showSnackbarReview(true, 'Password tidak sesuai');
+                      // }
+                    } else {
+                      _showSnackbarReview(
+                          true, 'Kolom password tidak boleh kosong');
+                    }
                     final result = await Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -207,5 +266,15 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             ),
           ],
         ));
+  }
+
+  void _showSnackbarReview(bool isError, String message) {
+    final snackbar = SnackBar(
+      content: Text(message),
+      backgroundColor: !isError ? Colors.green : Colors.red,
+      behavior: SnackBarBehavior.floating,
+    );
+
+    ScaffoldMessenger.of(context).showSnackBar(snackbar);
   }
 }
