@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/1101202549/hal1101202549.dart';
-import 'package:flutter_application_1/1101202549/reset1101202549.dart';
-import 'package:flutter_application_1/1101202549/signup1101202549.dart';
+import 'package:flutter_application_1/1101190002/hal1101190002.dart';
+import 'package:flutter_application_1/1101190002/reset1101190002.dart';
+import 'package:flutter_application_1/1101190002/signup1101190002.dart';
 import 'package:sign_button/sign_button.dart';
+
+import '../1101190002/signup1101190002.dart';
 // import 'package:flutter_signin_button/flutter_signin_button.dart';
 // import 'package:sign_button/sign_button.dart'
 // void main() => runApp(const MyApp());
 
-class hal1101202549new extends StatelessWidget {
-  const hal1101202549new({Key? key}) : super(key: key);
+class hal1101190002new extends StatelessWidget {
+  const hal1101190002new({Key? key}) : super(key: key);
 
   static const String _title = 'LOGIN PAGE';
 
@@ -45,7 +47,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(1),
                 child: const Text(
-                  'Nurafifah Annida',
+                  'M. Arief Zulfikar Darmawan',
                   style: TextStyle(
                       color: Colors.red,
                       fontWeight: FontWeight.w500,
@@ -55,7 +57,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(1),
                 child: const Text(
-                  '1101202549',
+                  '1101190002',
                   style: TextStyle(
                       color: Colors.blue,
                       fontWeight: FontWeight.w500,
@@ -68,11 +70,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 width: 120,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-<<<<<<< Updated upstream
-                    image: AssetImage("lib/images/afifah.jpg"),
-=======
-                    image: AssetImage("lib/images/Afifah.jpg"),
->>>>>>> Stashed changes
+                    image: AssetImage("lib/images/arief.jpg"),
                     fit: BoxFit.fitWidth,
                   ),
                   shape: BoxShape.circle,
@@ -112,7 +110,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => reset1101202549(),
+                    builder: (context) => reset1101190002(),
                   ),
                 );
                 //forgot password screen
@@ -130,7 +128,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     final result = await Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => hal1101202549old(),
+                        builder: (context) => hal1101190002old(),
                       ),
                     );
                     setState(() {
@@ -183,4 +181,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           ],
         ));
   }
+}
+
+SignUpScreen() {
+}
+
+hal1101190002old() {
 }
