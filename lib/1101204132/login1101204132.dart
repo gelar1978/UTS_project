@@ -1,11 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/1101204132/hal1101204132.dart';
+import 'package:flutter_application_1/1101204132/nav1101204132.dart';
 import 'package:flutter_application_1/1101204132/reset1101204132.dart';
 import 'package:flutter_application_1/1101204132/signup1101204132.dart';
-import 'package:flutter_application_1/1101204132/nav1101204132.dart';
+import 'package:flutter_application_1/controller/create_new_pass.dart';
 import 'package:flutter_application_1/services/auth_service.dart';
+import 'package:flutter_application_1/services/confirm_pass.dart';
+import 'package:flutter_application_1/services/pref_service.dart';
 import 'package:flutter_application_1/services/util.dart';
+import 'package:get/route_manager.dart';
 import 'package:sign_button/sign_button.dart';
 // import 'package:flutter_signin_button/flutter_signin_button.dart';
 // import 'package:sign_button/sign_button.dart'
@@ -55,6 +59,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   String _message = '';
+  User? user1;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -143,6 +148,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 child: ElevatedButton(
                   child: const Text('Login'),
                   onPressed: () async {
+                    
                     if (passwordController.text.isNotEmpty) {
                       // final userLoggedIn =
                       //     await SharedPrefService.getLoggedInUserData();
