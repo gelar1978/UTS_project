@@ -68,7 +68,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 width: 120,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
+<<<<<<< Updated upstream
                     image: AssetImage("lib/images/afifah.jpg"),
+=======
+                    image: AssetImage("lib/images/Afifah.jpg"),
+>>>>>>> Stashed changes
                     fit: BoxFit.fitWidth,
                   ),
                   shape: BoxShape.circle,
