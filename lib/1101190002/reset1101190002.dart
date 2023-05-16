@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/1101202549/hal1101202549.dart';
-import 'package:flutter_application_1/1101202549/reset1101202549.dart';
-import 'package:flutter_application_1/1101202549/signup1101202549.dart';
-import 'package:sign_button/sign_button.dart';
-// import 'package:flutter_signin_button/flutter_signin_button.dart';
-// import 'package:sign_button/sign_button.dart'
+import 'package:flutter_application_1/1108780030/hal1108780030.dart';
+import 'package:flutter_application_1/1108780030/login1108780030.dart';
+
+import 'login1101190002.dart';
+
 // void main() => runApp(const MyApp());
 
-class hal1101202549new extends StatelessWidget {
-  const hal1101202549new({Key? key}) : super(key: key);
+class reset1101190002 extends StatelessWidget {
+  const reset1101190002({Key? key}) : super(key: key);
 
-  static const String _title = 'LOGIN PAGE';
+  static const String _title = 'FORGOT PASSWORD';
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +33,7 @@ class MyStatefulWidget extends StatefulWidget {
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController passwordController2 = TextEditingController();
   String _message = '';
   @override
   Widget build(BuildContext context) {
@@ -43,36 +43,22 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           children: <Widget>[
             Container(
                 alignment: Alignment.center,
-                padding: const EdgeInsets.all(1),
+                padding: const EdgeInsets.all(10),
                 child: const Text(
-                  'Nurafifah Annida',
-                  style: TextStyle(
-                      color: Colors.red,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 20),
-                )),
-            Container(
-                alignment: Alignment.center,
-                padding: const EdgeInsets.all(1),
-                child: const Text(
-                  '1101202549',
+                  'M. Arief Zulfikar Darmawan',
                   style: TextStyle(
                       color: Colors.blue,
                       fontWeight: FontWeight.w500,
-                      fontSize: 20),
+                      fontSize: 30),
                 )),
             CircleAvatar(
-              radius: 60,
+              radius: 80,
               child: Container(
-                height: 120,
-                width: 120,
+                height: 170,
+                width: 170,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-<<<<<<< Updated upstream
-                    image: AssetImage("lib/images/afifah.jpg"),
-=======
-                    image: AssetImage("lib/images/Afifah.jpg"),
->>>>>>> Stashed changes
+                    image: AssetImage("lib/images/glb.jpg"),
                     fit: BoxFit.fitWidth,
                   ),
                   shape: BoxShape.circle,
@@ -83,7 +69,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(10),
                 child: const Text(
-                  'Sign in',
+                  'Change Password',
                   style: TextStyle(fontSize: 20),
                 )),
             Container(
@@ -107,74 +93,63 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 ),
               ),
             ),
-            TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => reset1101202549(),
-                  ),
-                );
-                //forgot password screen
-              },
-              child: const Text(
-                'Forgot Password',
+            Container(
+              padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+              child: TextField(
+                obscureText: true,
+                controller: passwordController2,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Confirmed Password',
+                ),
               ),
             ),
+            // TextButton(
+            //   onPressed: () {
+            //     //forgot password screen
+            //   },
+            //   child: const Text(
+            //     'Forgot Password',
+            //   ),
+            // ),
             Container(
                 height: 50,
                 padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                 child: ElevatedButton(
-                  child: const Text('Login'),
+                  child: const Text('Change'),
                   onPressed: () async {
-                    final result = await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => hal1101202549old(),
-                      ),
-                    );
-                    setState(() {
-                      _message = result ?? '';
-                    });
+                    // final result = await Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => hal1108780030old(),
+                    //   ),
+                    // );
+                    // setState(() {
+                    //   _message = result ?? '';
+                    // });
                   },
                   // onPressed: () {
                   //   print(nameController.text);
                   //   print(passwordController.text);
                   // },
                 )),
-            // SignInButton(
-            //   btnText: 'Login',
-            //   buttonSize: ButtonSize.small,
-            //   onPressed: () {},
-            //   buttonType: ButtonType.microsoft,
-            // ),
-            SignInButton(
-              buttonSize: ButtonSize.small,
-              onPressed: () {},
-              buttonType: ButtonType.google,
-            ),
-            SignInButton(
-              // shape: ,
-              buttonSize: ButtonSize.small,
-              onPressed: () {},
-              buttonType: ButtonType.facebook,
-            ),
             Row(
               children: <Widget>[
                 const Text('Does not have account?'),
                 TextButton(
                   child: const Text(
-                    'Sign Up',
+                    'Sign in',
                     style: TextStyle(fontSize: 20),
                   ),
                   onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => SignUpScreen(),
+                        builder: (context) => hal1101190002new(),
                       ),
                     );
-                    //signup screen
+                    // Navigator.pop(context);
+                    //signin screen
                   },
                 )
               ],
