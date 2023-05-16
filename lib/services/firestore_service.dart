@@ -14,7 +14,8 @@ import 'notification.dart';
 // import 'package:terature/model/user.dart';
 // import 'package:terature/services/notification.dart';
 
-final userController = Get.find<UserController>();
+// final userController = Get.find<UserController>();
+final userController = Get.put(UserController());
 
 class FirestoreService {
   static void addTask(User? user, Task task) {
@@ -152,6 +153,33 @@ class FirestoreService {
 
       //menyimpan status user logged in menjadi true setelah login
       box.write('isLoggedIn', true);
+    }
+  }
+
+  static Future<bool> updateLoggedUserPassword(
+      String uid, String newPassword) async {
+    try {
+      await FirebaseFirestore.instance
+          .collection('user')
+          .doc(uid)
+          .update({'password': newPassword});
+      return true;
+    } catch (e) {
+      debugPrint(e.toString());
+      return false;
+    }
+  }
+
+  static Future<bool> updateUserPassword(String uid, String newPassword) async {
+    try {
+      await FirebaseFirestore.instance
+          .collection("user")
+          .doc(uid)
+          .update({"password": newPassword});
+      return true;
+    } catch (e) {
+      debugPrint(e.toString());
+      return false;
     }
   }
 
