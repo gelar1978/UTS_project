@@ -82,7 +82,7 @@ class _Hal1State extends State<Hal1> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: Text('List View with CircleAvatar'),
+          title: Text('MobApp'),
         ),
         body: ListView.builder(
           itemCount: NIM.length,
