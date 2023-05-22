@@ -1,6 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/1101202505/imageView1101202505.dart';
+import 'package:flutter_application_1/controller/image_upload.dart';
+import 'package:flutter_application_1/services/auth_service.dart';
 
 class hal1101202505old extends StatefulWidget {
   // final String message;
@@ -22,6 +25,19 @@ class _hal1101202505oldState extends State<hal1101202505old> {
           style: TextStyle(fontSize: 16, fontFamily: 'Arial Rounded MT Bold'),
         ),
         backgroundColor: Color.fromARGB(255, 121, 38, 63),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(
+              Icons.logout,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              // _showAlertDialog(context);
+              AuthService.signOut();
+              Navigator.pop(context);
+            },
+          ),
+        ],
       ),
       body: ListView(
         children: [
@@ -121,6 +137,26 @@ class _hal1101202505oldState extends State<hal1101202505old> {
                   )),
                 ),
               ),
+              TextButton(
+                  onPressed: (() {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ImageUploads(),
+                      ),
+                    );
+                  }),
+                  child: Text("Upload Image")),
+              TextButton(
+                  onPressed: (() {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ImageView(),
+                      ),
+                    );
+                  }),
+                  child: Text("View Image"))
             ],
           ),
         ],
