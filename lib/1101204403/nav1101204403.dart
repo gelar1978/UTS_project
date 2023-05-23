@@ -1,6 +1,6 @@
-import 'package:flutter_application_1/1101200196/hal1101200196.dart';
-import 'package:flutter_application_1/1101200196/home1101200196.dart';
-import 'package:flutter_application_1/1101200196/viewdata1101200196.dart';
+import 'package:flutter_application_1/1101204403/hal1101204403.dart';
+import 'package:flutter_application_1/1101204403/home1101204403.dart';
+import 'package:flutter_application_1/1101204403/viewdata1101204403.dart';
 import 'package:flutter_application_1/services/auth_service.dart';
 import 'package:get/get.dart';
 // import 'package:haruka1_0/app/data/providers/auth_service.dart';
@@ -20,9 +20,9 @@ class NavBarView extends StatelessWidget {
   final _controller = Get.put(NavBarController());
 
   final List<Widget> _listPage = [
-    home1101200196(),
-    hal1101200196old(),
-    View1101200196(),
+    home1101204403(),
+    hal1101204403old(),
+    View1101204403(),
   ];
 
   final List<String> _listTitleAppBar = const [
