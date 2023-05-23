@@ -14,6 +14,8 @@ import 'package:flutter_application_1/1101204132/login1101204132.dart';
 import 'package:flutter_application_1/1101204197/login1101204197.dart';
 import 'package:flutter_application_1/1101204257/login1101204257.dart';
 import 'package:flutter_application_1/1101204403/login1101204403.dart';
+import 'package:flutter_application_1/1101204104/login1101204104.dart';
+
 import 'package:flutter_application_1/hal1101190144.dart';
 
 import 'data.dart' as data;
@@ -275,7 +277,7 @@ class _Hal1State extends State<Hal1> {
                   final result = await Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => hal1101204104old(),
+                      builder: (context) => hal1101204104new(),
                     ),
                   );
                   setState(() {
