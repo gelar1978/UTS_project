@@ -49,6 +49,16 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                       fontWeight: FontWeight.w500,
                       fontSize: 30),
                 )),
+            Container(
+                alignment: Alignment.center,
+                padding: const EdgeInsets.all(1),
+                child: const Text(
+                  '1101202549',
+                  style: TextStyle(
+                      color: Colors.blue,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 30),
+                )),
             CircleAvatar(
               radius: 80,
               child: Container(
@@ -56,7 +66,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 width: 170,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("lib/images/afifah.jpg"),
+                    image: AssetImage("lib/images/afifah.jpeg"),
                     fit: BoxFit.fitWidth,
                   ),
                   shape: BoxShape.circle,
@@ -140,12 +150,12 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     style: TextStyle(fontSize: 20),
                   ),
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => hal1101202549new(),
-                      ),
-                    );
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => hal1101202549new(),
+                    //   ),
+                    // );
                     // Navigator.pop(context);
                     //signin screen
                   },

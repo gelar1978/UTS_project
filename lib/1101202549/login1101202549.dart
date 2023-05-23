@@ -1,16 +1,15 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/1101202549/hal1101202549.dart';
-import 'package:flutter_application_1/1101202549/reset1101202549.dart';
 import 'package:flutter_application_1/1101202549/signup1101202549.dart';
+import 'package:flutter_application_1/1101202549/reset1101202549.dart';
+import 'package:flutter_application_1/services/util.dart';
+import 'package:sign_button/create_button.dart';
 import 'package:sign_button/sign_button.dart';
-// import 'package:flutter_signin_button/flutter_signin_button.dart';
-// import 'package:sign_button/sign_button.dart'
-// void main() => runApp(const MyApp());
 
 class hal1101202549new extends StatelessWidget {
   const hal1101202549new({Key? key}) : super(key: key);
 
-  static const String _title = 'LOGIN PAGE';
+  static const String _title = 'Login Page';
 
   @override
   Widget build(BuildContext context) {
@@ -43,41 +42,27 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           children: <Widget>[
             Container(
                 alignment: Alignment.center,
-                padding: const EdgeInsets.all(1),
+                padding: const EdgeInsets.all(10),
                 child: const Text(
                   'Nurafifah Annida',
                   style: TextStyle(
-                      color: Colors.red,
+                      color: Colors.deepOrange,
                       fontWeight: FontWeight.w500,
-                      fontSize: 20),
+                      fontSize: 30),
                 )),
             Container(
                 alignment: Alignment.center,
-                padding: const EdgeInsets.all(1),
+                padding: const EdgeInsets.all(10),
                 child: const Text(
                   '1101202549',
                   style: TextStyle(
                       color: Colors.blue,
                       fontWeight: FontWeight.w500,
-                      fontSize: 20),
+                      fontSize: 30),
                 )),
             CircleAvatar(
-              radius: 60,
-              child: Container(
-                height: 120,
-                width: 120,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-<<<<<<< Updated upstream
-                    image: AssetImage("lib/images/afifah.jpg"),
-=======
-                    image: AssetImage("lib/images/Afifah.jpg"),
->>>>>>> Stashed changes
-                    fit: BoxFit.fitWidth,
-                  ),
-                  shape: BoxShape.circle,
-                ),
-              ),
+              backgroundImage: AssetImage('lib/images/afifah.jpeg'),
+              radius: 100,
             ),
             Container(
                 alignment: Alignment.center,
@@ -115,7 +100,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     builder: (context) => reset1101202549(),
                   ),
                 );
-                //forgot password screen
               },
               child: const Text(
                 'Forgot Password',
@@ -127,27 +111,46 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 child: ElevatedButton(
                   child: const Text('Login'),
                   onPressed: () async {
-                    final result = await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => hal1101202549old(),
-                      ),
-                    );
-                    setState(() {
-                      _message = result ?? '';
-                    });
+                    if (passwordController.text.isNotEmpty) {
+                      // final userLoggedIn =
+                      //     await SharedPrefService.getLoggedInUserData();
+
+                      debugPrint(hashPass(passwordController.text));
+                      // debugPrint(userLoggedIn.password);
+                      try {
+                        final FirebaseAuth _auth = FirebaseAuth.instance;
+                        UserCredential userCredential =
+                            await _auth.signInWithEmailAndPassword(
+                                email: nameController.text,
+                                password: passwordController.text);
+
+                        User? user1 = userCredential.user;
+
+                        _showSnackbarReview(
+                            false, user1!.email.toString() + ' Berhasil Masuk');
+                        // debugPrint(user1.toString() + " success123");
+                        // final result = await Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(
+                        //     builder: (context) => NavBarView(),
+                        //   ),
+                        // );
+                        // setState(() {
+                        //   _message = result ?? '';
+                        // });
+                      } catch (e) {
+                        _showSnackbarReview(true, 'Password Salah');
+
+                        debugPrint("gagal karena : " + e.toString());
+                      }
+                    } else {
+                      _showSnackbarReview(
+                          true, 'Kolom password tidak boleh kosong');
+                    }
+                    // print(nameController.text);
+                    // print(passwordController.text);
                   },
-                  // onPressed: () {
-                  //   print(nameController.text);
-                  //   print(passwordController.text);
-                  // },
                 )),
-            // SignInButton(
-            //   btnText: 'Login',
-            //   buttonSize: ButtonSize.small,
-            //   onPressed: () {},
-            //   buttonType: ButtonType.microsoft,
-            // ),
             SignInButton(
               buttonSize: ButtonSize.small,
               onPressed: () {},
@@ -164,17 +167,16 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 const Text('Does not have account?'),
                 TextButton(
                   child: const Text(
-                    'Sign Up',
+                    'Sign up',
                     style: TextStyle(fontSize: 20),
                   ),
                   onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => SignUpScreen(),
+                        builder: (context) => SignUpScreen1101202549(),
                       ),
                     );
-                    //signup screen
                   },
                 )
               ],
@@ -182,5 +184,15 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             ),
           ],
         ));
+  }
+
+  void _showSnackbarReview(bool isError, String message) {
+    final snackbar = SnackBar(
+      content: Text(message),
+      backgroundColor: !isError ? Colors.green : Colors.red,
+      behavior: SnackBarBehavior.floating,
+    );
+
+    ScaffoldMessenger.of(context).showSnackBar(snackbar);
   }
 }

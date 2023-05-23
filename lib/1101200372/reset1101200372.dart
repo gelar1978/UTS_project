@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types, unused_field
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/1101200372/login1101200372.dart';
 

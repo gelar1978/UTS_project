@@ -1,14 +1,16 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/1101204257/hal1101204257.dart';
+import 'package:flutter_application_1/1101204257/nav1101204257.dart';
 import 'package:flutter_application_1/1101204257/reset1101204257.dart';
 import 'package:flutter_application_1/1101204257/signup1101204257.dart';
+import 'package:flutter_application_1/controller/create_new_pass.dart';
 import 'package:flutter_application_1/services/auth_service.dart';
+import 'package:flutter_application_1/services/confirm_pass.dart';
+import 'package:flutter_application_1/services/pref_service.dart';
+import 'package:flutter_application_1/services/util.dart';
 import 'package:get/route_manager.dart';
 import 'package:sign_button/sign_button.dart';
-
-import '../1108780030/nav1108780030.dart';
-import '../services/util.dart';
 // import 'package:flutter_signin_button/flutter_signin_button.dart';
 // import 'package:sign_button/sign_button.dart'
 // void main() => runApp(const MyApp());
@@ -57,6 +59,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   String _message = '';
+  User? user1;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -200,17 +203,18 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                       _showSnackbarReview(
                           true, 'Kolom password tidak boleh kosong');
                     }
-                    AuthService.signIn(
-                        nameController.text, passwordController.text);
-                    final result = await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => hal1101204257old(),
-                      ),
-                    );
-                    setState(() {
-                      _message = result ?? '';
-                    });
+
+                    // AuthService.signIn(
+                    //     nameController.text, passwordController.text);
+                    // final result = await Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => hal1101194080old(),
+                    //   ),
+                    // );
+                    // setState(() {
+                    //   _message = result ?? '';
+                    // });
                   },
                   // onPressed: () {
                   //   print(nameController.text);
@@ -231,7 +235,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 final result = await Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => hal1101204257old(),
+                    builder: (context) => NavBarView(),
                   ),
                 );
                 setState(() {
@@ -270,6 +274,14 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           ],
         ));
   }
-  
-  void _showSnackbarReview(bool bool, String s) {}
+
+  void _showSnackbarReview(bool isError, String message) {
+    final snackbar = SnackBar(
+      content: Text(message),
+      backgroundColor: !isError ? Colors.green : Colors.red,
+      behavior: SnackBarBehavior.floating,
+    );
+
+    ScaffoldMessenger.of(context).showSnackBar(snackbar);
+  }
 }
