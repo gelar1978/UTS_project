@@ -54,6 +54,7 @@ dependencies:
   image_picker: ^0.8.7+5
   shared_preferences_platform_interface: ^2.2.0
   crypto: ^3.0.0
+  firebase_database: ^10.2.1
 
 dev_dependencies:
   flutter_test:
@@ -98,6 +99,7 @@ flutter:
     - lib/images/Abbey.jpg
     - assets/google_logo.svg
     - assets/facebook_logo.svg
+    - lib/images/Reyhan_F.jpg
 
     # - lib/images/a_dot_ham.jpeg
 
