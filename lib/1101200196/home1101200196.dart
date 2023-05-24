@@ -42,7 +42,7 @@ class _home1101200196State extends State<home1101200196> {
                   alignment: Alignment.center,
                   padding: const EdgeInsets.all(1),
                   child: const Text(
-                    'Gelar Budiman',
+                    'Balqis',
                     style: TextStyle(
                         color: Colors.red,
                         fontWeight: FontWeight.w500,
