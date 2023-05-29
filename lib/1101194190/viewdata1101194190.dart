@@ -2,7 +2,7 @@ import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-import 'user1101194190.dart' as data1108780030;
+import 'user1101194190.dart' as data1101194190;
 
 class view1101194190 extends StatefulWidget {
   const view1101194190({super.key});
@@ -16,8 +16,8 @@ class _view1101194190State extends State<view1101194190> {
 
 // Map<int, String> Nama=Data.
   // TextEditingController _textEditingController0 = TextEditingController();
-  List<int> NIM = data1108780030.index.values.toList();
-  List<String> Nama = data1108780030.nama.values.toList();
+  List<int> NIM = data1101194190.index.values.toList();
+  List<String> Nama = data1101194190.nama.values.toList();
   // @overrides
   @override
   Widget build(BuildContext context) {

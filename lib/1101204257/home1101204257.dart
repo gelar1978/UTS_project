@@ -65,7 +65,7 @@ class _home1101204257State extends State<home1101204257> {
                   width: 120,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage("lib/images/glb.jpg"),
+                      image: AssetImage("lib/images/rifqi.jpg"),
                       fit: BoxFit.fitWidth,
                     ),
                     shape: BoxShape.circle,
