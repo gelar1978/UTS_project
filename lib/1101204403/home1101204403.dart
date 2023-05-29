@@ -3,15 +3,15 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_application_1/services/auth_service.dart';
 
-class home1101200196 extends StatefulWidget {
+class home1101204403 extends StatefulWidget {
   // final String message;
-  home1101200196({super.key});
+  home1101204403({super.key});
 
   @override
-  State<home1101200196> createState() => _home1101200196State();
+  State<home1101204403> createState() => _home1101204403State();
 }
 
-class _home1101200196State extends State<home1101200196> {
+class _home1101204403State extends State<home1101204403> {
   final TextEditingController _textEditingController = TextEditingController();
   String _message = '';
   @override
@@ -42,7 +42,7 @@ class _home1101200196State extends State<home1101200196> {
                   alignment: Alignment.center,
                   padding: const EdgeInsets.all(1),
                   child: const Text(
-                    'Balqis',
+                    'Muhammad Dafa Maulana',
                     style: TextStyle(
                         color: Colors.red,
                         fontWeight: FontWeight.w500,
@@ -52,7 +52,7 @@ class _home1101200196State extends State<home1101200196> {
                   alignment: Alignment.center,
                   padding: const EdgeInsets.all(1),
                   child: const Text(
-                    '1101200196',
+                    '1101204403',
                     style: TextStyle(
                         color: Colors.blue,
                         fontWeight: FontWeight.w500,
@@ -65,7 +65,7 @@ class _home1101200196State extends State<home1101200196> {
                   width: 120,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage("lib/images/balqis.jpeg"),
+                      image: AssetImage("lib/images/m_dafa_m.jpg"),
                       fit: BoxFit.fitWidth,
                     ),
                     shape: BoxShape.circle,
