@@ -129,7 +129,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   child: const Text('Change'),
                   onPressed: () async {
                     AuthService.resetPassword(nameController.text);
-                    Navigator.pop(context);
+                    //Navigator.pop(context);
                     // final result = await Navigator.push(
                     //   context,
                     //   MaterialPageRoute(

@@ -234,7 +234,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 final result = await Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => hal1101204132old(),
+                    builder: (context) => NavBarView(),
                   ),
                 );
                 setState(() {
