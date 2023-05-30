@@ -20,9 +20,9 @@ class NavBarView extends StatelessWidget {
   final _controller = Get.put(NavBarController());
 
   final List<Widget> _listPage = [
-    home1101204011(),
-    hal1101204011(),
-    View1101204011(),
+    // home1101204011(),
+    // hal1101204011(),
+    // View1101204011(),
   ];
 
   final List<String> _listTitleAppBar = const [

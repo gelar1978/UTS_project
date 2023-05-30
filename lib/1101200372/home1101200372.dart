@@ -55,7 +55,7 @@ class _home1101200372State extends State<home1101200372> {
                   child: const Text(
                     '1101200372',
                     style: TextStyle(
-                        color: Colors.blue,
+                        color: Colors.redAccent,
                         fontWeight: FontWeight.w500,
                         fontSize: 20),
                   )),
