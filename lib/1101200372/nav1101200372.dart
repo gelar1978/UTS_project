@@ -26,7 +26,7 @@ class NavBarView extends StatelessWidget {
     'Home',
     'Halaman 1',
     'List View',
-    'CRUD'
+    'CRUD',
   ];
 
   @override
