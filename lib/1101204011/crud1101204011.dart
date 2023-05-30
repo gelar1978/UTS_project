@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
@@ -84,7 +85,9 @@ class _crud1101204011State extends State<crud1101204011> {
   }
 
   void writeData(String nama, int nim, double nilai, String resume) {
-    databaseReference.child('0002').set({
+    Random random = Random();
+    String number = random.nextInt(500000).toString();
+    databaseReference.child(number).set({
       'nama': nama,
       'nim': nim,
       'nilai': nilai,
@@ -149,14 +152,14 @@ class _crud1101204011State extends State<crud1101204011> {
                   children: [
                     ElevatedButton(
                       onPressed: () {
-                        readData();
+                        // readData();
                         // print(x);
-                        // writeData(
-                        //   namaController.text,
-                        //   int.parse(nimController.text),
-                        //   double.parse(nilaiController.text),
-                        //   resumeController.text,
-                        // );
+                        writeData(
+                          namaController.text,
+                          int.parse(nimController.text),
+                          double.parse(nilaiController.text),
+                          resumeController.text,
+                        );
                       },
                       child: Text('Tambah Data'),
                     ),
