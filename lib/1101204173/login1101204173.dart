@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/1101202016/hal1101202016.dart';
-import 'package:flutter_application_1/1101202016/nav1101202016.dart';
-import 'package:flutter_application_1/1101202016/reset1101202016.dart';
-import 'package:flutter_application_1/1101202016/signup1101202016.dart';
+import 'package:flutter_application_1/1101204173/hal1101204173.dart';
+import 'package:flutter_application_1/1101204173/nav1101204173.dart';
+import 'package:flutter_application_1/1101204173/reset1101204173.dart';
+import 'package:flutter_application_1/1101204173/singup1101204173.dart';
 import 'package:flutter_application_1/controller/create_new_pass.dart';
 import 'package:flutter_application_1/services/auth_service.dart';
 import 'package:flutter_application_1/services/confirm_pass.dart';
@@ -15,8 +15,8 @@ import 'package:sign_button/sign_button.dart';
 // import 'package:sign_button/sign_button.dart'
 // void main() => runApp(const MyApp());
 
-class hal1101202016new extends StatelessWidget {
-  const hal1101202016new({Key? key}) : super(key: key);
+class hal1101204173new extends StatelessWidget {
+  const hal1101204173new({Key? key}) : super(key: key);
 
   static const String _title = 'LOGIN PAGE';
 
@@ -70,7 +70,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(1),
                 child: const Text(
-                  'Andri Satia Permana',
+                  'Sri Wahyuni Asmur',
                   style: TextStyle(
                       color: Colors.red,
                       fontWeight: FontWeight.w500,
@@ -80,7 +80,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(1),
                 child: const Text(
-                  '1101202016',
+                  '1101204173',
                   style: TextStyle(
                       color: Colors.blue,
                       fontWeight: FontWeight.w500,
@@ -93,7 +93,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 width: 120,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("lib/images/Andri.png"),
+                    image: AssetImage("lib/images/sriasmur.jpg"),
                     fit: BoxFit.fitWidth,
                   ),
                   shape: BoxShape.circle,
@@ -133,7 +133,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => reset1101202016(),
+                    builder: (context) => reset1101204173(),
                   ),
                 );
                 //forgot password screen
@@ -262,7 +262,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => SignUpScreen1101202016(),
+                        builder: (context) => SignUpScreen1101204173(),
                       ),
                     );
                     //signup screen

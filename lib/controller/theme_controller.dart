@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_application_1/constant/color.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -20,10 +21,10 @@ class AppTheme extends GetxController {
         scaffoldBackgroundColor: AppColor.darkBackgroundColor,
         dialogBackgroundColor: AppColor.darkBackgroundColor,
         appBarTheme: AppBarTheme(
-            brightness: Brightness.dark,
             titleTextStyle: TextStyle(color: Colors.white),
             iconTheme: IconThemeData(color: Colors.white),
-            backgroundColor: AppColor.darkAppbarColor),
+            backgroundColor: AppColor.darkAppbarColor,
+            systemOverlayStyle: SystemUiOverlayStyle.light),
         primaryColor: Colors.black,
         inputDecorationTheme: InputDecorationTheme(
           hintStyle: TextStyle(
@@ -47,10 +48,10 @@ class AppTheme extends GetxController {
         // primaryColor: Colors.white,
         primaryTextTheme: TextTheme(headline6: TextStyle(color: Colors.white)),
         appBarTheme: AppBarTheme(
-          brightness: Brightness.light,
           backgroundColor: AppColor.lightAppbarColor,
           iconTheme: IconThemeData(color: Colors.grey[700]),
           titleTextStyle: TextStyle(color: Colors.grey[700]),
+          systemOverlayStyle: SystemUiOverlayStyle.dark,
         ),
         // elevatedButtonTheme: ElevatedButtonThemeData(
         //     style: ElevatedButton.styleFrom(
