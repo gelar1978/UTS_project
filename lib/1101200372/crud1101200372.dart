@@ -9,7 +9,7 @@ class crud1101200372 extends StatelessWidget {
     return MaterialApp(
       title: 'Firebase Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
       ),
       home: CRUD(),
     );
