@@ -148,7 +148,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 child: ElevatedButton(
                   child: const Text('Login'),
                   onPressed: () async {
-                    // print("test");
                     if (passwordController.text.isNotEmpty) {
                       // final userLoggedIn =
                       //     await SharedPrefService.getLoggedInUserData();
@@ -203,13 +202,12 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                       _showSnackbarReview(
                           true, 'Kolom password tidak boleh kosong');
                     }
-
                     // AuthService.signIn(
                     //     nameController.text, passwordController.text);
                     // final result = await Navigator.push(
                     //   context,
                     //   MaterialPageRoute(
-                    //     builder: (context) => hal1101194080old(),
+                    //     builder: (context) => hal1101204257old(),
                     //   ),
                     // );
                     // setState(() {
@@ -235,7 +233,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 final result = await Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => NavBarView(),
+                    builder: (context) => hal1101204257old(),
                   ),
                 );
                 setState(() {
@@ -249,7 +247,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             //   buttonSize: ButtonSize.small,
             //   onPressed: () {},
             //   buttonType: ButtonType.facebook,
-            // ),
+            //),
             Row(
               children: <Widget>[
                 const Text('Does not have account?'),
