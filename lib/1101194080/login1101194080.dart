@@ -168,7 +168,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => SignUpScreen(),
+                        builder: (context) => SignUpScreen1101194080(),
                       ),
                     );
                     //signup screen

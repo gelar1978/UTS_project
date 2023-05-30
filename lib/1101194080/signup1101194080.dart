@@ -16,14 +16,14 @@ import 'package:get/get.dart';
 // import 'package:terature/services/auth_service.dart';
 // import 'package:terature/services/firestore_service.dart';
 
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({Key? key}) : super(key: key);
+class SignUpScreen1101194080 extends StatefulWidget {
+  const SignUpScreen1101194080({Key? key}) : super(key: key);
 
   @override
-  _SignUpScreenState createState() => _SignUpScreenState();
+  _SignUpScreen1101194080State createState() => _SignUpScreen1101194080State();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
+class _SignUpScreen1101194080State extends State<SignUpScreen1101194080> {
   // final themeController = Get.find<AppTheme>();
   final themeController = Get.put(AppTheme());
 
@@ -207,53 +207,53 @@ class _SignUpScreenState extends State<SignUpScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Obx(() => Container(
-                      width: 256,
-                      height: 45,
-                      decoration: BoxDecoration(
-                          color: themeController.isDarkMode.value
-                              ? AppColor.darkThirdColor
-                              : AppColor.lightSecondaryColor,
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          GestureDetector(
-                            onTap: () async {
-                              await AuthService.googleSignIn(context);
-                              Navigator.pop(context);
-                            },
-                            child: Container(
-                                height: 45,
-                                width: 128,
-                                padding: EdgeInsets.all(12),
-                                decoration: BoxDecoration(
-                                    color: themeController.isDarkMode.value
-                                        ? AppColor.darkScondaryColor
-                                        : AppColor.lightPrimaryColor,
-                                    borderRadius: BorderRadius.only(
-                                        bottomLeft: Radius.circular(10),
-                                        topLeft: Radius.circular(10))),
-                                child: SvgPicture.asset(
-                                  'assets/google_logo.svg',
-                                )),
-                          ),
-                          GestureDetector(
-                            onTap: () async {
-                              await AuthService.facebookSignIn(context);
-                              Navigator.pop(context);
-                            },
-                            child: Container(
-                                height: 45,
-                                width: 128,
-                                padding: EdgeInsets.all(10),
-                                child: SvgPicture.asset(
-                                  'assets/facebook_logo.svg',
-                                )),
-                          )
-                        ],
-                      ),
-                    )),
+                // Obx(() => Container(
+                //       width: 256,
+                //       height: 45,
+                //       decoration: BoxDecoration(
+                //           color: themeController.isDarkMode.value
+                //               ? AppColor.darkThirdColor
+                //               : AppColor.lightSecondaryColor,
+                //           borderRadius: BorderRadius.circular(10)),
+                //       child: Row(
+                //         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                //         children: [
+                //           GestureDetector(
+                //             onTap: () async {
+                //               await AuthService.googleSignIn(context);
+                //               Navigator.pop(context);
+                //             },
+                //             child: Container(
+                //                 height: 45,
+                //                 width: 128,
+                //                 padding: EdgeInsets.all(12),
+                //                 decoration: BoxDecoration(
+                //                     color: themeController.isDarkMode.value
+                //                         ? AppColor.darkScondaryColor
+                //                         : AppColor.lightPrimaryColor,
+                //                     borderRadius: BorderRadius.only(
+                //                         bottomLeft: Radius.circular(10),
+                //                         topLeft: Radius.circular(10))),
+                //                 child: SvgPicture.asset(
+                //                   'assets/google_logo.svg',
+                //                 )),
+                //           ),
+                //           GestureDetector(
+                //             onTap: () async {
+                //               await AuthService.facebookSignIn(context);
+                //               Navigator.pop(context);
+                //             },
+                //             child: Container(
+                //                 height: 45,
+                //                 width: 128,
+                //                 padding: EdgeInsets.all(10),
+                //                 child: SvgPicture.asset(
+                //                   'assets/facebook_logo.svg',
+                //                 )),
+                //           )
+                //         ],
+                //       ),
+                //     )),
                 SizedBox(
                   height: 53,
                 ),
