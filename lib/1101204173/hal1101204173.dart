@@ -5,17 +5,16 @@ import 'package:flutter/widgets.dart';
 
 //HALAMAN KE-1
 // class hal1101204173 extends StatelessWidget {
-class hal1101204173 extends StatefulWidget {
+class hal1101204173old extends StatefulWidget {
   // final String message;
-  hal1101204173({super.key});
-
+  hal1101204173old({super.key});
   TextEditingController _textEditingController = TextEditingController();
   var akhir = '';
   @override
-  State<hal1101204173> createState() => page1State();
+  State<hal1101204173old> createState() => page1oldState();
 }
 
-class page1State extends State<hal1101204173> {
+class page1oldState extends State<hal1101204173old> {
   final TextEditingController _textEditingController = TextEditingController();
   var akhir = '';
   @override
@@ -339,8 +338,8 @@ class _page3State extends State<page3> {
                 children: <Widget>[
                   CircleAvatar(
                     radius: 100,
-                    backgroundImage: NetworkImage(
-                        'https://cdndata.telkomuniversity.ac.id/pmb/2021/PAS_FOTO/82342126184_PAS_FOTO_1.jpg'), // gambar dari assets
+                    backgroundImage: AssetImage(
+                        'lib/images/sriasmur.jpg'), // gambar dari assets
                   ),
                   Text(
                     '${widget.emailfix}',
