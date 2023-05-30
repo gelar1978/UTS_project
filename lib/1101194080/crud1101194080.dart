@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
@@ -84,7 +85,9 @@ class _crud1101194080State extends State<crud1101194080> {
   }
 
   void writeData(String nama, int nim, double nilai, String resume) {
-    databaseReference.child('0002').set({
+    Random random = Random();
+    String num = random.nextInt(5000000).toString();
+    databaseReference.child(num).set({
       'nama': nama,
       'nim': nim,
       'nilai': nilai,
@@ -94,7 +97,7 @@ class _crud1101194080State extends State<crud1101194080> {
 
   void updateData(
       String key, String nama, int nim, double nilai, String resume) {
-    databaseReference.child('0002').update({
+    databaseReference.child('0001').update({
       'nama': nama,
       'nim': nim,
       'nilai': nilai,
