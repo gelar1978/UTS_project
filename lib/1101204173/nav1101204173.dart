@@ -1,7 +1,7 @@
-import 'package:flutter_application_1/1101204197/crud1101204197.dart';
-import 'package:flutter_application_1/1101204197/hal1101204197.dart';
-import 'package:flutter_application_1/1101204197/home1101204197.dart';
-import 'package:flutter_application_1/1101204197/viewdata1101204197.dart';
+import 'package:flutter_application_1/1101204173/hal1101204173.dart';
+import 'package:flutter_application_1/1101204173/crud1101204173.dart';
+import 'package:flutter_application_1/1101204173/home1101204173.dart';
+import 'package:flutter_application_1/1101204173/viewdata1101204173.dart';
 import 'package:flutter_application_1/services/auth_service.dart';
 import 'package:get/get.dart';
 // import 'package:haruka1_0/app/data/providers/auth_service.dart';
@@ -21,17 +21,17 @@ class NavBarView extends StatelessWidget {
   final _controller = Get.put(NavBarController());
 
   final List<Widget> _listPage = [
-    home1101204197(),
-    hal1101204197old(),
-    View1101204197(),
-    crud1101204197()
+    home1101204173(),
+    hal1101204173old(),
+    View1101204173(),
+    crud1101204173(),
   ];
 
   final List<String> _listTitleAppBar = const [
     'Home',
     'Page-1',
     'Page-2',
-    'CRUD'
+    'page-crud'
   ];
 
   @override
@@ -63,7 +63,7 @@ class NavBarView extends StatelessWidget {
             BottomNavigationBarItem(
                 icon: Icon(Icons.assignment), label: 'Page-1'),
             BottomNavigationBarItem(icon: Icon(Icons.science), label: 'Page-2'),
-            BottomNavigationBarItem(icon: Icon(Icons.science), label: 'CRUD')
+            BottomNavigationBarItem(icon: Icon(Icons.science), label: 'Page-crud'),
           ],
           onTap: (value) => _controller.pageChange(value),
         ),

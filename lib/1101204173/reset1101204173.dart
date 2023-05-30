@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/1101204257/hal1101204257.dart';
-import 'package:flutter_application_1/1101204257/login1101204257.dart';
+import 'package:flutter_application_1/1101204173/hal1101204173.dart';
+import 'package:flutter_application_1/1101204173/login1101204173.dart';
 import 'package:flutter_application_1/services/auth_service.dart';
 
 // void main() => runApp(const MyApp());
 
-class reset1101204257 extends StatelessWidget {
-  const reset1101204257({Key? key}) : super(key: key);
+class reset1101204173 extends StatelessWidget {
+  const reset1101204173({Key? key}) : super(key: key);
 
   static const String _title = 'FORGOT PASSWORD';
 
@@ -45,7 +45,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(1),
                 child: const Text(
-                  'Rifqi Fadhilah Firdaus',
+                  'Sri Wahyuni Asmur',
                   style: TextStyle(
                       color: Colors.blue,
                       fontWeight: FontWeight.w500,
@@ -55,7 +55,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(1),
                 child: const Text(
-                  '1101204257',
+                  '1101204173',
                   style: TextStyle(
                       color: Colors.blue,
                       fontWeight: FontWeight.w500,
@@ -68,7 +68,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 width: 170,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("lib/images/rifqi.jpg"),
+                    image: AssetImage("lib/images/sriasmur.jpg"),
                     fit: BoxFit.fitWidth,
                   ),
                   shape: BoxShape.circle,
@@ -129,11 +129,16 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   child: const Text('Change'),
                   onPressed: () async {
                     AuthService.resetPassword(nameController.text);
-                    Navigator.pop(context);
+                    debugPrint(
+                        "Pesan telah dikirim ke email, silakan ubah password di link yang dikirimkan ke email");
+                    _showSnackbarReview(false,
+                        "Pesan telah dikirim ke email, silakan ubah password di link yang dikirimkan ke email");
+
+                    // Navigator.pop(context);
                     // final result = await Navigator.push(
                     //   context,
                     //   MaterialPageRoute(
-                    //     builder: (context) => hal1101204257old(),
+                    //     builder: (context) => hal1108780030old(),
                     //   ),
                     // );
                     // setState(() {
@@ -157,7 +162,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => hal1101204257new(),
+                        builder: (context) => hal1101204173new(),
                       ),
                     );
                     // Navigator.pop(context);
@@ -169,5 +174,15 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             ),
           ],
         ));
+  }
+
+  void _showSnackbarReview(bool isError, String message) {
+    final snackbar = SnackBar(
+      content: Text(message),
+      backgroundColor: !isError ? Colors.green : Colors.red,
+      behavior: SnackBarBehavior.floating,
+    );
+
+    ScaffoldMessenger.of(context).showSnackBar(snackbar);
   }
 }

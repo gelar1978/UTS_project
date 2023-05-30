@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/1101204257/hal1101204257.dart';
-import 'package:flutter_application_1/1101204257/nav1101204257.dart';
-import 'package:flutter_application_1/1101204257/reset1101204257.dart';
-import 'package:flutter_application_1/1101204257/signup1101204257.dart';
+import 'package:flutter_application_1/1101204173/hal1101204173.dart';
+import 'package:flutter_application_1/1101204173/nav1101204173.dart';
+import 'package:flutter_application_1/1101204173/reset1101204173.dart';
+import 'package:flutter_application_1/1101204173/singup1101204173.dart';
 import 'package:flutter_application_1/controller/create_new_pass.dart';
 import 'package:flutter_application_1/services/auth_service.dart';
 import 'package:flutter_application_1/services/confirm_pass.dart';
@@ -15,8 +15,8 @@ import 'package:sign_button/sign_button.dart';
 // import 'package:sign_button/sign_button.dart'
 // void main() => runApp(const MyApp());
 
-class hal1101204257new extends StatelessWidget {
-  const hal1101204257new({Key? key}) : super(key: key);
+class hal1101204173new extends StatelessWidget {
+  const hal1101204173new({Key? key}) : super(key: key);
 
   static const String _title = 'LOGIN PAGE';
 
@@ -70,7 +70,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(1),
                 child: const Text(
-                  'Rifqi Fadhilah Firdaus',
+                  'Sri Wahyuni Asmur',
                   style: TextStyle(
                       color: Colors.red,
                       fontWeight: FontWeight.w500,
@@ -80,7 +80,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 alignment: Alignment.center,
                 padding: const EdgeInsets.all(1),
                 child: const Text(
-                  '1101204257',
+                  '1101204173',
                   style: TextStyle(
                       color: Colors.blue,
                       fontWeight: FontWeight.w500,
@@ -93,7 +93,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 width: 120,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("lib/images/rifqi.jpg"),
+                    image: AssetImage("lib/images/sriasmur.jpg"),
                     fit: BoxFit.fitWidth,
                   ),
                   shape: BoxShape.circle,
@@ -133,7 +133,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => reset1101204257(),
+                    builder: (context) => reset1101204173(),
                   ),
                 );
                 //forgot password screen
@@ -148,6 +148,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 child: ElevatedButton(
                   child: const Text('Login'),
                   onPressed: () async {
+                    // print("test");
                     if (passwordController.text.isNotEmpty) {
                       // final userLoggedIn =
                       //     await SharedPrefService.getLoggedInUserData();
@@ -202,12 +203,13 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                       _showSnackbarReview(
                           true, 'Kolom password tidak boleh kosong');
                     }
+
                     // AuthService.signIn(
                     //     nameController.text, passwordController.text);
                     // final result = await Navigator.push(
                     //   context,
                     //   MaterialPageRoute(
-                    //     builder: (context) => hal1101204257old(),
+                    //     builder: (context) => hal1101194080old(),
                     //   ),
                     // );
                     // setState(() {
@@ -233,7 +235,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 final result = await Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => hal1101204257old(),
+                    builder: (context) => NavBarView(),
                   ),
                 );
                 setState(() {
@@ -247,7 +249,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             //   buttonSize: ButtonSize.small,
             //   onPressed: () {},
             //   buttonType: ButtonType.facebook,
-            //),
+            // ),
             Row(
               children: <Widget>[
                 const Text('Does not have account?'),
@@ -260,7 +262,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => SignUpScreen1101204257(),
+                        builder: (context) => SignUpScreen1101204173(),
                       ),
                     );
                     //signup screen
