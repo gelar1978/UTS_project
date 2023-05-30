@@ -1,4 +1,3 @@
-import 'package:firebase_core/firebase_core.dart';
 // import 'package:firebase_download_example/api/firebase_api.dart';
 // import 'package:firebase_download_example/model/firebase_file.dart';
 // import 'package:firebase_download_example/page/image_page.dart';
@@ -22,7 +21,7 @@ class ImageView extends StatelessWidget {
   Widget build(BuildContext context) => MaterialApp(
         debugShowCheckedModeBanner: false,
         title: title,
-        theme: ThemeData(primarySwatch: Colors.blue),
+        theme: ThemeData(primarySwatch: Colors.red),
         home: MainPage(),
       );
 }
@@ -47,6 +46,7 @@ class _MainPageState extends State<MainPage> {
         appBar: AppBar(
           title: Text(ImageView.title),
           centerTitle: true,
+          backgroundColor: Colors.redAccent,
         ),
         body: FutureBuilder<List<FirebaseFile>>(
           future: futureFiles,
