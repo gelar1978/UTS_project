@@ -55,6 +55,8 @@ dependencies:
   shared_preferences_platform_interface: ^2.2.0
   crypto: ^3.0.0
   firebase_database: ^10.2.1
+  dio: ^5.1.2
+  gallery_saver: ^2.3.2
 
 dev_dependencies:
   flutter_test:
