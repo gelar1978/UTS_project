@@ -6,13 +6,13 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-class crud1101194190 extends StatefulWidget {
+class crud1101202016 extends StatefulWidget {
   @override
-  _crud1101194190State createState() => _crud1101194190State();
+  _crud1101202016State createState() => _crud1101202016State();
 }
 
-class _crud1101194190State extends State<crud1101194190> {
-  final databaseReference = FirebaseDatabase.instance.ref('1101194190');
+class _crud1101202016State extends State<crud1101202016> {
+  final databaseReference = FirebaseDatabase.instance.ref('1101202016');
   List<Data> dataList = [];
 
   final namaController = TextEditingController();

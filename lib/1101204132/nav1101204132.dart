@@ -62,8 +62,8 @@ class NavBarView extends StatelessWidget {
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
             BottomNavigationBarItem(
                 icon: Icon(Icons.assignment), label: 'Page-1'),
-            BottomNavigationBarItem(icon: Icon(Icons.science), label: 'Page-2'),
-            BottomNavigationBarItem(icon: Icon(Icons.add), label: 'CRUD'),
+            BottomNavigationBarItem(icon: Icon(Icons.filter_frames), label: 'Page-2'),
+            BottomNavigationBarItem(icon: Icon(Icons.upload), label: 'CRUD'),
           ],
           onTap: (value) => _controller.pageChange(value),
         ),
