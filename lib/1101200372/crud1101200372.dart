@@ -1,208 +1,226 @@
+import 'dart:async';
+import 'dart:convert';
+import 'dart:math';
+
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-class crud1101200372 extends StatelessWidget {
+class crud1101200372 extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Firebase Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-      ),
-      home: CRUD(),
-    );
-  }
+  _crud1101200372State createState() => _crud1101200372State();
 }
 
-class CRUD extends StatefulWidget {
-  @override
-  _CRUDState createState() => _CRUDState();
-}
+class _crud1101200372State extends State<crud1101200372> {
+  final databaseReference = FirebaseDatabase.instance.ref('1101200372');
+  List<Data> dataList = [];
 
-class _CRUDState extends State<CRUD> {
-  late DatabaseReference _databaseRef;
-  List<Map<dynamic, dynamic>> _dataList = [];
+  final namaController = TextEditingController();
+  final nimController = TextEditingController();
+  final nilaiController = TextEditingController();
+  final resumeController = TextEditingController();
+
+  // String get valueKey => null;
 
   // @override
+  // void initState() {
+  //   super.initState();
+  //   // getData();
+  //   // }
+  //   late DataSnapshot snapshot;
+  //   Future<void> getData() async {
+  //     await databaseReference.once().then((snapshot) {
+  //       if (snapshot.snapshot.value != null) {
+  //         dataList.clear();
+  //         Map<dynamic, dynamic> values = snapshot.snapshot.value;
+  //         values.forEach((key, values) {
+  //           dataList.add(Data(
+  //             key,
+  //             values['nama'],
+  //             values['nim'],
+  //             values['nilai'].toDouble(),
+  //             values['resume'],
+  //           ));
+  //         });
+  //       }
+  //     });
+  //     setState(() {});
+  //   }
+  // }
+
+  @override
   void initState() {
     super.initState();
-    _databaseRef = FirebaseDatabase.instance.ref().child('1101200372');
-    _databaseRef.onValue.listen((DatabaseEvent event) {
-      _dataList = event.snapshot.value as List<Map>;
-      _updateData(_dataList as Map);
+    // database = FirebaseDatabase.instance.ref().child('tabel');
+    // Membaca data dari Firebase Realtime Database
+    // DataSnapshot snapshot;
+    // databaseReference.once().then((snapshot) {
+    //   setState(() {
+    //     dataList.clear();
+    //     ReadWriteValue<DatabaseEvent> values = snapshot.val(valueKey);
+    //     values.forEach((key, value) {
+    //       dataList.add(Map<String, dynamic>.from(value));
+    //     });
+    //   });
+    // });
+  }
+
+  late DataSnapshot snapshot;
+  // readData() async {
+  //   DatabaseEvent event = await databaseReference.once();
+  //   var x = event.snapshot.value;
+  //   print(x.val('0001'));
+  //   return x;
+  // }
+
+  void readData() async {
+    Stream<DatabaseEvent> stream = databaseReference.onValue;
+
+// Subscribe to the stream!
+    stream.listen((DatabaseEvent event) {
+      print('Event Type: ${event.type}'); // DatabaseEventType.value;
+      print('Snapshot: ${event.snapshot.child('0001').value}'); // DataSnapshot
     });
   }
 
-  void _addData() {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        String? nama;
-        int? nim;
-        int? nilai;
-        String? resume;
-
-        return AlertDialog(
-          title: Text('Add Data'),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              TextField(
-                decoration: InputDecoration(labelText: 'Nama'),
-                onChanged: (value) => nama = value,
-              ),
-              TextField(
-                decoration: InputDecoration(labelText: 'NIM'),
-                keyboardType: TextInputType.number,
-                onChanged: (value) => nim = int.tryParse(value),
-              ),
-              TextField(
-                decoration: InputDecoration(labelText: 'Nilai'),
-                keyboardType: TextInputType.number,
-                onChanged: (value) => nilai = int.tryParse(value),
-              ),
-              TextField(
-                decoration: InputDecoration(labelText: 'Resume'),
-                onChanged: (value) => resume = value,
-              ),
-            ],
-          ),
-          actions: [
-            ElevatedButton(
-              onPressed: () {
-                _databaseRef.push().set({
-                  'Nama': nama,
-                  'NIM': nim,
-                  'Nilai': nilai,
-                  'Resume': resume,
-                });
-                Navigator.of(context).pop();
-              },
-              child: Text('Add'),
-            ),
-            ElevatedButton(
-              onPressed: () => Navigator.of(context).pop(),
-              child: Text('Cancel'),
-            ),
-          ],
-        );
+  void writeData(String nama, int nim, double nilai, String resume) {
+    Random random = Random();
+    String num = random.nextInt(500000000).toString();
+    databaseReference.child(num).set(
+      {
+        'nama': nama,
+        'nim': nim,
+        'nilai': nilai,
+        'resume': resume,
       },
-    );
+    ).asStream();
   }
 
-  void _updateData(Map<dynamic, dynamic> data) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        String nama = data['Nama'];
-        int? nim = data['NIM'];
-        int? nilai = data['Nilai'];
-        String resume = data['Resume'];
-
-        return AlertDialog(
-          title: Text('Update Data'),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              TextField(
-                decoration: InputDecoration(labelText: 'Nama'),
-                onChanged: (value) => nama = value,
-                controller: TextEditingController(text: nama),
-              ),
-              TextField(
-                decoration: InputDecoration(labelText: 'NIM'),
-                keyboardType: TextInputType.number,
-                onChanged: (value) => nim = int.tryParse(value),
-                controller: TextEditingController(text: nim.toString()),
-              ),
-              TextField(
-                decoration: InputDecoration(labelText: 'Nilai'),
-                keyboardType: TextInputType.number,
-                onChanged: (value) => nilai = int.tryParse(value),
-                controller: TextEditingController(text: nilai.toString()),
-              ),
-              TextField(
-                decoration: InputDecoration(labelText: 'Resume'),
-                onChanged: (value) => resume = value,
-                controller: TextEditingController(text: resume),
-              ),
-            ],
-          ),
-          actions: [
-            ElevatedButton(
-              onPressed: () {
-                _databaseRef.set({
-                  'Nama': nama,
-                  'NIM': nim,
-                  'Nilai': nilai,
-                  'Resume': resume,
-                });
-                Navigator.of(context).pop();
-              },
-              child: Text('Update'),
-            ),
-            ElevatedButton(
-              onPressed: () => Navigator.of(context).pop(),
-              child: Text('Cancel'),
-            ),
-          ],
-        );
-      },
-    );
+  void updateData(
+      String key, String nama, int nim, double nilai, String resume) {
+    databaseReference.child(key).update({
+      'nama': nama,
+      'nim': nim,
+      'nilai': nilai,
+      'resume': resume,
+    }).asStream();
   }
 
-  void _deleteData() {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Delete Data'),
-          content: Text('Are you sure you want to delete this data?'),
-          actions: [
-            ElevatedButton(
-              onPressed: () {
-                _databaseRef.remove();
-                Navigator.of(context).pop();
-              },
-              child: Text('Delete'),
-            ),
-            ElevatedButton(
-              onPressed: () => Navigator.of(context).pop(),
-              child: Text('Cancel'),
-            ),
-          ],
-        );
-      },
-    );
+  void deleteData(String key) {
+    databaseReference.child(key).remove().then((_) {
+      // getData();
+      clearFields();
+    });
+  }
+
+  void clearFields() {
+    namaController.clear();
+    nimController.clear();
+    nilaiController.clear();
+    resumeController.clear();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Firebase Demo'),
+        title: Text('Firebase Realtime Database'),
       ),
-      body: ListView.builder(
-        itemCount: _dataList.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(_dataList[index]['Nama']),
-            subtitle: Text('NIM: ${_dataList[index]['NIM']}'),
-            trailing: Text('Nilai: ${_dataList[index]['Nilai']}'),
-            onTap: () {
-              _updateData(_dataList[index]);
-            },
-            onLongPress: _deleteData,
-          );
-        },
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _addData,
-        tooltip: 'Add Data',
-        child: Icon(Icons.add),
+      body: Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.all(10.0),
+            child: Column(
+              children: [
+                TextField(
+                  controller: namaController,
+                  decoration: InputDecoration(labelText: 'Nama'),
+                ),
+                TextField(
+                  controller: nimController,
+                  decoration: InputDecoration(labelText: 'NIM'),
+                ),
+                TextField(
+                  controller: nilaiController,
+                  decoration: InputDecoration(labelText: 'Nilai'),
+                ),
+                TextField(
+                  controller: resumeController,
+                  decoration: InputDecoration(labelText: 'Resume'),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        // readData();
+                        // print(x);
+                        writeData(
+                          namaController.text,
+                          int.parse(nimController.text),
+                          double.parse(nilaiController.text),
+                          resumeController.text,
+                        );
+                      },
+                      child: Text('Tambah Data'),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        // print(dataList[0].key);
+                        updateData(
+                          "0002",
+                          namaController.text,
+                          int.parse(nimController.text),
+                          double.parse(nilaiController.text),
+                          resumeController.text,
+                        );
+                      },
+                      child: Text('Update Data'),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        deleteData('num');
+                      },
+                      child: Text('Hapus Data'),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: dataList.length == 0
+                ? Center(child: Text('Tidak ada data'))
+                : ListView.builder(
+                    itemCount: dataList.length,
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        title: Text(dataList[index].nama),
+                        subtitle: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('NIM: ${dataList[index].nim}'),
+                            Text('Nilai: ${dataList[index].nilai}'),
+                            Text('Resume: ${dataList[index].resume}'),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
+          ),
+        ],
       ),
     );
   }
+}
+
+class Data {
+  final String key;
+  final String nama;
+  final int nim;
+  final double nilai;
+  final String resume;
+
+  Data(this.key, this.nama, this.nim, this.nilai, this.resume);
 }
