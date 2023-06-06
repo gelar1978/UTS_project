@@ -1,4 +1,4 @@
-import 'package:flutter_application_1/1101101193387/hal1101193387.dart';
+// import 'package:flutter_application_1/1101101193387/hal1101193387.dart';
 import 'package:flutter_application_1/1101193387/home1101193387.dart';
 import 'package:flutter_application_1/1101193387/viewdata1101193387.dart';
 import 'package:flutter_application_1/services/auth_service.dart';
@@ -21,7 +21,7 @@ class NavBarView extends StatelessWidget {
 
   final List<Widget> _listPage = [
     home1101193387(),
-    hal1101193387(),
+    // hal1101193387(),
     View1101193387(),
   ];
 

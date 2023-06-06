@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 // import 'package:firebase_download_example/api/firebase_api.dart';
 // import 'package:firebase_download_example/model/firebase_file.dart';
 // import 'package:firebase_download_example/page/image_page.dart';
@@ -21,7 +22,7 @@ class ImageView extends StatelessWidget {
   Widget build(BuildContext context) => MaterialApp(
         debugShowCheckedModeBanner: false,
         title: title,
-        theme: ThemeData(primarySwatch: Colors.red),
+        theme: ThemeData(primarySwatch: Colors.blue),
         home: MainPage(),
       );
 }
@@ -46,7 +47,6 @@ class _MainPageState extends State<MainPage> {
         appBar: AppBar(
           title: Text(ImageView.title),
           centerTitle: true,
-          backgroundColor: Colors.redAccent,
         ),
         body: FutureBuilder<List<FirebaseFile>>(
           future: futureFiles,
@@ -97,7 +97,7 @@ class _MainPageState extends State<MainPage> {
           style: TextStyle(
             fontWeight: FontWeight.bold,
             decoration: TextDecoration.underline,
-            color: Colors.redAccent,
+            color: Colors.blue,
           ),
         ),
         onTap: () => Navigator.of(context).push(MaterialPageRoute(
@@ -106,7 +106,7 @@ class _MainPageState extends State<MainPage> {
       );
 
   Widget buildHeader(int length) => ListTile(
-        tileColor: Colors.redAccent,
+        tileColor: Colors.blue,
         leading: Container(
           width: 52,
           height: 52,

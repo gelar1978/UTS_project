@@ -2,6 +2,7 @@ import 'package:flutter_application_1/1101204011/hal1101204011.dart';
 import 'package:flutter_application_1/1101204011/home1101204011.dart';
 import 'package:flutter_application_1/1101204011/viewdata1101204011.dart';
 import 'package:flutter_application_1/services/auth_service.dart';
+import 'package:flutter_application_1/1101204011/crud1101204011.dart';
 import 'package:get/get.dart';
 // import 'package:haruka1_0/app/data/providers/auth_service.dart';
 // import 'package:haruka1_0/app/modules/awg/views/awg_view.dart';
@@ -23,12 +24,14 @@ class NavBarView extends StatelessWidget {
     home1101204011(),
     hal1101204011(),
     View1101204011(),
+    crud1101204011(),
   ];
 
   final List<String> _listTitleAppBar = const [
     'Home',
     'Page-1',
     'Page-2',
+    'CRUD'
   ];
 
   @override
@@ -58,8 +61,10 @@ class NavBarView extends StatelessWidget {
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.assignment), label: 'Page-1'),
-            BottomNavigationBarItem(icon: Icon(Icons.science), label: 'Page-2'),
+                icon: Icon(Icons.assignment), label: 'Halaman'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.science), label: 'List View'),
+            BottomNavigationBarItem(icon: Icon(Icons.pie_chart), label: 'CRUD'),
           ],
           onTap: (value) => _controller.pageChange(value),
         ),

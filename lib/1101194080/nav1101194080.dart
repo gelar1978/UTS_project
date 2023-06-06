@@ -1,14 +1,19 @@
-// ignore_for_file: unused_field, unused_element
-
-import 'package:flutter_application_1/1101200372/crud1101200372.dart';
-import 'package:flutter_application_1/1101200372/hal1101200372.dart';
-import 'package:flutter_application_1/1101200372/home1101200372.dart';
-import 'package:flutter_application_1/1101200372/viewdata1101200372.dart';
+import 'package:flutter_application_1/1101194080/hal1101194080.dart';
+import 'package:flutter_application_1/1101194080/home1101194080.dart';
+import 'package:flutter_application_1/1101194080/viewdata1101194080.dart';
 import 'package:flutter_application_1/services/auth_service.dart';
 import 'package:get/get.dart';
+// import 'package:haruka1_0/app/data/providers/auth_service.dart';
+// import 'package:haruka1_0/app/modules/awg/views/awg_view.dart';
 import 'package:flutter/material.dart';
 
 import '../controller/navbar_controller.dart';
+import 'crud1101194080.dart';
+// import 'package:haruka1_0/app/modules/home/views/home_view.dart';
+// import 'package:haruka1_0/app/modules/account/views/account_view.dart';
+// import 'package:haruka1_0/app/modules/apg/views/apg_view.dart';
+// import 'package:haruka1_0/app/modules/dh_har/views/dbhar_view.dart';
+// import 'package:haruka1_0/app/modules/navbar/controller/navbar_controller.dart';
 
 class NavBarView extends StatelessWidget {
   NavBarView({Key? key}) : super(key: key);
@@ -16,16 +21,16 @@ class NavBarView extends StatelessWidget {
   final _controller = Get.put(NavBarController());
 
   final List<Widget> _listPage = [
-    const home1101200372(),
-    const hal1101200372old(),
-    const View1101200372(),
-    crud1101200372(),
+    home1101194080(),
+    hal1101194080old(),
+    View1101194080(),
+    crud1101194080(),
   ];
 
   final List<String> _listTitleAppBar = const [
     'Home',
-    'Halaman 1',
-    'List View',
+    'Page-1',
+    'Page-2',
     'CRUD',
   ];
 
@@ -56,10 +61,9 @@ class NavBarView extends StatelessWidget {
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.assignment), label: 'Halaman'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.science), label: 'List View'),
-            BottomNavigationBarItem(icon: Icon(Icons.pie_chart), label: 'CRUD'),
+                icon: Icon(Icons.assignment), label: 'Page-1'),
+            BottomNavigationBarItem(icon: Icon(Icons.science), label: 'Page-2'),
+            BottomNavigationBarItem(icon: Icon(Icons.science), label: 'CRUD'),
           ],
           onTap: (value) => _controller.pageChange(value),
         ),

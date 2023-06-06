@@ -1,17 +1,17 @@
-// ignore_for_file: camel_case_types, unused_field, prefer_final_fields
-
 import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_application_1/services/auth_service.dart';
 
-class home1101200372 extends StatefulWidget {
+class home1101194080 extends StatefulWidget {
   // final String message;
-  const home1101200372({super.key});
+  home1101194080({super.key});
 
   @override
-  State<home1101200372> createState() => _home1101200372State();
+  State<home1101194080> createState() => _home1101194080State();
 }
 
-class _home1101200372State extends State<home1101200372> {
+class _home1101194080State extends State<home1101194080> {
   final TextEditingController _textEditingController = TextEditingController();
   String _message = '';
   @override
@@ -19,7 +19,6 @@ class _home1101200372State extends State<home1101200372> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('HOME'),
-        backgroundColor: Colors.redAccent,
         actions: <Widget>[
           IconButton(
             icon: const Icon(
@@ -43,7 +42,7 @@ class _home1101200372State extends State<home1101200372> {
                   alignment: Alignment.center,
                   padding: const EdgeInsets.all(1),
                   child: const Text(
-                    'Aldira Fadillah Lazuardi',
+                    'Muhammad Dafa Maulana',
                     style: TextStyle(
                         color: Colors.red,
                         fontWeight: FontWeight.w500,
@@ -53,9 +52,9 @@ class _home1101200372State extends State<home1101200372> {
                   alignment: Alignment.center,
                   padding: const EdgeInsets.all(1),
                   child: const Text(
-                    '1101200372',
+                    '1101194080',
                     style: TextStyle(
-                        color: Colors.redAccent,
+                        color: Colors.blue,
                         fontWeight: FontWeight.w500,
                         fontSize: 20),
                   )),
@@ -66,7 +65,7 @@ class _home1101200372State extends State<home1101200372> {
                   width: 120,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage("lib/images/aldira.png"),
+                      image: AssetImage("lib/images/m_dafa_m.jpg"),
                       fit: BoxFit.fitWidth,
                     ),
                     shape: BoxShape.circle,
