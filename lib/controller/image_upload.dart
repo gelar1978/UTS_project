@@ -52,9 +52,8 @@ class _ImageUploadsState extends State<ImageUploads> {
     final destination = 'files/$fileName';
 
     try {
-      final ref = firebase_storage.FirebaseStorage.instance
-          .ref(destination)
-          .child('file/');
+      final ref = firebase_storage.FirebaseStorage.instance.ref(destination);
+      //.child('file/');
       await ref.putFile(_photo!);
     } catch (e) {
       print('error occured');
