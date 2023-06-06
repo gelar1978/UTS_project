@@ -86,18 +86,20 @@ class _crud1101204011State extends State<crud1101204011> {
 
   void writeData(String nama, int nim, double nilai, String resume) {
     Random random = Random();
-    String number = random.nextInt(500000).toString();
-    databaseReference.child(number).set({
-      'nama': nama,
-      'nim': nim,
-      'nilai': nilai,
-      'resume': resume,
-    }).asStream();
+    String num = random.nextInt(500000000).toString();
+    databaseReference.child(num).set(
+      {
+        'nama': nama,
+        'nim': nim,
+        'nilai': nilai,
+        'resume': resume,
+      },
+    ).asStream();
   }
 
   void updateData(
       String key, String nama, int nim, double nilai, String resume) {
-    databaseReference.child('0002').update({
+    databaseReference.child(key).update({
       'nama': nama,
       'nim': nim,
       'nilai': nilai,
@@ -106,7 +108,7 @@ class _crud1101204011State extends State<crud1101204011> {
   }
 
   void deleteData(String key) {
-    databaseReference.child('0001').remove().then((_) {
+    databaseReference.child(key).remove().then((_) {
       // getData();
       clearFields();
     });
@@ -178,7 +180,7 @@ class _crud1101204011State extends State<crud1101204011> {
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        deleteData(dataList[0].key);
+                        deleteData('num');
                       },
                       child: Text('Hapus Data'),
                     ),
