@@ -1,153 +1,221 @@
+import 'dart:async';
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-
-  runApp(crud1101204403());
-}
-
-class crud1101204403 extends StatelessWidget {
+class crud1101204403 extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Firebase Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(title: 'Firebase Demo'),
-    );
-  }
+  _crud1101204403State createState() => _crud1101204403State();
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
+class _crud1101204403State extends State<crud1101204403> {
+  final databaseReference = FirebaseDatabase.instance.ref('1101204403');
+  List<Data> dataList = [];
 
-  final String title;
+  final namaController = TextEditingController();
+  final nimController = TextEditingController();
+  final nilaiController = TextEditingController();
+  final resumeController = TextEditingController();
 
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
+  // String get valueKey => null;
 
-class _MyHomePageState extends State<MyHomePage> {
-  late DatabaseReference databaseReference;
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   // getData();
+  //   // }
+  //   late DataSnapshot snapshot;
+  //   Future<void> getData() async {
+  //     await databaseReference.once().then((snapshot) {
+  //       if (snapshot.snapshot.value != null) {
+  //         dataList.clear();
+  //         Map<dynamic, dynamic> values = snapshot.snapshot.value;
+  //         values.forEach((key, values) {
+  //           dataList.add(Data(
+  //             key,
+  //             values['nama'],
+  //             values['nim'],
+  //             values['nilai'].toDouble(),
+  //             values['resume'],
+  //           ));
+  //         });
+  //       }
+  //     });
+  //     setState(() {});
+  //   }
+  // }
 
   @override
   void initState() {
     super.initState();
-    databaseReference = FirebaseDatabase.instance.reference();
+    // database = FirebaseDatabase.instance.ref().child('tabel');
+    // Membaca data dari Firebase Realtime Database
+    // DataSnapshot snapshot;
+    // databaseReference.once().then((snapshot) {
+    //   setState(() {
+    //     dataList.clear();
+    //     ReadWriteValue<DatabaseEvent> values = snapshot.val(valueKey);
+    //     values.forEach((key, value) {
+    //       dataList.add(Map<String, dynamic>.from(value));
+    //     });
+    //   });
+    // });
   }
 
-  final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _nimController = TextEditingController();
-  final TextEditingController _nilaiController = TextEditingController();
-  final TextEditingController _resumeController = TextEditingController();
+  late DataSnapshot snapshot;
+  // readData() async {
+  //   DatabaseEvent event = await databaseReference.once();
+  //   var x = event.snapshot.value;
+  //   print(x.val('0001'));
+  //   return x;
+  // }
 
-  void createData() {
-    databaseReference.child('1101204403').child('0001').set({
-      'Nama': _nameController.text,
-      'NIM': int.parse(_nimController.text),
-      'Nilai': double.parse(_nilaiController.text),
-      'Resume': _resumeController.text,
+  void readData() async {
+    Stream<DatabaseEvent> stream = databaseReference.onValue;
+
+// Subscribe to the stream!
+    stream.listen((DatabaseEvent event) {
+      print('Event Type: ${event.type}'); // DatabaseEventType.value;
+      print('Snapshot: ${event.snapshot.child('0001').value}'); // DataSnapshot
     });
   }
 
-  void updateData() {
-    databaseReference.child('1101204403').child('0001').update({
-      'Nama': _nameController.text,
-      'NIM': int.parse(_nimController.text),
-      'Nilai': double.parse(_nilaiController.text),
-      'Resume': _resumeController.text,
+  void writeData(String nama, int nim, double nilai, String resume) {
+    databaseReference.child('0002').set({
+      'nama': nama,
+      'nim': nim,
+      'nilai': nilai,
+      'resume': resume,
+    }).asStream();
+  }
+
+  void updateData(
+      String key, String nama, int nim, double nilai, String resume) {
+    databaseReference.child('0002').update({
+      'nama': nama,
+      'nim': nim,
+      'nilai': nilai,
+      'resume': resume,
+    }).asStream();
+  }
+
+  void deleteData(String key) {
+    databaseReference.child('0001').remove().then((_) {
+      // getData();
+      clearFields();
     });
   }
 
-  void deleteData() {
-    databaseReference.child('1101204403').child('0001').remove();
+  void clearFields() {
+    namaController.clear();
+    nimController.clear();
+    nilaiController.clear();
+    resumeController.clear();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text('Firebase Realtime Database'),
       ),
-      body: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          children: <Widget>[
-            TextField(
-              controller: _nameController,
-              decoration: InputDecoration(labelText: 'Nama'),
-              
-            ),
-            TextField(
-              controller: _nimController,
-              decoration: InputDecoration(labelText: 'NIM'),
-              keyboardType: TextInputType.number,
-            ),
-            TextField(
-              controller: _nilaiController,
-              decoration: InputDecoration(labelText: 'Nilai'),
-              keyboardType: TextInputType.number,
-            ),
-            TextField(
-              controller: _resumeController,
-              decoration: InputDecoration(labelText: 'Resume'),
-            ),
-            SizedBox(height: 16.0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                ElevatedButton(
-                  child: Text('Create'),
-                  onPressed: createData,
+      body: Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.all(10.0),
+            child: Column(
+              children: [
+                TextField(
+                  controller: namaController,
+                  decoration: InputDecoration(labelText: 'Nama'),
                 ),
-                ElevatedButton(
-                  child: Text('Update'),
-                  onPressed: updateData,
+                TextField(
+                  controller: nimController,
+                  decoration: InputDecoration(labelText: 'NIM'),
                 ),
-                ElevatedButton(
-                  child: Text('Delete'),
-                  onPressed: deleteData,
+                TextField(
+                  controller: nilaiController,
+                  decoration: InputDecoration(labelText: 'Nilai'),
+                ),
+                TextField(
+                  controller: resumeController,
+                  decoration: InputDecoration(labelText: 'Resume'),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        readData();
+                        // print(x);
+                        // writeData(
+                        //   namaController.text,
+                        //   int.parse(nimController.text),
+                        //   double.parse(nilaiController.text),
+                        //   resumeController.text,
+                        // );
+                      },
+                      child: Text('Tambah Data'),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        // print(dataList[0].key);
+                        updateData(
+                          "0002",
+                          namaController.text,
+                          int.parse(nimController.text),
+                          double.parse(nilaiController.text),
+                          resumeController.text,
+                        );
+                      },
+                      child: Text('Update Data'),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        deleteData(dataList[0].key);
+                      },
+                      child: Text('Hapus Data'),
+                    ),
+                  ],
                 ),
               ],
             ),
-            // // SizedBox(height: 16.0),
-            // // Expanded(
-            // //   child: StreamBuilder<Event>(
-            // //     stream:
-            // //         databaseReference.child('1101204403').child('0001').onValue,
-            // //     builder: (context, snapshot) {
-            // //       if (snapshot.hasData &&
-            // //           snapshot.data!.snapshot.value != null) {
-            // //         var data = snapshot.data!.snapshot.value;
-            // //         return ListView.builder(
-            // //           itemCount: data.length,
-            // //           itemBuilder: (BuildContext context, int index) {
-            // //             return ListTile(
-            // //               title: Text('Nama: ${data['Nama']}'),
-            // //               subtitle: Column(
-            // //                 crossAxisAlignment: CrossAxisAlignment.start,
-            // //                 children: [
-            // //                   Text('NIM: ${data['NIM']}'),
-            // //                   Text('Nilai: ${data['Nilai']}'),
-            // //                   Text('Resume: ${data['Resume']}'),
-            // //                 ],
-            // //               ),
-            // //             );
-            // //           },
-            // //         );
-            // //       } else {
-            // //         return Center(child: Text('No data available'));
-            // //       }
-            // //     },
-            // //   ),
-            // ),
-          ],
-        ),
+          ),
+          Expanded(
+            child: dataList.length == 0
+                ? Center(child: Text('Tidak ada data'))
+                : ListView.builder(
+                    itemCount: dataList.length,
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        title: Text(dataList[index].nama),
+                        subtitle: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('NIM: ${dataList[index].nim}'),
+                            Text('Nilai: ${dataList[index].nilai}'),
+                            Text('Resume: ${dataList[index].resume}'),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
+          ),
+        ],
       ),
     );
   }
+}
+
+class Data {
+  final String key;
+  final String nama;
+  final int nim;
+  final double nilai;
+  final String resume;
+
+  Data(this.key, this.nama, this.nim, this.nilai, this.resume);
 }

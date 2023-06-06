@@ -1,18 +1,19 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-class crud1101194190 extends StatefulWidget {
+class crud1101204011 extends StatefulWidget {
   @override
-  _crud1101194190State createState() => _crud1101194190State();
+  _crud1101204011State createState() => _crud1101204011State();
 }
 
-class _crud1101194190State extends State<crud1101194190> {
-  final databaseReference = FirebaseDatabase.instance.ref('1101194190');
+class _crud1101204011State extends State<crud1101204011> {
+  final databaseReference = FirebaseDatabase.instance.ref('1101204011');
   List<Data> dataList = [];
 
   final namaController = TextEditingController();
@@ -84,7 +85,9 @@ class _crud1101194190State extends State<crud1101194190> {
   }
 
   void writeData(String nama, int nim, double nilai, String resume) {
-    databaseReference.child('0002').set({
+    Random random = Random();
+    String number = random.nextInt(500000).toString();
+    databaseReference.child(number).set({
       'nama': nama,
       'nim': nim,
       'nilai': nilai,
@@ -149,14 +152,14 @@ class _crud1101194190State extends State<crud1101194190> {
                   children: [
                     ElevatedButton(
                       onPressed: () {
-                        readData();
+                        // readData();
                         // print(x);
-                        // writeData(
-                        //   namaController.text,
-                        //   int.parse(nimController.text),
-                        //   double.parse(nilaiController.text),
-                        //   resumeController.text,
-                        // );
+                        writeData(
+                          namaController.text,
+                          int.parse(nimController.text),
+                          double.parse(nilaiController.text),
+                          resumeController.text,
+                        );
                       },
                       child: Text('Tambah Data'),
                     ),

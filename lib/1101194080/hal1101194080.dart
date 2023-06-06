@@ -1,697 +1,491 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
-void main() {
-  runApp(const hal1101194080old());
-}
+class hal1101194080old extends StatefulWidget {
+  // final String message;
+  hal1101194080old({super.key});
 
-class hal1101194080old extends StatelessWidget {
-  const hal1101194080old({super.key});
-
-  // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: FirstScreen(),
-    );
-  }
+  State<hal1101194080old> createState() => _hal1101194080oldState();
 }
 
-class FirstScreen extends StatelessWidget {
-  final TextEditingController _controller = TextEditingController();
-
-  FirstScreen({Key? key}) : super(key: key);
-
+class _hal1101194080oldState extends State<hal1101194080old> {
+  final TextEditingController _textEditingController = TextEditingController();
+  String _message = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('First Screen'),
+        title: const Text('Dhean Ardani Rahmansyah/Page-1'),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 30, right: 30, top: 30),
-            child: TextField(
-              controller: _controller,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(50.0)),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 30, right: 30, top: 10),
-            child: SizedBox(
-              height: 60,
-              child: TextButton(
-                onPressed: () {
-                  if (_controller.text == "11011") {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return SecondScreen(nim: _controller.text);
-                        },
-                      ),
-                    );
-                  } else {
-                    final scaffold = ScaffoldMessenger.of(context);
-                    scaffold.showSnackBar(
-                      SnackBar(
-                        content:
-                            const Text('Please fill with the correct value!'),
-                        action: SnackBarAction(
-                            label: 'UNDO',
-                            onPressed: scaffold.hideCurrentSnackBar),
-                      ),
-                    );
-                  }
-                },
-                style: ButtonStyle(
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50.0),
-                    ),
-                  ),
-                  foregroundColor:
-                      MaterialStateProperty.all<Color>(Colors.white),
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(Colors.redAccent),
-                ),
-                child: const Text(
-                  'Lanjut',
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class SecondScreen extends StatelessWidget {
-  final TextEditingController _controller = TextEditingController();
-  String nim;
-
-  SecondScreen({super.key, required this.nim});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Second Screen'),
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 30, right: 30, top: 30),
-            child: TextField(
-              controller: _controller,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(50.0)),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 30, right: 30, top: 10),
-            child: SizedBox(
-              height: 60,
-              child: TextButton(
-                onPressed: () {
-                  if (_controller.text == "9") {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return ThirdScreen(nim: nim + _controller.text);
-                        },
-                      ),
-                    );
-                  } else {
-                    final scaffold = ScaffoldMessenger.of(context);
-                    scaffold.showSnackBar(
-                      SnackBar(
-                        content:
-                            const Text('Please fill with the correct value!'),
-                        action: SnackBarAction(
-                            label: 'UNDO',
-                            onPressed: scaffold.hideCurrentSnackBar),
-                      ),
-                    );
-                  }
-                },
-                style: ButtonStyle(
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50.0),
-                    ),
-                  ),
-                  foregroundColor:
-                      MaterialStateProperty.all<Color>(Colors.white),
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(Colors.redAccent),
-                ),
-                child: const Text(
-                  'Lanjut',
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class ThirdScreen extends StatelessWidget {
-  final TextEditingController _controller = TextEditingController();
-  String nim;
-
-  ThirdScreen({super.key, required this.nim});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Third Screen'),
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 30, right: 30, top: 30),
-            child: TextField(
-              controller: _controller,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(50.0)),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 30, right: 30, top: 10),
-            child: SizedBox(
-              height: 60,
-              child: TextButton(
-                onPressed: () {
-                  if (_controller.text == "4") {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return FourthScreen(nim: nim + _controller.text);
-                        },
-                      ),
-                    );
-                  } else {
-                    final scaffold = ScaffoldMessenger.of(context);
-                    scaffold.showSnackBar(
-                      SnackBar(
-                        content:
-                            const Text('Please fill with the correct value!'),
-                        action: SnackBarAction(
-                            label: 'UNDO',
-                            onPressed: scaffold.hideCurrentSnackBar),
-                      ),
-                    );
-                  }
-                },
-                style: ButtonStyle(
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50.0),
-                    ),
-                  ),
-                  foregroundColor:
-                      MaterialStateProperty.all<Color>(Colors.white),
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(Colors.redAccent),
-                ),
-                child: const Text(
-                  'Lanjut',
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class FourthScreen extends StatelessWidget {
-  final TextEditingController _controller = TextEditingController();
-  String nim;
-
-  FourthScreen({super.key, required this.nim});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Fourth Screen'),
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 30, right: 30, top: 30),
-            child: TextField(
-              controller: _controller,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(50.0)),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 30, right: 30, top: 10),
-            child: SizedBox(
-              height: 60,
-              child: TextButton(
-                onPressed: () {
-                  if (_controller.text == "0") {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return FifthScreen(nim: nim + _controller.text);
-                        },
-                      ),
-                    );
-                  } else {
-                    final scaffold = ScaffoldMessenger.of(context);
-                    scaffold.showSnackBar(
-                      SnackBar(
-                        content:
-                            const Text('Please fill with the correct value!'),
-                        action: SnackBarAction(
-                            label: 'UNDO',
-                            onPressed: scaffold.hideCurrentSnackBar),
-                      ),
-                    );
-                  }
-                },
-                style: ButtonStyle(
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50.0),
-                    ),
-                  ),
-                  foregroundColor:
-                      MaterialStateProperty.all<Color>(Colors.white),
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(Colors.redAccent),
-                ),
-                child: const Text(
-                  'Lanjut',
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class FifthScreen extends StatelessWidget {
-  final TextEditingController _controller = TextEditingController();
-  String nim;
-
-  FifthScreen({super.key, required this.nim});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Fifth Screen'),
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 30, right: 30, top: 30),
-            child: TextField(
-              controller: _controller,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(50.0)),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 30, right: 30, top: 10),
-            child: SizedBox(
-              height: 60,
-              child: TextButton(
-                onPressed: () {
-                  if (_controller.text == "8") {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return SixthScreen(nim: nim + _controller.text);
-                        },
-                      ),
-                    );
-                  } else {
-                    final scaffold = ScaffoldMessenger.of(context);
-                    scaffold.showSnackBar(
-                      SnackBar(
-                        content:
-                            const Text('Please fill with the correct value!'),
-                        action: SnackBarAction(
-                            label: 'UNDO',
-                            onPressed: scaffold.hideCurrentSnackBar),
-                      ),
-                    );
-                  }
-                },
-                style: ButtonStyle(
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50.0),
-                    ),
-                  ),
-                  foregroundColor:
-                      MaterialStateProperty.all<Color>(Colors.white),
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(Colors.redAccent),
-                ),
-                child: const Text(
-                  'Lanjut',
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class SixthScreen extends StatelessWidget {
-  final TextEditingController _controller = TextEditingController();
-  String nim;
-
-  SixthScreen({super.key, required this.nim});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Sixth Screen'),
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 30, right: 30, top: 30),
-            child: TextField(
-              controller: _controller,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(50.0)),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 30, right: 30, top: 10),
-            child: SizedBox(
-              height: 60,
-              child: TextButton(
-                onPressed: () {
-                  if (_controller.text == "0") {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return SeventhScreen(nim: nim + _controller.text);
-                        },
-                      ),
-                    );
-                  } else {
-                    final scaffold = ScaffoldMessenger.of(context);
-                    scaffold.showSnackBar(
-                      SnackBar(
-                        content:
-                            const Text('Please fill with the correct value!'),
-                        action: SnackBarAction(
-                            label: 'UNDO',
-                            onPressed: scaffold.hideCurrentSnackBar),
-                      ),
-                    );
-                  }
-                },
-                style: ButtonStyle(
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50.0),
-                    ),
-                  ),
-                  foregroundColor:
-                      MaterialStateProperty.all<Color>(Colors.white),
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(Colors.redAccent),
-                ),
-                child: const Text(
-                  'Lanjut',
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class SeventhScreen extends StatelessWidget {
-  String nim;
-
-  SeventhScreen({super.key, required this.nim});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: GLB(),
-    );
-  }
-}
-
-class GLB extends StatefulWidget {
-  // const GLB({super.key});
-
-  @override
-  State<GLB> createState() => _GLBState();
-}
-
-class _GLBState extends State<GLB> {
-  final List alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"];
-  int _selectedIndex = 0;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 18, 198, 120),
-        title: Text("Dhean Ardani R/1101194080"),
-      ),
-      body: IndexedStack(
-        index: _selectedIndex,
+      body: ListView(
         children: [
           Column(
             children: [
               Container(
-                height: 50,
-                width: 500,
-                color: Colors.white,
-                // child: Text(""),
+                height: 200,
+                width: 200,
+                decoration: const BoxDecoration(
+                  // color: Colors.red.withOpacity(0.1),
+                  image: DecorationImage(
+                    image: NetworkImage(
+                        'https://anaktelkom.com/wp-content/uploads/2021/08/Logo-Telkom-University-900x1024.png'),
+                    fit: BoxFit.fitHeight,
+                  ),
+                ),
               ),
-              Image(
-                  image: ResizeImage(
-                AssetImage("lib/images/dhean.png"),
-                width: 210,
-                height: 280,
-              )),
-              Container(
-                height: 50,
-                width: 500,
-                color: Colors.white,
-                // child: Text(""),
+              Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextField(
+                      controller: _textEditingController,
+                      decoration: InputDecoration(
+                        icon: Icon(Icons.key),
+                        hintText: 'Ketikkan 7 digit pertama NIM anda',
+                      ),
+                    ),
+                    // Text('$message'),
+                    Center(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: ElevatedButton(
+                              child: Text('Main Page'),
+                              onPressed: () {
+                                Navigator.pop(
+                                    context, _textEditingController.text);
+                              },
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: ElevatedButton(
+                              child: Text('Next Page'),
+                              onPressed: () async {
+                                if (_textEditingController.text ==
+                                    1101204.toString()) {
+                                  final result = await Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => hal1101194080old_2(
+                                          pesan1: _textEditingController.text),
+                                    ),
+                                  );
+                                  setState(() {
+                                    _message = result ?? '';
+                                  });
+                                }
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+              SizedBox(
+                height: 20,
+                width: 20,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text("NIM/No. Telp."),
+              ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(20.0), //or 15.0
+                child: Container(
+                  height: 70.0,
+                  width: 390.0,
+                  color: Colors.yellow,
+                  child: Center(
+                      child: Text(
+                    _message,
+                    style: TextStyle(fontSize: 28),
+                  )),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class hal1101194080old_2 extends StatefulWidget {
+  // hal1101194080old_2({super.key,required this.pesan1});
+  String pesan1 = '';
+  hal1101194080old_2({super.key, required this.pesan1});
+  @override
+  _hal1101194080old_2State createState() => _hal1101194080old_2State();
+}
+
+class _hal1101194080old_2State extends State<hal1101194080old_2> {
+  String NIM7 = '';
+  TextEditingController _textEditingController0 = TextEditingController();
+  TextEditingController _textEditingController1 = TextEditingController();
+  TextEditingController _textEditingController2 = TextEditingController();
+  String _message = '';
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Dhean Ardani Rahmansyah/Page-2'),
+      ),
+      body: ListView(
+        children: [
+          //Silakan lanjutkan........................
+          Column(
+            children: [
+              Center(
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 20,
+                      width: 20,
+                    ),
+                    TextField(
+                      controller: _textEditingController0,
+                      decoration: InputDecoration(
+                        icon: Icon(Icons.key),
+                        hintText: 'Ketikkan Alamat Email Anda',
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                      width: 20,
+                    ),
+                    TextField(
+                      controller: _textEditingController1,
+                      decoration: InputDecoration(
+                        icon: Icon(Icons.key),
+                        hintText: 'Ketikkan No handphone Anda',
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                      width: 20,
+                    ),
+                    TextField(
+                      controller: _textEditingController2,
+                      decoration: InputDecoration(
+                        icon: Icon(Icons.key),
+                        hintText: 'Ketikkan digit ke-8 NIM Anda',
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                      width: 20,
+                    ),
+                    Center(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: ElevatedButton(
+                              child: Text('Previous Page'),
+                              onPressed: () {
+                                Navigator.pop(context, _message);
+                              },
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: ElevatedButton(
+                              child: Text('Next Page'),
+                              onPressed: () async {
+                                if (_textEditingController2.text ==
+                                    4.toString()) {
+                                  String NIM7 = '${widget.pesan1}' +
+                                      _textEditingController2.text;
+                                  final result = await Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => hal1101194080old_3(
+                                        pesan1: NIM7,
+                                        pesan2: _textEditingController0.text,
+                                        pesan3: _textEditingController1.text,
+                                      ),
+                                    ),
+                                  );
+                                  setState(() {
+                                    _message = result ?? '';
+                                  });
+                                  ;
+                                }
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 20,
+                width: 20,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text("NIM/No. Telp."),
+              ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(20.0), //or 15.0
+                child: Container(
+                  height: 70.0,
+                  width: 390.0,
+                  color: Colors.yellow,
+                  child: Center(
+                      child: Text(
+                    _message,
+                    style: TextStyle(fontSize: 28),
+                  )),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class hal1101194080old_3 extends StatefulWidget {
+  String pesan1 = '';
+  String pesan2 = '';
+  String pesan3 = '';
+  hal1101194080old_3(
+      {super.key,
+      required this.pesan1,
+      required this.pesan2,
+      required this.pesan3});
+  @override
+  _hal1101194080old_3State createState() => _hal1101194080old_3State();
+}
+
+class _hal1101194080old_3State extends State<hal1101194080old_3> {
+  String NIM10 = '';
+  String TLP = '';
+  TextEditingController _textEditingController3 = TextEditingController();
+  String _message = '';
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Dhean Ardani Rahmansyah/Page-3'),
+      ),
+      body: ListView(
+        children: [
+          //Silakan lanjutkan........................
+          Column(
+            children: [
+              Center(
+                child: Column(
+                  children: [
+                    CircleAvatar(
+                      backgroundImage: AssetImage('lib/images/dhean.png'),
+                      radius: 100,
+                    ),
+                    SizedBox(
+                      height: 20,
+                      width: 20,
+                    ),
+                    Text(
+                      '${widget.pesan2}',
+                      style: TextStyle(fontSize: 22),
+                    ),
+                    SizedBox(
+                      height: 20,
+                      width: 20,
+                    ),
+                    Text(
+                      '${widget.pesan3}',
+                      style: TextStyle(fontSize: 22),
+                    ),
+                    SizedBox(
+                      height: 20,
+                      width: 20,
+                    ),
+                    TextField(
+                      controller: _textEditingController3,
+                      decoration: InputDecoration(
+                        icon: Icon(Icons.key),
+                        hintText: 'Masukkan digit ke-9 dan ke-10 NIM anda',
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                      width: 20,
+                    ),
+                    Center(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: ElevatedButton(
+                              child: Text('Previous Page'),
+                              onPressed: () {
+                                Navigator.pop(context, _message);
+                              },
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: ElevatedButton(
+                              child: Text('Next Page'),
+                              onPressed: () async {
+                                if (_textEditingController3.text == '03') {
+                                  String NIM10 = '${widget.pesan1}' +
+                                      _textEditingController3.text;
+                                  String TLP = '${widget.pesan3}';
+                                  final result = await Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => hal1101194080old_4(
+                                        pesan1: NIM10,
+                                        pesan2: TLP,
+                                        pesan3: _textEditingController3.text,
+                                      ),
+                                    ),
+                                  );
+                                  setState(() {
+                                    _message = result ?? '';
+                                  });
+                                }
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 20,
+                width: 20,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text("NIM/No. Telp."),
+              ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(20.0), //or 15.0
+                child: Container(
+                  height: 70.0,
+                  width: 390.0,
+                  color: Colors.yellow,
+                  child: Center(
+                      child: Text(
+                    _message,
+                    style: TextStyle(fontSize: 28),
+                  )),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class hal1101194080old_4 extends StatefulWidget {
+  // hal1101194080old_2({super.key,required this.pesan1});
+  String pesan1 = '';
+  String pesan2 = '';
+  String pesan3 = '';
+  hal1101194080old_4(
+      {super.key,
+      required this.pesan1,
+      required this.pesan2,
+      required this.pesan3});
+  @override
+  _hal1101194080old_4State createState() => _hal1101194080old_4State();
+}
+
+class _hal1101194080old_4State extends State<hal1101194080old_4> {
+  //
+  @override
+  Widget build(BuildContext context) {
+    String allPesan = '${widget.pesan1}/${widget.pesan2}';
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Dhean Ardani Rahmansyah/Page-4'),
+      ),
+      body: Container(
+        child: Column(
+          children: [
+            Center(
+              child: Column(
                 children: [
                   SizedBox(
-                    height: 70,
-                    width: 260,
-                    child: kartu("23 Januari 2001"),
+                    height: 20,
+                    width: 20,
+                  ),
+                  Text(
+                    '${widget.pesan1}/${widget.pesan2}',
+                    style: TextStyle(fontSize: 22),
+                  ),
+                  SizedBox(
+                    height: 20,
+                    width: 20,
+                  ),
+                  Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ElevatedButton(
+                          child: Text('Previous Page'),
+                          onPressed: () {
+                            Navigator.pop(context, allPesan);
+                          }),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Expanded(
+              child: GridView(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 1),
+                children: [
+                  GridView.count(
+                    crossAxisCount: 5,
+                    scrollDirection: Axis.vertical,
+                    padding: EdgeInsets.all(0),
+                    children: List.generate(allPesan.length, (index) {
+                      return Container(
+                        height: 1,
+                        child: Card(
+                          color: Colors.primaries[
+                              Random().nextInt(Colors.primaries.length)],
+                          child: Center(
+                            child: Text(
+                              allPesan[index],
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 30,
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    }),
                   )
                 ],
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    height: 70,
-                    width: 130,
-                    child: kartu("LAKIK"),
-                  ),
-                  SizedBox(
-                    height: 70,
-                    width: 130,
-                    child: kartu("175 cm"),
-                  ),
-                ],
-              ),
-            ],
-          ),
-          Column(
-            children: [
-              Container(
-                height: 85,
-                width: 400,
-                child: Card(
-                  color: Colors.grey,
-                  child: Padding(
-                    padding: EdgeInsets.all(20),
-                    child: Text(
-                      "Hitung Utang Kalian",
-                      style: TextStyle(fontSize: 28),
-                      textAlign: TextAlign.right,
-                    ),
-                  ),
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  tombol_kalk("C", Colors.pink),
-                  tombol_kalk("→", Colors.pink),
-                  tombol_kalk("%", Colors.pink),
-                  tombol_kalk("÷", Colors.pink),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  tombol_kalk("1", Colors.lime),
-                  tombol_kalk("1", Colors.lime),
-                  tombol_kalk("0", Colors.lime),
-                  tombol_kalk("×", Colors.pink),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  tombol_kalk("1", Colors.lime),
-                  tombol_kalk("1", Colors.lime),
-                  tombol_kalk("9", Colors.lime),
-                  tombol_kalk("-", Colors.pink),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  tombol_kalk("4", Colors.lime),
-                  tombol_kalk("0", Colors.lime),
-                  tombol_kalk("8", Colors.lime),
-                  tombol_kalk("+", Colors.pink),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  tombol_kalk("?", Colors.lime),
-                  tombol_kalk("0", Colors.lime),
-                  tombol_kalk(".", Colors.lime),
-                  tombol_kalk("=", Colors.pink),
-                ],
-              ),
-            ],
-          ),
-          GridView.count(
-            crossAxisCount: 2,
-            scrollDirection: Axis.horizontal,
-            padding: EdgeInsets.all(0),
-            children: List.generate(alphabet.length, (index) {
-              return Container(
-                height: 5,
-                child: Card(
-                  child: Column(
-                    children: [],
-                  ),
-                ),
-              );
-            }),
-          )
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
-        onTap: _onItemTap,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            backgroundColor: Colors.pinkAccent,
-            icon: Icon(Icons.contacts),
-            label: 'Profile',
-          ),
-          BottomNavigationBarItem(
-            backgroundColor: Colors.blueAccent,
-            icon: Icon(Icons.numbers),
-            label: 'Calculator NIM',
-          ),
-        ],
-      ),
-    );
-  }
-
-  void _onItemTap(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
-  Widget tombol_kalk(String x, MaterialColor y) {
-    return SizedBox(
-      height: 95,
-      width: 95,
-      child: Card(
-        color: y,
-        //color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
-        child: Padding(
-            padding: EdgeInsets.all(20),
-            child: Center(
-              child: Text(x,
-                  style: TextStyle(
-                    fontSize: 30,
-                  )),
-            )),
-      ),
-    );
-  }
-
-  Widget kartu(String a) {
-    return Card(
-      color: Colors.pink,
-      child: Padding(
-        padding: EdgeInsets.all(16),
-        child: Center(
-          child: Text(
-            a,
-            style: TextStyle(fontSize: 25),
-          ),
+            ),
+          ],
         ),
       ),
     );

@@ -97,7 +97,7 @@ class _MainPageState extends State<MainPage> {
           style: TextStyle(
             fontWeight: FontWeight.bold,
             decoration: TextDecoration.underline,
-            color: Colors.blue,
+            color: Colors.redAccent,
           ),
         ),
         onTap: () => Navigator.of(context).push(MaterialPageRoute(
@@ -106,7 +106,7 @@ class _MainPageState extends State<MainPage> {
       );
 
   Widget buildHeader(int length) => ListTile(
-        tileColor: Colors.blue,
+        tileColor: Colors.redAccent,
         leading: Container(
           width: 52,
           height: 52,
