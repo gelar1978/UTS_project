@@ -1,14 +1,15 @@
-import 'package:flutter_application_1/1101194190/hal1101194190.dart';
-import 'package:flutter_application_1/1101194190/home1101194190.dart';
-import 'package:flutter_application_1/1101194190/viewdata1101194190.dart';
-import 'package:flutter_application_1/1101194190/crud1101194190.dart';
-import 'package:flutter_application_1/services/auth_service.dart';
-import 'package:get/get.dart';
 // import 'package:haruka1_0/app/data/providers/auth_service.dart';
 // import 'package:haruka1_0/app/modules/awg/views/awg_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/1101194190/crud1101194190.dart';
+import 'package:flutter_application_1/1101194190/hal1101194190.dart';
+import 'package:flutter_application_1/1101194190/home1101194190.dart';
+import 'package:flutter_application_1/1101194190/viewdata1101194190.dart';
+import 'package:flutter_application_1/services/auth_service.dart';
+import 'package:get/get.dart';
 
 import '../controller/navbar_controller.dart';
+import 'baca1101194190.dart';
 // import 'package:haruka1_0/app/modules/home/views/home_view.dart';
 // import 'package:haruka1_0/app/modules/account/views/account_view.dart';
 // import 'package:haruka1_0/app/modules/apg/views/apg_view.dart';
@@ -25,6 +26,7 @@ class NavBarView extends StatelessWidget {
     hal1101194190old(),
     view1101194190(),
     crud1101194190(),
+    baca1101194190(),
   ];
 
   final List<String> _listTitleAppBar = const [
@@ -32,6 +34,7 @@ class NavBarView extends StatelessWidget {
     'Page-1',
     'Page-2',
     'Crud',
+    'baca',
   ];
 
   @override
