@@ -22,6 +22,8 @@ Map<int, int> index = {
   17: -1,
   18: -1,
   19: -1,
+  20: -1,
+  21: -1,
 };
 Map<int, String> nama = {
   1: 'D',
