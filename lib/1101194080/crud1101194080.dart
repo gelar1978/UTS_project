@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
 
+import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:get/get.dart';
@@ -15,11 +16,15 @@ class crud1101194080 extends StatefulWidget {
 class _crud1101194080State extends State<crud1101194080> {
   final databaseReference = FirebaseDatabase.instance.ref('1101194080');
   List<Data> dataList = [];
+  // List<Map<String, dynamic>> dataList = [];
 
   final namaController = TextEditingController();
   final nimController = TextEditingController();
   final nilaiController = TextEditingController();
   final resumeController = TextEditingController();
+  TextEditingController second = TextEditingController();
+
+  TextEditingController third = TextEditingController();
 
   // String get valueKey => null;
 
@@ -54,16 +59,25 @@ class _crud1101194080State extends State<crud1101194080> {
     super.initState();
     // database = FirebaseDatabase.instance.ref().child('tabel');
     // Membaca data dari Firebase Realtime Database
-    // DataSnapshot snapshot;
-    // databaseReference.once().then((snapshot) {
-    //   setState(() {
-    //     dataList.clear();
-    //     ReadWriteValue<DatabaseEvent> values = snapshot.val(valueKey);
-    //     values.forEach((key, value) {
-    //       dataList.add(Map<String, dynamic>.from(value));
-    //     });
-    //   });
-    // });
+    DataSnapshot snapshot;
+    databaseReference.once().then((snapshot) {
+      setState(() {
+        dataList.clear();
+        ReadWriteValue<DatabaseEvent> values = snapshot.val('1101194080');
+        values.val.snapshot.children.forEach((element) {
+          // print(element.key);
+          // print(element.value.val(element.key.toString()).val);
+          var xx = element.value.val(element.key.toString()).val;
+          // print(xx?['resume']);
+
+          // Data(this.key, this.nama, this.nim, this.nilai, this.resume);
+          // dataList.add(xx.val('resume').val);
+        });
+        // values.val((key, value) {
+        //   dataList.add(Map<String, dynamic>.from(value));
+        // });
+      });
+    });
   }
 
   late DataSnapshot snapshot;
@@ -80,13 +94,14 @@ class _crud1101194080State extends State<crud1101194080> {
 // Subscribe to the stream!
     stream.listen((DatabaseEvent event) {
       print('Event Type: ${event.type}'); // DatabaseEventType.value;
-      print('Snapshot: ${event.snapshot.child('0001').value}'); // DataSnapshot
+      print('Snapshot: ${event.snapshot.child('0001').value}');
+      print(event.snapshot); // DataSnapshot
     });
   }
 
   void writeData(String nama, int nim, double nilai, String resume) {
     Random random = Random();
-    String num = random.nextInt(5000000).toString();
+    String num = random.nextInt(50000000).toString();
     databaseReference.child(num).set({
       'nama': nama,
       'nim': nim,
@@ -97,7 +112,7 @@ class _crud1101194080State extends State<crud1101194080> {
 
   void updateData(
       String key, String nama, int nim, double nilai, String resume) {
-    databaseReference.child('0001').update({
+    databaseReference.child(key).update({
       'nama': nama,
       'nim': nim,
       'nilai': nilai,
@@ -106,7 +121,7 @@ class _crud1101194080State extends State<crud1101194080> {
   }
 
   void deleteData(String key) {
-    databaseReference.child('0001').remove().then((_) {
+    databaseReference.child(key).remove().then((_) {
       // getData();
       clearFields();
     });
@@ -152,14 +167,14 @@ class _crud1101194080State extends State<crud1101194080> {
                   children: [
                     ElevatedButton(
                       onPressed: () {
-                        readData();
+                        // readData();
                         // print(x);
-                        // writeData(
-                        //   namaController.text,
-                        //   int.parse(nimController.text),
-                        //   double.parse(nilaiController.text),
-                        //   resumeController.text,
-                        // );
+                        writeData(
+                          namaController.text,
+                          int.parse(nimController.text),
+                          double.parse(nilaiController.text),
+                          resumeController.text,
+                        );
                       },
                       child: Text('Tambah Data'),
                     ),
@@ -167,7 +182,7 @@ class _crud1101194080State extends State<crud1101194080> {
                       onPressed: () {
                         // print(dataList[0].key);
                         updateData(
-                          "0002",
+                          "0001",
                           namaController.text,
                           int.parse(nimController.text),
                           double.parse(nilaiController.text),
@@ -178,7 +193,7 @@ class _crud1101194080State extends State<crud1101194080> {
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        deleteData(dataList[0].key);
+                        deleteData('0002');
                       },
                       child: Text('Hapus Data'),
                     ),
@@ -187,26 +202,98 @@ class _crud1101194080State extends State<crud1101194080> {
               ],
             ),
           ),
-          Expanded(
-            child: dataList.length == 0
-                ? Center(child: Text('Tidak ada data'))
-                : ListView.builder(
-                    itemCount: dataList.length,
-                    itemBuilder: (context, index) {
-                      return ListTile(
-                        title: Text(dataList[index].nama),
-                        subtitle: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text('NIM: ${dataList[index].nim}'),
-                            Text('Nilai: ${dataList[index].nilai}'),
-                            Text('Resume: ${dataList[index].resume}'),
-                          ],
-                        ),
-                      );
-                    },
-                  ),
-          ),
+          // FirebaseAnimatedList(
+          //     query: databaseReference,
+          //     shrinkWrap: true,
+          //     itemBuilder: (context, snapshot, animation, index) {
+          //       var v = snapshot.value
+          //           .toString(); // {subtitle: webfun, title: subscribe}
+
+          //       var g = v.replaceAll(
+          //           RegExp("{|}|subtitle: |title: "), ""); // webfun, subscribe
+          //       g.trim();
+
+          //       var l = g.split(','); // [webfun,  subscribe}]
+          //       print(l);
+          //       return GestureDetector(onTap: () {
+          //         setState(() {
+          //           var k = snapshot.key;
+          //         });
+
+          //         showDialog(
+          //           context: context,
+          //           builder: (ctx) => AlertDialog(
+          //             title: Container(
+          //               decoration: BoxDecoration(border: Border.all()),
+          //               child: TextField(
+          //                 controller: second,
+          //                 textAlign: TextAlign.center,
+          //                 decoration: InputDecoration(
+          //                   hintText: 'title',
+          //                 ),
+          //               ),
+          //             ),
+          //             content: Container(
+          //               decoration: BoxDecoration(border: Border.all()),
+          //               child: TextField(
+          //                 controller: third,
+          //                 textAlign: TextAlign.center,
+          //                 decoration: InputDecoration(
+          //                   hintText: 'sub title',
+          //                 ),
+          //               ),
+          //             ),
+          //             actions: <Widget>[
+          //               MaterialButton(
+          //                 onPressed: () {
+          //                   Navigator.of(ctx).pop();
+          //                 },
+          //                 color: Color.fromARGB(255, 0, 22, 145),
+          //                 child: Text(
+          //                   "Cancel",
+          //                   style: TextStyle(
+          //                     color: Colors.white,
+          //                   ),
+          //                 ),
+          //               ),
+          //               MaterialButton(
+          //                 onPressed: () async {
+          //                   // await upd();
+          //                   // Navigator.of(ctx).pop();
+          //                 },
+          //                 color: Color.fromARGB(255, 0, 22, 145),
+          //                 child: Text(
+          //                   "Update",
+          //                   style: TextStyle(
+          //                     color: Colors.white,
+          //                   ),
+          //                 ),
+          //               ),
+          //             ],
+          //           ),
+          //         );
+          //       });
+          //     }),
+          // Expanded(
+          //   child: dataList.length == 0
+          //       ? Center(child: Text('Tidak ada data'))
+          //       : ListView.builder(
+          //           itemCount: dataList.length,
+          //           itemBuilder: (context, index) {
+          //             return ListTile(
+          //               title: Text(dataList[index].nama),
+          //               subtitle: Column(
+          //                 crossAxisAlignment: CrossAxisAlignment.start,
+          //                 children: [
+          //                   Text('NIM: ${dataList[index].nim}'),
+          //                   Text('Nilai: ${dataList[index].nilai}'),
+          //                   Text('Resume: ${dataList[index].resume}'),
+          //                 ],
+          //               ),
+          //             );
+          //           },
+          //         ),
+          // ),
         ],
       ),
     );

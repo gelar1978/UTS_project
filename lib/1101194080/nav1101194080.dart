@@ -1,5 +1,9 @@
+import 'package:flutter_application_1/1101194080/Write1101194080.dart';
+import 'package:flutter_application_1/1101194080/baca1101194080.dart';
+import 'package:flutter_application_1/1101194080/crud1101194080.dart';
 import 'package:flutter_application_1/1101194080/hal1101194080.dart';
 import 'package:flutter_application_1/1101194080/home1101194080.dart';
+import 'package:flutter_application_1/1101194080/read_edit1101194080.dart';
 import 'package:flutter_application_1/1101194080/viewdata1101194080.dart';
 import 'package:flutter_application_1/services/auth_service.dart';
 import 'package:get/get.dart';
@@ -8,7 +12,6 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
 import '../controller/navbar_controller.dart';
-import 'crud1101194080.dart';
 // import 'package:haruka1_0/app/modules/home/views/home_view.dart';
 // import 'package:haruka1_0/app/modules/account/views/account_view.dart';
 // import 'package:haruka1_0/app/modules/apg/views/apg_view.dart';
@@ -25,6 +28,7 @@ class NavBarView extends StatelessWidget {
     hal1101194080old(),
     View1101194080(),
     crud1101194080(),
+    baca1101194080()
   ];
 
   final List<String> _listTitleAppBar = const [

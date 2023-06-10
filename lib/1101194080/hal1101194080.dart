@@ -1,6 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/1101194080/imageView1101194080.dart';
+import 'package:flutter_application_1/controller/image_upload.dart';
 
 class hal1101194080old extends StatefulWidget {
   // final String message;
@@ -109,6 +111,26 @@ class _hal1101194080oldState extends State<hal1101194080old> {
                   )),
                 ),
               ),
+              TextButton(
+                  onPressed: (() {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ImageUploads(),
+                      ),
+                    );
+                  }),
+                  child: Text("Upload Image")),
+              TextButton(
+                  onPressed: (() {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ImageView(),
+                      ),
+                    );
+                  }),
+                  child: Text("View Image"))
             ],
           ),
         ],
