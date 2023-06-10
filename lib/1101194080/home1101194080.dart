@@ -42,7 +42,7 @@ class _home1101194080State extends State<home1101194080> {
                   alignment: Alignment.center,
                   padding: const EdgeInsets.all(1),
                   child: const Text(
-                    'Muhammad Dafa Maulana',
+                    'Dhean Ardani Rahmansyah',
                     style: TextStyle(
                         color: Colors.red,
                         fontWeight: FontWeight.w500,
@@ -65,7 +65,7 @@ class _home1101194080State extends State<home1101194080> {
                   width: 120,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage("lib/images/m_dafa_m.jpg"),
+                      image: AssetImage("lib/images/dhean.png"),
                       fit: BoxFit.fitWidth,
                     ),
                     shape: BoxShape.circle,

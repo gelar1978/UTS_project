@@ -67,7 +67,7 @@ class _hal1101194080oldState extends State<hal1101194080old> {
                               child: Text('Next Page'),
                               onPressed: () async {
                                 if (_textEditingController.text ==
-                                    1101204.toString()) {
+                                    1101194.toString()) {
                                   final result = await Navigator.push(
                                     context,
                                     MaterialPageRoute(
@@ -101,7 +101,7 @@ class _hal1101194080oldState extends State<hal1101194080old> {
                 child: Container(
                   height: 70.0,
                   width: 390.0,
-                  color: Colors.yellow,
+                  color: Colors.blue,
                   child: Center(
                       child: Text(
                     _message,
@@ -202,7 +202,7 @@ class _hal1101194080old_2State extends State<hal1101194080old_2> {
                               child: Text('Next Page'),
                               onPressed: () async {
                                 if (_textEditingController2.text ==
-                                    4.toString()) {
+                                    0.toString()) {
                                   String NIM7 = '${widget.pesan1}' +
                                       _textEditingController2.text;
                                   final result = await Navigator.push(
@@ -242,7 +242,7 @@ class _hal1101194080old_2State extends State<hal1101194080old_2> {
                 child: Container(
                   height: 70.0,
                   width: 390.0,
-                  color: Colors.yellow,
+                  color: Colors.blue,
                   child: Center(
                       child: Text(
                     _message,
@@ -344,7 +344,7 @@ class _hal1101194080old_3State extends State<hal1101194080old_3> {
                             child: ElevatedButton(
                               child: Text('Next Page'),
                               onPressed: () async {
-                                if (_textEditingController3.text == '03') {
+                                if (_textEditingController3.text == '80') {
                                   String NIM10 = '${widget.pesan1}' +
                                       _textEditingController3.text;
                                   String TLP = '${widget.pesan3}';
@@ -384,7 +384,7 @@ class _hal1101194080old_3State extends State<hal1101194080old_3> {
                 child: Container(
                   height: 70.0,
                   width: 390.0,
-                  color: Colors.yellow,
+                  color: Colors.blue,
                   child: Center(
                       child: Text(
                     _message,
