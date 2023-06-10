@@ -1,6 +1,6 @@
 // import 'package:flutter_application_1/1101101190196/hal1101190196.dart';
 import 'package:flutter_application_1/1101190196/home1101190196.dart';
-import 'package:flutter_application_1/1101190196/viewdata1101190196.dart';
+// import 'package:flutter_application_1/1101190196/viewdata1101190196.dart';
 import 'package:flutter_application_1/services/auth_service.dart';
 import 'package:get/get.dart';
 // import 'package:haruka1_0/app/data/providers/auth_service.dart';
@@ -22,7 +22,7 @@ class NavBarView extends StatelessWidget {
   final List<Widget> _listPage = [
     home1101190196(),
     // hal1101190196(),
-    View1101190196(),
+    // View1101190196(),
   ];
 
   final List<String> _listTitleAppBar = const [

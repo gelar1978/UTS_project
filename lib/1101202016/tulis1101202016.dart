@@ -2,15 +2,15 @@ import 'dart:math';
 
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/1101204011/nav1101204011.dart';
+import 'package:flutter_application_1/1101202016/nav1101202016.dart';
 // import 'main.dart';
 
-class addnote1101204011 extends StatefulWidget {
+class addnote1101202016 extends StatefulWidget {
   @override
-  _addnote1101204011State createState() => _addnote1101204011State();
+  _addnote1101202016State createState() => _addnote1101202016State();
 }
 
-class _addnote1101204011State extends State<addnote1101204011> {
+class _addnote1101202016State extends State<addnote1101202016> {
   TextEditingController second = TextEditingController();
 
   TextEditingController third = TextEditingController();
@@ -21,7 +21,7 @@ class _addnote1101204011State extends State<addnote1101204011> {
     var rng = Random();
     var k = rng.nextInt(10000);
 
-    final ref = fb.ref().child('1101204011/$k');
+    final ref = fb.ref().child('1101202016/$k');
 
     return Scaffold(
       appBar: AppBar(
