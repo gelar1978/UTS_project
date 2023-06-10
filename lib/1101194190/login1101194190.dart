@@ -5,10 +5,9 @@ import 'package:flutter_application_1/1101194190/nav1101194190.dart';
 import 'package:flutter_application_1/1101194190/reset1101194190.dart';
 import 'package:flutter_application_1/1101194190/signup1101194190.dart';
 import 'package:flutter_application_1/services/auth_service.dart';
-import 'package:get/route_manager.dart';
+import 'package:flutter_application_1/services/util.dart';
 import 'package:sign_button/sign_button.dart';
 
-import '../services/util.dart';
 // import 'package:flutter_signin_button/flutter_signin_button.dart';
 // import 'package:sign_button/sign_button.dart'
 // void main() => runApp(const MyApp());
@@ -57,6 +56,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   String _message = '';
+  User? user1;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -160,6 +160,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                                 password: passwordController.text);
 
                         User? user1 = userCredential.user;
+                        // user1 = await AuthService.signIn(
+                        //     nameController.text, passwordController.text);
+                        // user1 = hasil;
                         _showSnackbarReview(
                             false, user1!.email.toString() + ' Berhasil Masuk');
                         // debugPrint(user1.toString() + " success123");
