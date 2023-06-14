@@ -1,15 +1,13 @@
+// import 'package:flutter_application_1/1101101194477/hal1101194477.dart';
+import 'package:flutter_application_1/1101194477/home1101194477.dart';
+// import 'package:flutter_application_1/1101194477/viewdata1101194477.dart';
+import 'package:flutter_application_1/services/auth_service.dart';
+import 'package:get/get.dart';
 // import 'package:haruka1_0/app/data/providers/auth_service.dart';
 // import 'package:haruka1_0/app/modules/awg/views/awg_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/1101194190/crud1101194190.dart';
-import 'package:flutter_application_1/1101194190/hal1101194190.dart';
-import 'package:flutter_application_1/1101194190/home1101194190.dart';
-import 'package:flutter_application_1/1101194190/viewdata1101194190.dart';
-import 'package:flutter_application_1/services/auth_service.dart';
-import 'package:get/get.dart';
 
 import '../controller/navbar_controller.dart';
-import 'baca1101194190.dart';
 // import 'package:haruka1_0/app/modules/home/views/home_view.dart';
 // import 'package:haruka1_0/app/modules/account/views/account_view.dart';
 // import 'package:haruka1_0/app/modules/apg/views/apg_view.dart';
@@ -22,19 +20,15 @@ class NavBarView extends StatelessWidget {
   final _controller = Get.put(NavBarController());
 
   final List<Widget> _listPage = [
-    home1101194190(),
-    hal1101194190old(),
-    view1101194190(),
-    crud1101194190(),
-    baca1101194190(),
+    home1101194477(),
+    // hal1101194477(),
+    // View1101194477(),
   ];
 
   final List<String> _listTitleAppBar = const [
     'Home',
     'Page-1',
     'Page-2',
-    'Crud',
-    'baca',
   ];
 
   @override
@@ -66,7 +60,6 @@ class NavBarView extends StatelessWidget {
             BottomNavigationBarItem(
                 icon: Icon(Icons.assignment), label: 'Page-1'),
             BottomNavigationBarItem(icon: Icon(Icons.science), label: 'Page-2'),
-            BottomNavigationBarItem(icon: Icon(Icons.science), label: 'Crud'),
           ],
           onTap: (value) => _controller.pageChange(value),
         ),

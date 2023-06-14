@@ -9,8 +9,8 @@ import 'package:sign_button/sign_button.dart';
 // import 'package:sign_button/sign_button.dart'
 // void main() => runApp(const MyApp());
 
-class hal11011944477new extends StatelessWidget {
-  const hal11011944477new({Key? key}) : super(key: key);
+class hal1101194477new extends StatelessWidget {
+  const hal1101194477new({Key? key}) : super(key: key);
 
   static const String _title = 'LOGIN PAGE';
 
@@ -86,7 +86,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 width: 120,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("lib/images/mraihanag.jpg"),
+                    image: AssetImage("lib/images/mraihan.jpeg"),
                     fit: BoxFit.fitWidth,
                   ),
                   shape: BoxShape.circle,
@@ -143,15 +143,15 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   onPressed: () async {
                     AuthService.signIn(
                         nameController.text, passwordController.text);
-                    final result = await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => hal1101194477old(),
-                      ),
-                    );
-                    setState(() {
-                      _message = result ?? '';
-                    });
+                    // final result = await Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) => hal1101194477(),
+                    //   ),
+                    // );
+                    // setState(() {
+                    //   _message = result ?? '';
+                    // });
                   },
                   // onPressed: () {
                   //   print(nameController.text);
@@ -169,15 +169,15 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               onPressed: () async {
                 await AuthService.googleSignIn(context);
                 // Navigator.pop(context);
-                final result = await Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => hal1101194477old(),
-                  ),
-                );
-                setState(() {
-                  _message = result ?? '';
-                });
+                // final result = await Navigator.push(
+                //   context,
+                //   MaterialPageRoute(
+                //     builder: (context) => hal1101194477old(),
+                //   ),
+                // );
+                // setState(() {
+                //   _message = result ?? '';
+                // });
               },
               buttonType: ButtonType.google,
             ),

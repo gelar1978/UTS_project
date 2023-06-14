@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/1101194080/login1101194080.dart';
 import 'package:flutter_application_1/1101194477/hal1101194477.dart';
 import 'package:flutter_application_1/1101194477/login1101194477.dart';
 import 'package:flutter_application_1/services/auth_service.dart';
@@ -69,7 +68,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 width: 170,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("lib/images/glb.jpg"),
+                    image: AssetImage("lib/images/mraihanag.jpeg"),
                     fit: BoxFit.fitWidth,
                   ),
                   shape: BoxShape.circle,
@@ -158,7 +157,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => hal1101194080new(),
+                        builder: (context) => hal1101194477new(),
                       ),
                     );
                     // Navigator.pop(context);

@@ -1,6 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/1101194080/imageView1101194080.dart';
+import 'package:flutter_application_1/controller/image_upload.dart';
 
 class hal1101194080old extends StatefulWidget {
   // final String message;
@@ -67,7 +69,7 @@ class _hal1101194080oldState extends State<hal1101194080old> {
                               child: Text('Next Page'),
                               onPressed: () async {
                                 if (_textEditingController.text ==
-                                    1101204.toString()) {
+                                    1101194.toString()) {
                                   final result = await Navigator.push(
                                     context,
                                     MaterialPageRoute(
@@ -101,7 +103,7 @@ class _hal1101194080oldState extends State<hal1101194080old> {
                 child: Container(
                   height: 70.0,
                   width: 390.0,
-                  color: Colors.yellow,
+                  color: Colors.blue,
                   child: Center(
                       child: Text(
                     _message,
@@ -109,6 +111,26 @@ class _hal1101194080oldState extends State<hal1101194080old> {
                   )),
                 ),
               ),
+              TextButton(
+                  onPressed: (() {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ImageUploads(),
+                      ),
+                    );
+                  }),
+                  child: Text("Upload Image")),
+              TextButton(
+                  onPressed: (() {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ImageView(),
+                      ),
+                    );
+                  }),
+                  child: Text("View Image"))
             ],
           ),
         ],
@@ -202,7 +224,7 @@ class _hal1101194080old_2State extends State<hal1101194080old_2> {
                               child: Text('Next Page'),
                               onPressed: () async {
                                 if (_textEditingController2.text ==
-                                    4.toString()) {
+                                    0.toString()) {
                                   String NIM7 = '${widget.pesan1}' +
                                       _textEditingController2.text;
                                   final result = await Navigator.push(
@@ -242,7 +264,7 @@ class _hal1101194080old_2State extends State<hal1101194080old_2> {
                 child: Container(
                   height: 70.0,
                   width: 390.0,
-                  color: Colors.yellow,
+                  color: Colors.blue,
                   child: Center(
                       child: Text(
                     _message,
@@ -344,7 +366,7 @@ class _hal1101194080old_3State extends State<hal1101194080old_3> {
                             child: ElevatedButton(
                               child: Text('Next Page'),
                               onPressed: () async {
-                                if (_textEditingController3.text == '03') {
+                                if (_textEditingController3.text == '80') {
                                   String NIM10 = '${widget.pesan1}' +
                                       _textEditingController3.text;
                                   String TLP = '${widget.pesan3}';
@@ -384,7 +406,7 @@ class _hal1101194080old_3State extends State<hal1101194080old_3> {
                 child: Container(
                   height: 70.0,
                   width: 390.0,
-                  color: Colors.yellow,
+                  color: Colors.blue,
                   child: Center(
                       child: Text(
                     _message,
