@@ -2,6 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_application_1/1101204173/imageView1101204173.dart';
+import 'package:flutter_application_1/controller/image_upload.dart';
 
 //HALAMAN KE-1
 // class hal1101204173 extends StatelessWidget {
@@ -136,6 +138,27 @@ class page1oldState extends State<hal1101204173old> {
                   )),
                 ),
               ),
+TextButton(
+                  onPressed: (() {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ImageUploads(),
+                      ),
+                    );
+                  }),
+                  child: Text("Upload Image")),
+                  TextButton(
+                  onPressed: (() {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ImageView(),
+                      ),
+                    );
+                  }),
+                  child: Text("View Image"))
+
             ],
           ),
         ],
