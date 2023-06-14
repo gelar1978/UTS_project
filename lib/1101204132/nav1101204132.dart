@@ -1,3 +1,4 @@
+import 'package:flutter_application_1/1101204132/baca1101204132.dart';
 import 'package:flutter_application_1/1101204132/crud1101204132.dart';
 import 'package:flutter_application_1/1101204132/hal1101204132.dart';
 import 'package:flutter_application_1/1101204132/home1101204132.dart';
@@ -25,6 +26,7 @@ class NavBarView extends StatelessWidget {
     hal1101204132old(),
     View1101204132(),
     crud1101204132(),
+    baca1101204132(),
   ];
 
   final List<String> _listTitleAppBar = const [
@@ -32,6 +34,7 @@ class NavBarView extends StatelessWidget {
     'Page-1',
     'Page-2',
     "CRUD",
+    "New CRUD"
   ];
 
   @override
@@ -64,6 +67,7 @@ class NavBarView extends StatelessWidget {
                 icon: Icon(Icons.assignment), label: 'Page-1'),
             BottomNavigationBarItem(icon: Icon(Icons.filter_frames), label: 'Page-2'),
             BottomNavigationBarItem(icon: Icon(Icons.upload), label: 'CRUD'),
+            BottomNavigationBarItem(icon: Icon(Icons.add), label: 'New CRUD'),
           ],
           onTap: (value) => _controller.pageChange(value),
         ),
