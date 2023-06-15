@@ -8,7 +8,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 // import 'package:firebase_download_example/model/firebase_file.dart';
 // import 'package:firebase_download_example/page/image_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/1108780030/nav1108780030.dart';
+import 'package:flutter_application_1/1101190144/nav1101190144.dart';
 import 'package:flutter_application_1/api/firebase_api.dart';
 import 'package:flutter_application_1/controller/image_view.dart';
 import 'package:flutter_application_1/model/firebase_file.dart';

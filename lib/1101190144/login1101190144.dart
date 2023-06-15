@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/1108780030/hal1108780030.dart';
-import 'package:flutter_application_1/1108780030/nav1108780030.dart';
-import 'package:flutter_application_1/1108780030/reset1108780030.dart';
-import 'package:flutter_application_1/1108780030/signup1108780030.dart';
+import 'package:flutter_application_1/1101190144/hal1101190144.dart';
+import 'package:flutter_application_1/1101190144/nav1101190144.dart';
+import 'package:flutter_application_1/1101190144/reset1101190144.dart';
+import 'package:flutter_application_1/1101190144/signup1101190144.dart';
 import 'package:flutter_application_1/controller/create_new_pass.dart';
 import 'package:flutter_application_1/services/auth_service.dart';
 import 'package:flutter_application_1/services/confirm_pass.dart';
@@ -96,7 +96,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 width: 120,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("lib/images/rifaldiwr.jpg"),
+                    image: AssetImage("lib/images/rifaldiwr.png"),
                     fit: BoxFit.fitWidth,
                   ),
                   shape: BoxShape.circle,

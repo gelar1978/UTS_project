@@ -1,11 +1,11 @@
 import 'package:flutter_application_1/1101190144/home1101190144.dart';
-import 'package:flutter_application_1/1108780030/Write1108780030.dart';
-import 'package:flutter_application_1/1108780030/baca1108780030.dart';
-import 'package:flutter_application_1/1108780030/crud1108780030.dart';
-import 'package:flutter_application_1/1108780030/hal1108780030.dart';
-import 'package:flutter_application_1/1108780030/home1108780030.dart';
-import 'package:flutter_application_1/1108780030/read_edit1108780030.dart';
-import 'package:flutter_application_1/1108780030/viewdata1108780030.dart';
+import 'package:flutter_application_1/1101190144/Write1101190144.dart';
+import 'package:flutter_application_1/1101190144/baca1101190144.dart';
+import 'package:flutter_application_1/1101190144/crud1101190144.dart';
+import 'package:flutter_application_1/1101190144/hal1101190144.dart';
+import 'package:flutter_application_1/1101190144/home1101190144.dart';
+import 'package:flutter_application_1/1101190144/read_edit1101190144.dart';
+import 'package:flutter_application_1/1101190144/viewdata1101190144.dart';
 import 'package:flutter_application_1/services/auth_service.dart';
 import 'package:get/get.dart';
 // import 'package:haruka1_0/app/data/providers/auth_service.dart';
