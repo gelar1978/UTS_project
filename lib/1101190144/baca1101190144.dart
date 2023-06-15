@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/1108780030/tulis1108780030.dart';
+import 'package:flutter_application_1/1101190144/tulis1101190144.dart';
 
 import 'tulis1101190144.dart';
 
