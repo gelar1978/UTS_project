@@ -1,10 +1,24 @@
-import 'dart:async';
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
+
+class Student {
+  String nama;
+  int nim;
+  double nilai;
+  String resume;
+
+  Student(this.nama, this.nim, this.nilai, this.resume);
+
+  Map<String, dynamic> toJson() {
+    return {
+      'nama': nama,
+      'nim': nim,
+      'nilai': nilai,
+      'resume': resume,
+    };
+  }
+}
 
 class crud1101204403 extends StatefulWidget {
   @override
@@ -12,197 +26,220 @@ class crud1101204403 extends StatefulWidget {
 }
 
 class _crud1101204403State extends State<crud1101204403> {
-  final databaseReference = FirebaseDatabase.instance.ref('1101204403');
-  List<Data> dataList = [];
-
-  final namaController = TextEditingController();
-  final nimController = TextEditingController();
-  final nilaiController = TextEditingController();
-  final resumeController = TextEditingController();
-
-  // String get valueKey => null;
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   // getData();
-  //   // }
-  //   late DataSnapshot snapshot;
-  //   Future<void> getData() async {
-  //     await databaseReference.once().then((snapshot) {
-  //       if (snapshot.snapshot.value != null) {
-  //         dataList.clear();
-  //         Map<dynamic, dynamic> values = snapshot.snapshot.value;
-  //         values.forEach((key, values) {
-  //           dataList.add(Data(
-  //             key,
-  //             values['nama'],
-  //             values['nim'],
-  //             values['nilai'].toDouble(),
-  //             values['resume'],
-  //           ));
-  //         });
-  //       }
-  //     });
-  //     setState(() {});
-  //   }
-  // }
+  final referenceDatabase =
+      FirebaseDatabase.instance.reference().child('1101204403');
+  List<Student> students = [];
+  TextEditingController namaController = TextEditingController();
+  TextEditingController nimController = TextEditingController();
+  TextEditingController nilaiController = TextEditingController();
+  TextEditingController resumeController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    // database = FirebaseDatabase.instance.ref().child('tabel');
-    // Membaca data dari Firebase Realtime Database
-    // DataSnapshot snapshot;
-    // databaseReference.once().then((snapshot) {
-    //   setState(() {
-    //     dataList.clear();
-    //     ReadWriteValue<DatabaseEvent> values = snapshot.val(valueKey);
-    //     values.forEach((key, value) {
-    //       dataList.add(Map<String, dynamic>.from(value));
-    //     });
-    //   });
-    // });
+    Firebase.initializeApp().then((value) {
+      // getData();
+    });
   }
 
-  late DataSnapshot snapshot;
-  // readData() async {
-  //   DatabaseEvent event = await databaseReference.once();
-  //   var x = event.snapshot.value;
-  //   print(x.val('0001'));
-  //   return x;
+  // void getData() {
+  //   referenceDatabase.once().then((DataSnapshot snapshot) {
+  //     setState(() {
+  //       students.clear();
+  //       Map<dynamic, dynamic> values = snapshot.value;
+  //       values.forEach((key, values) {
+  //         students.add(Student(
+  //           values['nama'],
+  //           values['nim'],
+  //           values['nilai'],
+  //           values['resume'],
+  //         ));
+  //       });
+  //     });
+  //   });
   // }
 
-  void readData() async {
-    Stream<DatabaseEvent> stream = databaseReference.onValue;
+  void createData() {
+    Student student = Student(
+      namaController.text,
+      int.parse(nimController.text),
+      double.parse(nilaiController.text),
+      resumeController.text,
+    );
 
-// Subscribe to the stream!
-    stream.listen((DatabaseEvent event) {
-      print('Event Type: ${event.type}'); // DatabaseEventType.value;
-      print('Snapshot: ${event.snapshot.child('0001').value}'); // DataSnapshot
-    });
-  }
-
-  void writeData(String nama, int nim, double nilai, String resume) {
-    databaseReference.child('0002').set({
-      'nama': nama,
-      'nim': nim,
-      'nilai': nilai,
-      'resume': resume,
-    }).asStream();
-  }
-
-  void updateData(
-      String key, String nama, int nim, double nilai, String resume) {
-    databaseReference.child('0002').update({
-      'nama': nama,
-      'nim': nim,
-      'nilai': nilai,
-      'resume': resume,
-    }).asStream();
-  }
-
-  void deleteData(String key) {
-    databaseReference.child('0001').remove().then((_) {
+    referenceDatabase.push().set(student.toJson()).then((value) {
+      setState(() {
+        namaController.clear();
+        nimController.clear();
+        nilaiController.clear();
+        resumeController.clear();
+      });
       // getData();
-      clearFields();
     });
   }
 
-  void clearFields() {
-    namaController.clear();
-    nimController.clear();
-    nilaiController.clear();
-    resumeController.clear();
+  void updateData(Student student) {
+    student.nama = namaController.text;
+    student.nim = int.parse(nimController.text);
+    student.nilai = double.parse(nilaiController.text);
+    student.resume = resumeController.text;
+
+    referenceDatabase
+        .child(student.nim.toString())
+        .set(student.toJson())
+        .then((value) {
+      setState(() {
+        namaController.clear();
+        nimController.clear();
+        nilaiController.clear();
+        resumeController.clear();
+      });
+      // getData();
+    });
+  }
+
+  void deleteData(Student student) {
+    referenceDatabase.child(student.nim.toString()).remove().then((value) {
+      setState(() {
+        namaController.clear();
+        nimController.clear();
+        nilaiController.clear();
+        resumeController.clear();
+      });
+      // getData();
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Firebase Realtime Database'),
+        title: Text('Firebase Example'),
       ),
       body: Column(
         children: [
           Padding(
-            padding: EdgeInsets.all(10.0),
-            child: Column(
-              children: [
-                TextField(
-                  controller: namaController,
-                  decoration: InputDecoration(labelText: 'Nama'),
-                ),
-                TextField(
-                  controller: nimController,
-                  decoration: InputDecoration(labelText: 'NIM'),
-                ),
-                TextField(
-                  controller: nilaiController,
-                  decoration: InputDecoration(labelText: 'Nilai'),
-                ),
-                TextField(
-                  controller: resumeController,
-                  decoration: InputDecoration(labelText: 'Resume'),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ElevatedButton(
-                      onPressed: () {
-                        readData();
-                        // print(x);
-                        // writeData(
-                        //   namaController.text,
-                        //   int.parse(nimController.text),
-                        //   double.parse(nilaiController.text),
-                        //   resumeController.text,
-                        // );
-                      },
-                      child: Text('Tambah Data'),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {
-                        // print(dataList[0].key);
-                        updateData(
-                          "0002",
-                          namaController.text,
-                          int.parse(nimController.text),
-                          double.parse(nilaiController.text),
-                          resumeController.text,
-                        );
-                      },
-                      child: Text('Update Data'),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {
-                        deleteData(dataList[0].key);
-                      },
-                      child: Text('Hapus Data'),
-                    ),
-                  ],
-                ),
-              ],
+            padding: EdgeInsets.all(8.0),
+            child: TextField(
+              controller: namaController,
+              decoration: InputDecoration(
+                labelText: 'Nama',
+              ),
             ),
           ),
-          Expanded(
-            child: dataList.length == 0
-                ? Center(child: Text('Tidak ada data'))
-                : ListView.builder(
-                    itemCount: dataList.length,
-                    itemBuilder: (context, index) {
-                      return ListTile(
-                        title: Text(dataList[index].nama),
-                        subtitle: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text('NIM: ${dataList[index].nim}'),
-                            Text('Nilai: ${dataList[index].nilai}'),
-                            Text('Resume: ${dataList[index].resume}'),
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: TextField(
+              controller: nimController,
+              decoration: InputDecoration(
+                labelText: 'NIM',
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: TextField(
+              controller: nilaiController,
+              decoration: InputDecoration(
+                labelText: 'Nilai',
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: TextField(
+              controller: resumeController,
+              decoration: InputDecoration(
+                labelText: 'Resume',
+              ),
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              ElevatedButton(
+                onPressed: createData,
+                child: Text('Tambah Data'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Student selectedStudent = students.firstWhere(
+                    (student) => student.nim == int.parse(nimController.text),
+                    // orElse: () => null,
+                  );
+                  if (selectedStudent != null) {
+                    updateData(selectedStudent);
+                  } else {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: Text('Error'),
+                          content: Text('Data tidak ditemukan'),
+                          actions: [
+                            TextButton(
+                              child: Text('OK'),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                            ),
                           ],
-                        ),
-                      );
-                    },
+                        );
+                      },
+                    );
+                  }
+                },
+                child: Text('Update Data'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Student selectedStudent = students.firstWhere(
+                    (student) => student.nim == int.parse(nimController.text),
+                    // orElse: () => null,
+                  );
+                  if (selectedStudent != null) {
+                    deleteData(selectedStudent);
+                  } else {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: Text('Error'),
+                          content: Text('Data tidak ditemukan'),
+                          actions: [
+                            TextButton(
+                              child: Text('OK'),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  }
+                },
+                child: Text('Delete Data'),
+              ),
+            ],
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: students.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(students[index].nama),
+                  subtitle: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('NIM: ${students[index].nim}'),
+                      Text('Nilai: ${students[index].nilai}'),
+                      Text('Resume: ${students[index].resume}'),
+                    ],
                   ),
+                );
+              },
+            ),
           ),
         ],
       ),
@@ -210,12 +247,8 @@ class _crud1101204403State extends State<crud1101204403> {
   }
 }
 
-class Data {
-  final String key;
-  final String nama;
-  final int nim;
-  final double nilai;
-  final String resume;
-
-  Data(this.key, this.nama, this.nim, this.nilai, this.resume);
+void main() {
+  runApp(MaterialApp(
+    home: crud1101204403(),
+  ));
 }

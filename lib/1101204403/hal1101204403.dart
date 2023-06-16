@@ -1,6 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/controller/image_upload.dart';
+import 'package:flutter_application_1/1101204403/imageView1101204403.dart';
 
 class hal1101204403old extends StatefulWidget {
   // final String message;
@@ -17,7 +19,7 @@ class _hal1101204403oldState extends State<hal1101204403old> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Muhammad Dafa Maulana/Page-1'),
+        title: const Text('Rifqi Fadhilah Firdaus/Page-1'),
       ),
       body: ListView(
         children: [
@@ -109,6 +111,26 @@ class _hal1101204403oldState extends State<hal1101204403old> {
                   )),
                 ),
               ),
+              TextButton(
+                  onPressed: (() {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ImageUploads(),
+                      ),
+                    );
+                  }),
+                  child: Text("Upload Image")),
+              TextButton(
+                  onPressed: (() {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ImageView(),
+                      ),
+                    );
+                  }),
+                  child: Text("View Image"))
             ],
           ),
         ],
@@ -136,7 +158,7 @@ class _hal1101204403old_2State extends State<hal1101204403old_2> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Muhammad Dafa Maulana/Page-2'),
+        title: const Text('Rifqi Fadhilah Firdaus/Page-2'),
       ),
       body: ListView(
         children: [
@@ -202,7 +224,7 @@ class _hal1101204403old_2State extends State<hal1101204403old_2> {
                               child: Text('Next Page'),
                               onPressed: () async {
                                 if (_textEditingController2.text ==
-                                    4.toString()) {
+                                    2.toString()) {
                                   String NIM7 = '${widget.pesan1}' +
                                       _textEditingController2.text;
                                   final result = await Navigator.push(
@@ -281,7 +303,7 @@ class _hal1101204403old_3State extends State<hal1101204403old_3> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Muhammad Dafa Maulana/Page-3'),
+        title: const Text('Rifqi Fadhilah Firdaus/Page-3'),
       ),
       body: ListView(
         children: [
@@ -292,7 +314,7 @@ class _hal1101204403old_3State extends State<hal1101204403old_3> {
                 child: Column(
                   children: [
                     CircleAvatar(
-                      backgroundImage: AssetImage('lib/images/m_dafa_m.jpg'),
+                      backgroundImage: AssetImage('lib/images/rifqi.jpg'),
                       radius: 100,
                     ),
                     SizedBox(
@@ -344,7 +366,7 @@ class _hal1101204403old_3State extends State<hal1101204403old_3> {
                             child: ElevatedButton(
                               child: Text('Next Page'),
                               onPressed: () async {
-                                if (_textEditingController3.text == '03') {
+                                if (_textEditingController3.text == '57') {
                                   String NIM10 = '${widget.pesan1}' +
                                       _textEditingController3.text;
                                   String TLP = '${widget.pesan3}';
@@ -421,7 +443,7 @@ class _hal1101204403old_4State extends State<hal1101204403old_4> {
     String allPesan = '${widget.pesan1}/${widget.pesan2}';
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Muhammad Dafa Maulana/Page-4'),
+        title: const Text('Rifqi Fadhilah Firdaus/Page-4'),
       ),
       body: Container(
         child: Column(
@@ -473,9 +495,9 @@ class _hal1101204403old_4State extends State<hal1101204403old_4> {
                             child: Text(
                               allPesan[index],
                               style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 30,
-                                  ),
+                                color: Colors.black,
+                                fontSize: 30,
+                              ),
                             ),
                           ),
                         ),
@@ -488,6 +510,6 @@ class _hal1101204403old_4State extends State<hal1101204403old_4> {
           ],
         ),
       ),
-    );
+   );
   }
 }
