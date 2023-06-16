@@ -1,11 +1,19 @@
+import 'dart:io';
+
+import 'package:dio/dio.dart';
+import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 // import 'package:firebase_download_example/api/firebase_api.dart';
 // import 'package:firebase_download_example/model/firebase_file.dart';
 // import 'package:firebase_download_example/page/image_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/1101201509/nav1101201509.dart';
 import 'package:flutter_application_1/api/firebase_api.dart';
 import 'package:flutter_application_1/controller/image_view.dart';
 import 'package:flutter_application_1/model/firebase_file.dart';
+import 'package:gallery_saver/gallery_saver.dart';
+import 'package:path_provider/path_provider.dart';
 
 // Future main() async {
 //   WidgetsFlutterBinding.ensureInitialized();
@@ -33,13 +41,16 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  late Future<List<FirebaseFile>> futureFiles;
-
+  // late Future<List<FirebaseFile>> futureFiles;
+  late Future<ListResult> futureFiles;
+  Map<int, double> downloadProgress = {};
   @override
   void initState() {
     super.initState();
-
-    futureFiles = FirebaseApi.listAll('files/');
+    // futureFiles = FirebaseStorage.instance.ref('/files').listAll();
+    futureFiles = FirebaseStorage.instance.ref('/files').listAll();
+// gs://mobapp-2223-2.appspot.com/files/kolaborasi 1.png/file
+    // futureFiles = FirebaseApi.listAll('files/');
   }
 
   @override
@@ -47,8 +58,26 @@ class _MainPageState extends State<MainPage> {
         appBar: AppBar(
           title: Text(ImageView.title),
           centerTitle: true,
+          actions: <Widget>[
+            IconButton(
+              icon: const Icon(
+                Icons.arrow_back,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                // Navigator.of(context).pop();
+                // Navigator.of(context).canPop();
+                // Navigator.of(context, rootNavigator: true).pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return NavBarView1101201509();
+                }));
+                // Navigator.pop(context);
+              },
+            ),
+          ],
         ),
-        body: FutureBuilder<List<FirebaseFile>>(
+        // body: FutureBuilder<List<FirebaseFile>>(
+        body: FutureBuilder<ListResult>(
           future: futureFiles,
           builder: (context, snapshot) {
             switch (snapshot.connectionState) {
@@ -58,8 +87,28 @@ class _MainPageState extends State<MainPage> {
                 if (snapshot.hasError) {
                   return Center(child: Text('Some error occurred!'));
                 } else {
-                  final files = snapshot.data!;
+                  // if (snapshot.connectionState == ConnectionState.done) {
+                  //   // here you should do your worj
+                  //   final files = snapshot.data!.items;
+                  //   // print(snapshot.data!.items);
+                  //   // print('done');
+                  //   // print(snapshot.connectionState);
 
+                  //   // FirebaseAppCheck firebaseAppCheck =
+                  //   //     FirebaseAppCheck.instance;
+                  //   // firebaseAppCheck.getToken();
+                  // }
+                  // if (snapshot.connectionState == ConnectionState.active) {
+                  //   // or here if you take data in pages
+
+                  //   final files = snapshot.data!.items;
+                  //   print(snapshot.data!.items);
+                  //   print('done2');
+                  // }
+                  final files = snapshot.data!.items;
+                  // print(snapshot.data!.items);
+
+                  // print(files);
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -70,8 +119,19 @@ class _MainPageState extends State<MainPage> {
                           itemCount: files.length,
                           itemBuilder: (context, index) {
                             final file = files[index];
-
-                            return buildFile(context, file);
+                            double? progress = downloadProgress[index];
+                            // return buildFile(context, file);
+                            return ListTile(
+                              title: Text(file.name),
+                              subtitle: progress != null
+                                  ? LinearProgressIndicator(
+                                      value: progress,
+                                      backgroundColor: Colors.black)
+                                  : null,
+                              trailing: IconButton(
+                                  onPressed: () => downloadFile(index, file),
+                                  icon: const Icon(Icons.download)),
+                            );
                           },
                         ),
                       ),
@@ -104,6 +164,32 @@ class _MainPageState extends State<MainPage> {
           builder: (context) => ImagePage(file: file),
         )),
       );
+
+  Future downloadFile(int index, Reference ref) async {
+    // final dir = await getApplicationDocumentsDirectory();
+    // final file = File('${dir.path}/${ref.name}');
+    // await ref.writeToFile(file);
+// await Dio().
+    final url = await ref.getDownloadURL();
+    final tempdir = await getTemporaryDirectory();
+    final path = '${tempdir.path}/${ref.name}';
+    await Dio().download(url, path, onReceiveProgress: (received, total) {
+      double progress = received / total;
+      setState(() {
+        downloadProgress[index] = progress;
+      });
+    });
+    if (url.contains('.mp4')) {
+      await GallerySaver.saveVideo(path, toDcim: true);
+    } else if (url.contains('.jpg')) {
+      await GallerySaver.saveImage(path, toDcim: true);
+    } else if (url.contains('.png')) {
+      await GallerySaver.saveImage(path, toDcim: true);
+    }
+
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text('Downloaded ${ref.name}')));
+  }
 
   Widget buildHeader(int length) => ListTile(
         tileColor: Colors.blue,
